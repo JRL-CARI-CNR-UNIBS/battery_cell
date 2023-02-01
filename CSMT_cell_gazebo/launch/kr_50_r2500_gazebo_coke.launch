@@ -1,0 +1,10 @@
+<launch>
+  <arg name="gui" default="false" />
+
+  <include file="$(find kuka_coke_gazebo)/launch/kr_50_r2500_world_coke.launch" >
+    <arg name="gui" value="$(arg gui)" />
+  </include>
+  <include file="$(find kr_50_r2500_gazebo)/launch/kr_50_r2500_control.launch" />
+  <include file="$(find parallel_2f_gripper)/launch/roscontrol_standalone.launch" />
+
+</launch>
