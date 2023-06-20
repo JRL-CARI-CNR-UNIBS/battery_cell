@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>CSMT_cell_configurations</name>
+  <name>battery_cell_description</name>
   <version>0.0.0</version>
-  <description>The CSMT_cell_configurations package</description>
+  <description>The battery_cell_description package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/kr_50_r2500_configuration</url> -->
+  <!-- <url type="website">http://wiki.ros.org/battery_cell_description</url> -->
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
