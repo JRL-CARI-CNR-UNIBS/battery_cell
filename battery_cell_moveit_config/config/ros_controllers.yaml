@@ -1,0 +1,86 @@
+comau_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - nj_joint_1
+    - nj_joint_2
+    - nj_joint_3
+    - nj_joint_4
+    - nj_joint_5
+    - nj_joint_6
+  gains:
+    nj_joint_1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    nj_joint_2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    nj_joint_3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    nj_joint_4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    nj_joint_5:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    nj_joint_6:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+kuka_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - structure_joint_1
+    - kr_joint1
+    - kr_joint2
+    - kr_joint3
+    - kr_joint4
+    - kr_joint5
+    - kr_joint6
+  gains:
+    structure_joint_1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    kr_joint1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    kr_joint2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    kr_joint3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    kr_joint4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    kr_joint5:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    kr_joint6:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

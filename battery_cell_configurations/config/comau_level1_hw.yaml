@@ -1,0 +1,42 @@
+comau_level1_hw:
+  type           : "cnr/control/TopicsRobotHW"
+  appenders      : [file, screen]
+  levels         : [trace, info]
+  pattern_layout : "[%5p][%d{HH:mm:ss,SSS}][%50M:%04L][%24c] %m%n"
+  file_name      : "comau_level1_hw"
+
+  resources: [ joint_resource, wrench_resource ]  # this TopicsRobotHW manages topic of type: joint
+  joint_resource:  # joint handles managed by planner_hw
+    joint_names:  # name of the joint handles
+    - nj_joint_1
+    - nj_joint_2
+    - nj_joint_3
+    - nj_joint_4
+    - nj_joint_5
+    - nj_joint_6
+    subscribed_topics:  # name of topics sensor_msgs/JointState which contains the state of the joint handle
+    - /comau/joint_states
+    - /comau/joint_states
+    - /comau/joint_states
+    - /comau/joint_states
+    - /comau/joint_states
+    - /comau/joint_states
+    published_topics: # name of the topic (type sensor_msgs/JointState) that planner_hw will publish (it has to be only one)
+    - /comau/joint_target
+
+  wrench_resource:
+    sensor_name: comau_wrench
+    frame_id: comau_gripper_base_link
+    subscribed_topics:
+    - /comau_gripper/wrench
+
+  sampling_period: 0.002
+  diagnostic_period: 0.1
+  feedback_joint_state_timeout: 20
+  maximum_missing_cycles: 1000
+  kin_update_period: 0.002
+  base_link: "world"
+  tool_link: "nj_flange"
+  robot_description_param: /robot_description
+  robot_description_planning_param: /robot_description_planning
+  kin_update_period: 0.002

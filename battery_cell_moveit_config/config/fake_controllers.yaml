@@ -1,0 +1,25 @@
+controller_list:
+  - name: fake_kuka_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - structure_joint_1
+      - kr_joint1
+      - kr_joint2
+      - kr_joint3
+      - kr_joint4
+      - kr_joint5
+      - kr_joint6
+  - name: fake_comau_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - nj_joint_1
+      - nj_joint_2
+      - nj_joint_3
+      - nj_joint_4
+      - nj_joint_5
+      - nj_joint_6
+initial:  # Define initial robot poses per group
+  - group: kuka
+    pose: home
+  - group: comau
+    pose: home

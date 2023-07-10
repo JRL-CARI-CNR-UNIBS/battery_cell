@@ -1,0 +1,79 @@
+kuka_level0_hw:
+  remap_source_args:
+  - "/kuka_level0_hw/microinterpolator/follow_joint_trajectory/cancel"
+  - "/kuka_level0_hw/microinterpolator/follow_joint_trajectory/feedback"
+  - "/kuka_level0_hw/microinterpolator/follow_joint_trajectory/goal"
+  - "/kuka_level0_hw/microinterpolator/follow_joint_trajectory/result"
+  - "/kuka_level0_hw/microinterpolator/follow_joint_trajectory/status"
+  - "/kuka_level0_hw/microinterpolator/unscaled_joint_target"
+  - "/kuka_level0_hw/js_pub/joint_states"
+  - "/kuka_level0_hw/cartesian_position/relative_move/cancel"
+  - "/kuka_level0_hw/cartesian_position/relative_move/feedback"
+  - "/kuka_level0_hw/cartesian_position/relative_move/goal"
+  - "/kuka_level0_hw/cartesian_position/relative_move/result"
+  - "/kuka_level0_hw/cartesian_position/relative_move/status"
+
+  remap_target_args:
+  - "/kuka_controller/follow_joint_trajectory/cancel"
+  - "/kuka_controller/follow_joint_trajectory/feedback"
+  - "/kuka_controller/follow_joint_trajectory/goal"
+  - "/kuka_controller/follow_joint_trajectory/result"
+  - "/kuka_controller/follow_joint_trajectory/status"
+  - "/kuka_controller/unscaled_joint_target"
+  - "/kuka/joint_states"
+  - "/kuka/relative_move/cancel"
+  - "/kuka/relative_move/feedback"
+  - "/kuka/relative_move/goal"
+  - "/kuka/relative_move/result"
+  - "/kuka/relative_move/status"
+
+  js_pub:
+    type: cnr/control/JointStatePublisher
+    controlled_joint: all
+    base_link: world
+    tool_link: kr_flange
+    robot_description_param: /robot_description
+    robot_description_planning_param: /robot_description_planning
+
+  ft_pub:
+    appenders: [file, screen]
+    levels: [trace, info]
+    pattern_layout: "[%5p][%d{HH:mm:ss,SSS}][%M:%L][%c] %m%n"
+    file_name: "kuka_hw_ft_pub"
+    type: "cnr/control/ForceTorquePublisher"
+    name: wrench
+    published_topic: "/kuka_gripper/wrench"
+
+  microinterpolator:
+    type: "cnr/control/ScaledFJTPosVelEffController"
+    controlled_joints: all
+    continuity_order: 1
+    appenders: [file, screen]
+    levels: [debug, info]
+    pattern_layout: "[%5p][%d{HH:mm:ss,SSS}][%M:%L][%c] %m%n"
+    file_name: "microinterpolator"
+
+  cartesian_velocity:
+    appenders: [file, screen]
+    levels: [debug, info]
+    pattern_layout: "[%5p][%d{HH:mm:ss,SSS}][%M:%L][%c] %m%n"
+    file_name: "cartesian_velocity"
+    type: cnr/control/CartesianVelocityController
+    controlled_joints : all
+    kin_update_period : 0.002
+    target_twist_topic: /kuka/target_cart_twist  # setpoint twist topic name
+
+  cartesian_position:
+    appenders: [file, screen]
+    levels: [debug, info]
+    pattern_layout: "[%5p][%d{HH:mm:ss,SSS}][%M:%L][%c] %m%n"
+    file_name: "cartesian_position"
+    type: cnr/control/CartesianPositionController
+    controlled_joints : all
+    kin_update_period : 0.002
+
+  ctrl:
+    type:        cnr/control/OpenLoopPositionController
+    setpoint_topic_name: "/kuka/joint_target"
+    controlled_joint: all
+    enable_setpoint_watchdog: false
