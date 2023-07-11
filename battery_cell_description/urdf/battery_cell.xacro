@@ -88,7 +88,7 @@
 
   <link name="omron_base_y"/>
 
-  <joint name="omron_base_x_to_omron_base_y" type="prismatic">
+  <joint name="omron_base_x_to_y" type="prismatic">
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
@@ -99,29 +99,19 @@
       <limit lower="${omron_y_pos_lower_limit}" upper="${omron_y_pos_upper_limit}" effort="1000" velocity="${omron_y_vel_limit}"/>
   </joint>
 
-  <link name="omron_base_rev"/>
-
-  <joint name="omron_base_y_to_omron_base_rev" type="revolute">
-    <origin
-      xyz="0 0 0"
-      rpy="0 0 0" />
-    <parent link="omron_base_y"/>
-    <child link="omron_base_rev"/>
-    <axis
-      xyz="0 0 1" />
-    <limit lower="${omron_rev_pos_lower_limit}" upper="${omron_rev_pos_upper_limit}" effort="1000" velocity="${omron_rev_vel_limit}"/>
-  </joint>
-
   <xacro:include filename="$(find mobile_manipulator_description)/urdf/mobile_manipulator.xacro" />
   <xacro:property name="omron_prefix" value="'omron_'" />
 
   <xacro:mobile_manipulator prefix="${omron_prefix}"/>
-  <joint name="omron_base_rev_to_omron_base_link" type="fixed">
+  <joint name="omron_base_y_to_link" type="revolute">
     <origin
       xyz="0 0 0"
       rpy="0 0 0" />
-    <parent link="omron_base_rev"/>
+    <parent link="omron_base_y"/>
     <child link="${omron_prefix}base_link"/>
+    <axis
+      xyz="0 0 1" />
+    <limit lower="${omron_rev_pos_lower_limit}" upper="${omron_rev_pos_upper_limit}" effort="1000" velocity="${omron_rev_vel_limit}"/>
   </joint>
 
   <gazebo>
