@@ -4,7 +4,7 @@ moveit_setup_assistant_config:
     relative_path: urdf/battery_cell.xacro
     xacro_args: ""
   SRDF:
-    relative_path: config/CSMT_cell.srdf
+    relative_path: config/battery_cell.srdf
   CONFIG:
     author_name: Michele Delledonne
     author_email: m.delledonne002@unibs.it
