@@ -84,3 +84,61 @@ kuka_controller:
       d: 1
       i: 1
       i_clamp: 1
+omron_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - omron_joint_x
+    - omron_joint_y
+    - omron_joint_rev
+    - omron_arm_joint_1
+    - omron_arm_joint_2
+    - omron_arm_joint_3
+    - omron_arm_joint_4
+    - omron_arm_joint_5
+    - omron_arm_joint_6
+  gains:
+    omron_joint_x:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    omron_joint_y:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    omron_joint_rev:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    omron_arm_joint_1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    omron_arm_joint_2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    omron_arm_joint_3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    omron_arm_joint_4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    omron_arm_joint_5:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    omron_arm_joint_6:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

@@ -2,12 +2,19 @@
 
   <!-- specify the planning pipeline -->
   <arg name="pipeline" default="ompl" />
+
+  <!-- By default, we do not start a database (it can be large) -->
   <arg name="db" default="false" />
+  <!-- Allow user to specify database location -->
   <arg name="db_path" default="$(find battery_cell_moveit_config)/default_warehouse_mongo_db" />
+
+  <!-- By default, we are not in debug mode -->
   <arg name="debug" default="false" />
 
+  <!-- By default, we will load or override the robot_description -->
   <arg name="load_robot_description" default="true"/>
 
+  <!-- Choose controller manager: fake, simple, or ros_control -->
   <arg name="moveit_controller_manager" default="fake" />
   <!-- Set execution mode for fake execution controllers -->
   <arg name="fake_execution_type" default="interpolate" />
@@ -19,6 +26,7 @@
   <!-- If needed, broadcast static tf for robot root -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 world structure_base_link" />
   <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_1" args="0 0 0 0 0 0 world nj_base_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_2" args="0 0 0 0 0 0 world omron_base_link" />
 
   <group if="$(eval arg('moveit_controller_manager') == 'fake')">
     <!-- We do not have a real robot connected, so publish fake joint states via a joint_state_publisher
