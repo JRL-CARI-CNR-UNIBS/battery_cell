@@ -1,19 +1,6 @@
 <?xml version="1.0"?>
 <robot name="battery_cell" xmlns:xacro="http://www.ros.org/wiki/xacro">
   
-  <xacro:property name="M_PI" value="3.14159"/>
-
-  <xacro:property name="omron_x_pos_lower_limit" value="-2" />
-  <xacro:property name="omron_x_pos_upper_limit" value="5" />
-  <xacro:property name="omron_y_pos_lower_limit" value="-3" />
-  <xacro:property name="omron_y_pos_upper_limit" value="0.5" />
-  <xacro:property name="omron_rev_pos_lower_limit" value="${-M_PI}" />
-  <xacro:property name="omron_rev_pos_upper_limit" value="${M_PI}" />
-
-  <xacro:property name="omron_x_vel_limit" value="2" />
-  <xacro:property name="omron_y_vel_limit" value="2" />
-  <xacro:property name="omron_rev_vel_limit" value="${M_PI}" />
-  
   <link name="world"/>
 
   <xacro:include filename="$(find kuka_structure_description)/urdf/kuka_structure.xacro" />
@@ -73,45 +60,16 @@
       <child link="${table_prefix}base_link"/>
   </joint>
 
-  <link name="omron_base_x"/>
-
-  <joint name="world_to_omron_base_x" type="prismatic">
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <parent link="world"/>
-      <child link="omron_base_x"/>
-      <axis
-        xyz="1 0 0" />
-      <limit lower="${omron_x_pos_lower_limit}" upper="${omron_x_pos_upper_limit}" effort="1000" velocity="${omron_x_vel_limit}"/>
-  </joint>
-
-  <link name="omron_base_y"/>
-
-  <joint name="omron_base_x_to_y" type="prismatic">
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <parent link="omron_base_x"/>
-      <child link="omron_base_y"/>
-      <axis
-        xyz="0 1 0" />
-      <limit lower="${omron_y_pos_lower_limit}" upper="${omron_y_pos_upper_limit}" effort="1000" velocity="${omron_y_vel_limit}"/>
-  </joint>
-
   <xacro:include filename="$(find mobile_manipulator_description)/urdf/mobile_manipulator.xacro" />
   <xacro:property name="omron_prefix" value="'omron_'" />
 
   <xacro:mobile_manipulator prefix="${omron_prefix}"/>
-  <joint name="omron_base_y_to_link" type="revolute">
+  <joint name="world_to_omron" type="fixed">
     <origin
-      xyz="0 0 0"
+      xyz="4.5 -3 0"
       rpy="0 0 0" />
-    <parent link="omron_base_y"/>
+    <parent link="world"/>
     <child link="${omron_prefix}base_link"/>
-    <axis
-      xyz="0 0 1" />
-    <limit lower="${omron_rev_pos_lower_limit}" upper="${omron_rev_pos_upper_limit}" effort="1000" velocity="${omron_rev_vel_limit}"/>
   </joint>
 
   <gazebo>
