@@ -22,3 +22,17 @@ controller_list:
       - kr_joint4
       - kr_joint5
       - kr_joint6
+  - name: omron_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - omron_joint_x
+      - omron_joint_y
+      - omron_joint_rev
+      - omron_arm_joint_1
+      - omron_arm_joint_2
+      - omron_arm_joint_3
+      - omron_arm_joint_4
+      - omron_arm_joint_5
+      - omron_arm_joint_6

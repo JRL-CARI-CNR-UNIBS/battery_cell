@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <robot name="battery_cell" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
   <link name="world"/>
 
   <xacro:include filename="$(find kuka_structure_description)/urdf/kuka_structure.xacro" />
@@ -45,6 +46,30 @@
         rpy="0 0 0" />
       <parent link="world"/>
       <child link="${nj_prefix}base_link"/>
+  </joint>
+
+  <xacro:include filename="$(find battery_cell_description)/urdf/battery_table.xacro" />
+  <xacro:property name="table_prefix" value="'table_'" />
+
+  <xacro:battery_table prefix="${table_prefix}"/>
+  <joint name="world_to_table" type="fixed">
+      <origin
+        xyz="1 -1 0"
+        rpy="0 0 0" />
+      <parent link="world"/>
+      <child link="${table_prefix}base_link"/>
+  </joint>
+
+  <xacro:include filename="$(find mobile_manipulator_description)/urdf/mobile_manipulator.xacro" />
+  <xacro:property name="omron_prefix" value="'omron_'" />
+
+  <xacro:mobile_manipulator prefix="${omron_prefix}"/>
+  <joint name="world_to_omron" type="fixed">
+    <origin
+      xyz="4.5 -3 0"
+      rpy="0 0 0" />
+    <parent link="world"/>
+    <child link="${omron_prefix}base_link"/>
   </joint>
 
   <gazebo>

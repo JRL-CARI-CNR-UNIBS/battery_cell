@@ -15,6 +15,9 @@
     <group name="comau">
         <chain base_link="world" tip_link="nj_flange"/>
     </group>
+    <group name="omron">
+        <chain base_link="world" tip_link="omron_arm_flange"/>
+    </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
     <group_state name="home" group="kuka">
         <joint name="kr_joint1" value="0"/>
@@ -50,9 +53,32 @@
         <joint name="kr_joint6" value="0"/>
         <joint name="structure_joint_1" value="0"/>
     </group_state>
+    <group_state name="home" group="omron">
+        <joint name="omron_arm_joint_1" value="0"/>
+        <joint name="omron_arm_joint_2" value="0"/>
+        <joint name="omron_arm_joint_3" value="0"/>
+        <joint name="omron_arm_joint_4" value="0"/>
+        <joint name="omron_arm_joint_5" value="0"/>
+        <joint name="omron_arm_joint_6" value="0"/>
+        <joint name="omron_joint_rev" value="0"/>
+        <joint name="omron_joint_x" value="0"/>
+        <joint name="omron_joint_y" value="0"/>
+    </group_state>
+    <group_state name="long" group="omron">
+        <joint name="omron_arm_joint_1" value="0"/>
+        <joint name="omron_arm_joint_2" value="-0.6732"/>
+        <joint name="omron_arm_joint_3" value="-0.5644"/>
+        <joint name="omron_arm_joint_4" value="-0.408"/>
+        <joint name="omron_arm_joint_5" value="-1.5504"/>
+        <joint name="omron_arm_joint_6" value="0.3672"/>
+        <joint name="omron_joint_rev" value="-0.4896"/>
+        <joint name="omron_joint_x" value="-2.0649"/>
+        <joint name="omron_joint_y" value="1.1818"/>
+    </group_state>
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="kuka_virtual_joint" type="fixed" parent_frame="world" child_link="structure_base_link"/>
     <virtual_joint name="comau_virtual_joint" type="fixed" parent_frame="world" child_link="nj_base_link"/>
+    <virtual_joint name="omron_virtual_joint" type="fixed" parent_frame="world" child_link="omron_base_link"/>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="kr_base_link" link2="kr_link1" reason="Adjacent"/>
     <disable_collisions link1="kr_base_link" link2="kr_link3" reason="Never"/>
@@ -75,8 +101,21 @@
     <disable_collisions link1="kr_base_link" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_base_link" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_base_link" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_base_link" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_base_link" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_base_link" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_base_link" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_base_link" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="kr_base_link" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_base_link" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_base_link" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="kr_base_link" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="kr_base_link" link2="structure_link_1" reason="Adjacent"/>
+    <disable_collisions link1="kr_base_link" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="kr_base_link" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_base_link" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_base_link" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="kr_base_link" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="kr_gripper_base" link2="kr_left_base_rod" reason="Never"/>
     <disable_collisions link1="kr_gripper_base" link2="kr_left_crank" reason="Adjacent"/>
     <disable_collisions link1="kr_gripper_base" link2="kr_left_external_crank" reason="Never"/>
@@ -102,7 +141,6 @@
     <disable_collisions link1="kr_gripper_base" link2="nj_link_2_4" reason="Never"/>
     <disable_collisions link1="kr_gripper_base" link2="nj_link_3" reason="Never"/>
     <disable_collisions link1="kr_gripper_base" link2="nj_link_4" reason="Never"/>
-    <disable_collisions link1="kr_gripper_base" link2="nj_link_5" reason="Never"/>
     <disable_collisions link1="kr_gripper_base" link2="nj_link_6" reason="Never"/>
     <disable_collisions link1="kr_gripper_base" link2="nj_motor_1" reason="Never"/>
     <disable_collisions link1="kr_gripper_base" link2="nj_motor_2" reason="Never"/>
@@ -110,6 +148,17 @@
     <disable_collisions link1="kr_gripper_base" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_gripper_base" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_gripper_base" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_gripper_base" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_gripper_base" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_gripper_base" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_gripper_base" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_gripper_base" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="kr_gripper_base" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_gripper_base" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_gripper_base" link2="omron_arm_link_6" reason="Never"/>
+    <disable_collisions link1="kr_gripper_base" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_gripper_base" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_gripper_base" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_left_base_rod" link2="kr_left_crank" reason="Default"/>
     <disable_collisions link1="kr_left_base_rod" link2="kr_left_external_crank" reason="Adjacent"/>
     <disable_collisions link1="kr_left_base_rod" link2="kr_left_phalanx" reason="Never"/>
@@ -142,6 +191,17 @@
     <disable_collisions link1="kr_left_base_rod" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_left_base_rod" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_left_base_rod" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_left_base_rod" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_left_base_rod" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_left_base_rod" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_left_base_rod" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_left_base_rod" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="kr_left_base_rod" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_left_base_rod" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_left_base_rod" link2="omron_arm_link_6" reason="Never"/>
+    <disable_collisions link1="kr_left_base_rod" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_left_base_rod" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_left_base_rod" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_left_crank" link2="kr_left_external_crank" reason="Never"/>
     <disable_collisions link1="kr_left_crank" link2="kr_left_phalanx" reason="Default"/>
     <disable_collisions link1="kr_left_crank" link2="kr_left_rod" reason="Adjacent"/>
@@ -165,14 +225,23 @@
     <disable_collisions link1="kr_left_crank" link2="nj_link_2_4" reason="Never"/>
     <disable_collisions link1="kr_left_crank" link2="nj_link_3" reason="Never"/>
     <disable_collisions link1="kr_left_crank" link2="nj_link_4" reason="Never"/>
-    <disable_collisions link1="kr_left_crank" link2="nj_link_5" reason="Never"/>
-    <disable_collisions link1="kr_left_crank" link2="nj_link_6" reason="Never"/>
     <disable_collisions link1="kr_left_crank" link2="nj_motor_1" reason="Never"/>
     <disable_collisions link1="kr_left_crank" link2="nj_motor_2" reason="Never"/>
     <disable_collisions link1="kr_left_crank" link2="nj_motor_3" reason="Never"/>
     <disable_collisions link1="kr_left_crank" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_left_crank" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_left_crank" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_left_crank" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_left_crank" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_left_crank" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_left_crank" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_left_crank" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="kr_left_crank" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_left_crank" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_left_crank" link2="omron_arm_link_6" reason="Never"/>
+    <disable_collisions link1="kr_left_crank" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_left_crank" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_left_crank" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_left_external_crank" link2="kr_left_phalanx" reason="Never"/>
     <disable_collisions link1="kr_left_external_crank" link2="kr_left_rod" reason="Adjacent"/>
     <disable_collisions link1="kr_left_external_crank" link2="kr_link3" reason="Never"/>
@@ -203,6 +272,17 @@
     <disable_collisions link1="kr_left_external_crank" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_left_external_crank" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_left_external_crank" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_left_external_crank" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_left_external_crank" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_left_external_crank" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_left_external_crank" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_left_external_crank" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="kr_left_external_crank" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_left_external_crank" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_left_external_crank" link2="omron_arm_link_6" reason="Never"/>
+    <disable_collisions link1="kr_left_external_crank" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_left_external_crank" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_left_external_crank" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_left_phalanx" link2="kr_left_rod" reason="Adjacent"/>
     <disable_collisions link1="kr_left_phalanx" link2="kr_link3" reason="Never"/>
     <disable_collisions link1="kr_left_phalanx" link2="kr_link4" reason="Never"/>
@@ -224,13 +304,25 @@
     <disable_collisions link1="kr_left_phalanx" link2="nj_link_2_4" reason="Never"/>
     <disable_collisions link1="kr_left_phalanx" link2="nj_link_3" reason="Never"/>
     <disable_collisions link1="kr_left_phalanx" link2="nj_link_4" reason="Never"/>
-    <disable_collisions link1="kr_left_phalanx" link2="nj_link_6" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="nj_link_5" reason="Never"/>
     <disable_collisions link1="kr_left_phalanx" link2="nj_motor_1" reason="Never"/>
     <disable_collisions link1="kr_left_phalanx" link2="nj_motor_2" reason="Never"/>
     <disable_collisions link1="kr_left_phalanx" link2="nj_motor_3" reason="Never"/>
     <disable_collisions link1="kr_left_phalanx" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_left_phalanx" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_left_phalanx" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="omron_arm_link_6" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_left_phalanx" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_left_rod" link2="kr_link3" reason="Never"/>
     <disable_collisions link1="kr_left_rod" link2="kr_link4" reason="Never"/>
     <disable_collisions link1="kr_left_rod" link2="kr_link5" reason="Never"/>
@@ -252,13 +344,24 @@
     <disable_collisions link1="kr_left_rod" link2="nj_link_3" reason="Never"/>
     <disable_collisions link1="kr_left_rod" link2="nj_link_4" reason="Never"/>
     <disable_collisions link1="kr_left_rod" link2="nj_link_5" reason="Never"/>
-    <disable_collisions link1="kr_left_rod" link2="nj_link_6" reason="Never"/>
     <disable_collisions link1="kr_left_rod" link2="nj_motor_1" reason="Never"/>
     <disable_collisions link1="kr_left_rod" link2="nj_motor_2" reason="Never"/>
     <disable_collisions link1="kr_left_rod" link2="nj_motor_3" reason="Never"/>
     <disable_collisions link1="kr_left_rod" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_left_rod" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_left_rod" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_left_rod" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_left_rod" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_left_rod" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_left_rod" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_left_rod" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="kr_left_rod" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_left_rod" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_left_rod" link2="omron_arm_link_6" reason="Never"/>
+    <disable_collisions link1="kr_left_rod" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="kr_left_rod" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_left_rod" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_left_rod" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_link1" link2="kr_link2" reason="Adjacent"/>
     <disable_collisions link1="kr_link1" link2="kr_link3" reason="Never"/>
     <disable_collisions link1="kr_link1" link2="nj_base_link" reason="Never"/>
@@ -280,8 +383,21 @@
     <disable_collisions link1="kr_link1" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_link1" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_link1" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="kr_link1" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="kr_link1" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="kr_link1" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="kr_link2" link2="kr_link3" reason="Adjacent"/>
     <disable_collisions link1="kr_link2" link2="kr_link4" reason="Never"/>
     <disable_collisions link1="kr_link2" link2="kr_link5" reason="Never"/>
@@ -305,6 +421,17 @@
     <disable_collisions link1="kr_link2" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_link2" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_link2" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_link2" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_link2" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_link2" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_link2" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_link2" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="kr_link2" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_link2" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="kr_link2" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_link2" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_link2" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="kr_link2" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="kr_link3" link2="kr_link4" reason="Adjacent"/>
     <disable_collisions link1="kr_link3" link2="kr_link5" reason="Never"/>
     <disable_collisions link1="kr_link3" link2="kr_link6" reason="Never"/>
@@ -332,6 +459,16 @@
     <disable_collisions link1="kr_link3" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_link3" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_link3" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_link3" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_link3" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_link3" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_link3" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_link3" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_link3" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="kr_link3" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_link3" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_link3" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="kr_link3" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="kr_link4" link2="kr_link5" reason="Adjacent"/>
     <disable_collisions link1="kr_link4" link2="kr_link6" reason="Never"/>
     <disable_collisions link1="kr_link4" link2="kr_right_base_rod" reason="Never"/>
@@ -349,6 +486,7 @@
     <disable_collisions link1="kr_link4" link2="nj_link_2_3" reason="Never"/>
     <disable_collisions link1="kr_link4" link2="nj_link_2_4" reason="Never"/>
     <disable_collisions link1="kr_link4" link2="nj_link_3" reason="Never"/>
+    <disable_collisions link1="kr_link4" link2="nj_link_4" reason="Never"/>
     <disable_collisions link1="kr_link4" link2="nj_link_5" reason="Never"/>
     <disable_collisions link1="kr_link4" link2="nj_link_6" reason="Never"/>
     <disable_collisions link1="kr_link4" link2="nj_motor_1" reason="Never"/>
@@ -357,6 +495,11 @@
     <disable_collisions link1="kr_link4" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_link4" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_link4" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_link4" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_link4" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_link4" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_link4" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_link4" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_link5" link2="kr_link6" reason="Adjacent"/>
     <disable_collisions link1="kr_link5" link2="kr_right_base_rod" reason="Never"/>
     <disable_collisions link1="kr_link5" link2="kr_right_crank" reason="Never"/>
@@ -373,7 +516,7 @@
     <disable_collisions link1="kr_link5" link2="nj_link_2_3" reason="Never"/>
     <disable_collisions link1="kr_link5" link2="nj_link_2_4" reason="Never"/>
     <disable_collisions link1="kr_link5" link2="nj_link_3" reason="Never"/>
-    <disable_collisions link1="kr_link5" link2="nj_link_5" reason="Never"/>
+    <disable_collisions link1="kr_link5" link2="nj_link_4" reason="Never"/>
     <disable_collisions link1="kr_link5" link2="nj_link_6" reason="Never"/>
     <disable_collisions link1="kr_link5" link2="nj_motor_1" reason="Never"/>
     <disable_collisions link1="kr_link5" link2="nj_motor_2" reason="Never"/>
@@ -381,6 +524,10 @@
     <disable_collisions link1="kr_link5" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_link5" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_link5" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_link5" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_link5" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_link5" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_link5" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_link6" link2="kr_right_base_rod" reason="Never"/>
     <disable_collisions link1="kr_link6" link2="kr_right_crank" reason="Never"/>
     <disable_collisions link1="kr_link6" link2="kr_right_external_crank" reason="Never"/>
@@ -396,7 +543,7 @@
     <disable_collisions link1="kr_link6" link2="nj_link_2_3" reason="Never"/>
     <disable_collisions link1="kr_link6" link2="nj_link_2_4" reason="Never"/>
     <disable_collisions link1="kr_link6" link2="nj_link_3" reason="Never"/>
-    <disable_collisions link1="kr_link6" link2="nj_link_5" reason="Never"/>
+    <disable_collisions link1="kr_link6" link2="nj_link_4" reason="Never"/>
     <disable_collisions link1="kr_link6" link2="nj_link_6" reason="Never"/>
     <disable_collisions link1="kr_link6" link2="nj_motor_1" reason="Never"/>
     <disable_collisions link1="kr_link6" link2="nj_motor_2" reason="Never"/>
@@ -404,6 +551,13 @@
     <disable_collisions link1="kr_link6" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_link6" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_link6" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_link6" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_link6" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_link6" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_link6" link2="omron_arm_link_6" reason="Never"/>
+    <disable_collisions link1="kr_link6" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_link6" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_link6" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_right_base_rod" link2="kr_right_crank" reason="Default"/>
     <disable_collisions link1="kr_right_base_rod" link2="kr_right_external_crank" reason="Adjacent"/>
     <disable_collisions link1="kr_right_base_rod" link2="kr_right_phalanx" reason="Never"/>
@@ -419,7 +573,6 @@
     <disable_collisions link1="kr_right_base_rod" link2="nj_link_2_4" reason="Never"/>
     <disable_collisions link1="kr_right_base_rod" link2="nj_link_3" reason="Never"/>
     <disable_collisions link1="kr_right_base_rod" link2="nj_link_4" reason="Never"/>
-    <disable_collisions link1="kr_right_base_rod" link2="nj_link_5" reason="Never"/>
     <disable_collisions link1="kr_right_base_rod" link2="nj_link_6" reason="Never"/>
     <disable_collisions link1="kr_right_base_rod" link2="nj_motor_1" reason="Never"/>
     <disable_collisions link1="kr_right_base_rod" link2="nj_motor_2" reason="Never"/>
@@ -427,6 +580,16 @@
     <disable_collisions link1="kr_right_base_rod" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_right_base_rod" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_right_base_rod" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_right_base_rod" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_right_base_rod" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_right_base_rod" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_right_base_rod" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_right_base_rod" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_right_base_rod" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_right_base_rod" link2="omron_arm_link_6" reason="Never"/>
+    <disable_collisions link1="kr_right_base_rod" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_right_base_rod" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_right_base_rod" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_right_crank" link2="kr_right_external_crank" reason="Never"/>
     <disable_collisions link1="kr_right_crank" link2="kr_right_phalanx" reason="Default"/>
     <disable_collisions link1="kr_right_crank" link2="kr_right_rod" reason="Adjacent"/>
@@ -441,14 +604,23 @@
     <disable_collisions link1="kr_right_crank" link2="nj_link_2_4" reason="Never"/>
     <disable_collisions link1="kr_right_crank" link2="nj_link_3" reason="Never"/>
     <disable_collisions link1="kr_right_crank" link2="nj_link_4" reason="Never"/>
-    <disable_collisions link1="kr_right_crank" link2="nj_link_5" reason="Never"/>
-    <disable_collisions link1="kr_right_crank" link2="nj_link_6" reason="Never"/>
     <disable_collisions link1="kr_right_crank" link2="nj_motor_1" reason="Never"/>
     <disable_collisions link1="kr_right_crank" link2="nj_motor_2" reason="Never"/>
     <disable_collisions link1="kr_right_crank" link2="nj_motor_3" reason="Never"/>
     <disable_collisions link1="kr_right_crank" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_right_crank" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_right_crank" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_right_crank" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_right_crank" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_right_crank" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_right_crank" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_right_crank" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="kr_right_crank" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_right_crank" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_right_crank" link2="omron_arm_link_6" reason="Never"/>
+    <disable_collisions link1="kr_right_crank" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_right_crank" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_right_crank" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_right_external_crank" link2="kr_right_phalanx" reason="Never"/>
     <disable_collisions link1="kr_right_external_crank" link2="kr_right_rod" reason="Adjacent"/>
     <disable_collisions link1="kr_right_external_crank" link2="nj_base_link" reason="Never"/>
@@ -462,14 +634,22 @@
     <disable_collisions link1="kr_right_external_crank" link2="nj_link_2_4" reason="Never"/>
     <disable_collisions link1="kr_right_external_crank" link2="nj_link_3" reason="Never"/>
     <disable_collisions link1="kr_right_external_crank" link2="nj_link_4" reason="Never"/>
-    <disable_collisions link1="kr_right_external_crank" link2="nj_link_5" reason="Never"/>
-    <disable_collisions link1="kr_right_external_crank" link2="nj_link_6" reason="Never"/>
     <disable_collisions link1="kr_right_external_crank" link2="nj_motor_1" reason="Never"/>
     <disable_collisions link1="kr_right_external_crank" link2="nj_motor_2" reason="Never"/>
     <disable_collisions link1="kr_right_external_crank" link2="nj_motor_3" reason="Never"/>
     <disable_collisions link1="kr_right_external_crank" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_right_external_crank" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_right_external_crank" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_right_external_crank" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_right_external_crank" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_right_external_crank" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_right_external_crank" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_right_external_crank" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_right_external_crank" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_right_external_crank" link2="omron_arm_link_6" reason="Never"/>
+    <disable_collisions link1="kr_right_external_crank" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_right_external_crank" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_right_external_crank" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_right_phalanx" link2="kr_right_rod" reason="Adjacent"/>
     <disable_collisions link1="kr_right_phalanx" link2="nj_base_link" reason="Never"/>
     <disable_collisions link1="kr_right_phalanx" link2="nj_external_piece" reason="Never"/>
@@ -481,14 +661,25 @@
     <disable_collisions link1="kr_right_phalanx" link2="nj_link_2_3" reason="Never"/>
     <disable_collisions link1="kr_right_phalanx" link2="nj_link_2_4" reason="Never"/>
     <disable_collisions link1="kr_right_phalanx" link2="nj_link_3" reason="Never"/>
+    <disable_collisions link1="kr_right_phalanx" link2="nj_link_4" reason="Never"/>
     <disable_collisions link1="kr_right_phalanx" link2="nj_link_5" reason="Never"/>
-    <disable_collisions link1="kr_right_phalanx" link2="nj_link_6" reason="Never"/>
     <disable_collisions link1="kr_right_phalanx" link2="nj_motor_1" reason="Never"/>
     <disable_collisions link1="kr_right_phalanx" link2="nj_motor_2" reason="Never"/>
     <disable_collisions link1="kr_right_phalanx" link2="nj_motor_3" reason="Never"/>
     <disable_collisions link1="kr_right_phalanx" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_right_phalanx" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_right_phalanx" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_right_phalanx" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_right_phalanx" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_right_phalanx" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_right_phalanx" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_right_phalanx" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="kr_right_phalanx" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_right_phalanx" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_right_phalanx" link2="omron_arm_link_6" reason="Never"/>
+    <disable_collisions link1="kr_right_phalanx" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_right_phalanx" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_right_phalanx" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kr_right_rod" link2="nj_base_link" reason="Never"/>
     <disable_collisions link1="kr_right_rod" link2="nj_external_piece" reason="Never"/>
     <disable_collisions link1="kr_right_rod" link2="nj_link_1" reason="Never"/>
@@ -500,14 +691,23 @@
     <disable_collisions link1="kr_right_rod" link2="nj_link_2_4" reason="Never"/>
     <disable_collisions link1="kr_right_rod" link2="nj_link_3" reason="Never"/>
     <disable_collisions link1="kr_right_rod" link2="nj_link_4" reason="Never"/>
-    <disable_collisions link1="kr_right_rod" link2="nj_link_5" reason="Never"/>
-    <disable_collisions link1="kr_right_rod" link2="nj_link_6" reason="Never"/>
     <disable_collisions link1="kr_right_rod" link2="nj_motor_1" reason="Never"/>
     <disable_collisions link1="kr_right_rod" link2="nj_motor_2" reason="Never"/>
     <disable_collisions link1="kr_right_rod" link2="nj_motor_3" reason="Never"/>
     <disable_collisions link1="kr_right_rod" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="kr_right_rod" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="kr_right_rod" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="kr_right_rod" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="kr_right_rod" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="kr_right_rod" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="kr_right_rod" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="kr_right_rod" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="kr_right_rod" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="kr_right_rod" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="kr_right_rod" link2="omron_arm_link_6" reason="Never"/>
+    <disable_collisions link1="kr_right_rod" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kr_right_rod" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kr_right_rod" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="nj_base_link" link2="nj_external_piece" reason="Never"/>
     <disable_collisions link1="nj_base_link" link2="nj_link_1" reason="Adjacent"/>
     <disable_collisions link1="nj_base_link" link2="nj_link_2" reason="Never"/>
@@ -523,8 +723,21 @@
     <disable_collisions link1="nj_base_link" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="nj_base_link" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_base_link" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_base_link" link2="omron_agv_base_link" reason="Adjacent"/>
+    <disable_collisions link1="nj_base_link" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_base_link" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="nj_base_link" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="nj_base_link" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="nj_base_link" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="nj_base_link" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="nj_base_link" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_base_link" link2="structure_base_link" reason="Adjacent"/>
     <disable_collisions link1="nj_base_link" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_base_link" link2="table_leg1_link" reason="Adjacent"/>
+    <disable_collisions link1="nj_base_link" link2="table_leg2_link" reason="Adjacent"/>
+    <disable_collisions link1="nj_base_link" link2="table_leg3_link" reason="Adjacent"/>
+    <disable_collisions link1="nj_base_link" link2="table_leg4_link" reason="Adjacent"/>
+    <disable_collisions link1="nj_base_link" link2="table_tabletop_link" reason="Adjacent"/>
     <disable_collisions link1="nj_external_piece" link2="nj_link_1" reason="Adjacent"/>
     <disable_collisions link1="nj_external_piece" link2="nj_link_2" reason="Never"/>
     <disable_collisions link1="nj_external_piece" link2="nj_link_2_1" reason="Never"/>
@@ -539,8 +752,21 @@
     <disable_collisions link1="nj_external_piece" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="nj_external_piece" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_external_piece" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_external_piece" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_external_piece" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_external_piece" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_link_1" link2="nj_link_2" reason="Adjacent"/>
     <disable_collisions link1="nj_link_1" link2="nj_link_2_1" reason="Adjacent"/>
     <disable_collisions link1="nj_link_1" link2="nj_link_2_2_virtual" reason="Never"/>
@@ -553,16 +779,37 @@
     <disable_collisions link1="nj_link_1" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="nj_link_1" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_link_1" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_link_1" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_link_1" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_link_1" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_link_2" link2="nj_link_2_1" reason="Default"/>
     <disable_collisions link1="nj_link_2" link2="nj_link_3" reason="Adjacent"/>
     <disable_collisions link1="nj_link_2" link2="nj_motor_1" reason="Never"/>
     <disable_collisions link1="nj_link_2" link2="nj_motor_2" reason="Never"/>
     <disable_collisions link1="nj_link_2" link2="nj_motor_3" reason="Never"/>
     <disable_collisions link1="nj_link_2" link2="nj_motor_4" reason="Never"/>
+    <disable_collisions link1="nj_link_2" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_link_2" link2="omron_arm_link_1" reason="Never"/>
     <disable_collisions link1="nj_link_2" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_link_2" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_2" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_link_2_1" link2="nj_link_2_2" reason="Default"/>
     <disable_collisions link1="nj_link_2_1" link2="nj_link_2_2_virtual" reason="Adjacent"/>
     <disable_collisions link1="nj_link_2_1" link2="nj_link_2_3" reason="Never"/>
@@ -574,8 +821,21 @@
     <disable_collisions link1="nj_link_2_1" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="nj_link_2_1" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_link_2_1" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_link_2_1" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_link_2_1" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_1" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_link_2_2" link2="nj_link_2_2_virtual" reason="Adjacent"/>
     <disable_collisions link1="nj_link_2_2" link2="nj_link_2_3" reason="Adjacent"/>
     <disable_collisions link1="nj_link_2_2" link2="nj_link_2_4" reason="Default"/>
@@ -588,8 +848,21 @@
     <disable_collisions link1="nj_link_2_2" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="nj_link_2_2" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_link_2_2" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_link_2_2" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_link_2_2" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_link_2_2_virtual" link2="nj_link_2_3" reason="Never"/>
     <disable_collisions link1="nj_link_2_2_virtual" link2="nj_link_2_4" reason="Never"/>
     <disable_collisions link1="nj_link_2_2_virtual" link2="nj_link_3" reason="Never"/>
@@ -602,8 +875,21 @@
     <disable_collisions link1="nj_link_2_2_virtual" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="nj_link_2_2_virtual" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_link_2_2_virtual" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_link_2_2_virtual" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_link_2_2_virtual" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_2_virtual" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_link_2_3" link2="nj_link_2_4" reason="Default"/>
     <disable_collisions link1="nj_link_2_3" link2="nj_link_3" reason="Never"/>
     <disable_collisions link1="nj_link_2_3" link2="nj_link_4" reason="Never"/>
@@ -615,8 +901,18 @@
     <disable_collisions link1="nj_link_2_3" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="nj_link_2_3" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_link_2_3" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_link_2_3" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_3" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_link_2_3" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_2_3" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="nj_link_2_3" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_link_2_3" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_link_2_3" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_2_3" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_3" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_3" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_3" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_3" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_link_2_4" link2="nj_link_3" reason="Adjacent"/>
     <disable_collisions link1="nj_link_2_4" link2="nj_link_4" reason="Never"/>
     <disable_collisions link1="nj_link_2_4" link2="nj_link_5" reason="Never"/>
@@ -627,8 +923,18 @@
     <disable_collisions link1="nj_link_2_4" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="nj_link_2_4" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_link_2_4" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_link_2_4" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_4" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_link_2_4" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_2_4" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="nj_link_2_4" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_link_2_4" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_link_2_4" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_2_4" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_4" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_4" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_4" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_link_2_4" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_link_3" link2="nj_link_4" reason="Adjacent"/>
     <disable_collisions link1="nj_link_3" link2="nj_link_5" reason="Never"/>
     <disable_collisions link1="nj_link_3" link2="nj_link_6" reason="Never"/>
@@ -638,8 +944,15 @@
     <disable_collisions link1="nj_link_3" link2="nj_motor_4" reason="Adjacent"/>
     <disable_collisions link1="nj_link_3" link2="nj_motor_5" reason="Adjacent"/>
     <disable_collisions link1="nj_link_3" link2="nj_motor_6" reason="Adjacent"/>
+    <disable_collisions link1="nj_link_3" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_link_3" link2="omron_arm_link_0" reason="Never"/>
     <disable_collisions link1="nj_link_3" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_link_3" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_3" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_link_3" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_link_3" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_link_3" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_link_3" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_link_4" link2="nj_link_5" reason="Adjacent"/>
     <disable_collisions link1="nj_link_4" link2="nj_link_6" reason="Never"/>
     <disable_collisions link1="nj_link_4" link2="nj_motor_2" reason="Never"/>
@@ -649,6 +962,8 @@
     <disable_collisions link1="nj_link_4" link2="nj_motor_6" reason="Never"/>
     <disable_collisions link1="nj_link_4" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_link_4" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_4" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_link_4" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="nj_link_5" link2="nj_link_6" reason="Adjacent"/>
     <disable_collisions link1="nj_link_5" link2="nj_motor_2" reason="Never"/>
     <disable_collisions link1="nj_link_5" link2="nj_motor_3" reason="Never"/>
@@ -657,39 +972,163 @@
     <disable_collisions link1="nj_link_5" link2="nj_motor_6" reason="Never"/>
     <disable_collisions link1="nj_link_5" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_link_5" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_5" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_link_5" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="nj_link_6" link2="nj_motor_2" reason="Never"/>
     <disable_collisions link1="nj_link_6" link2="nj_motor_3" reason="Never"/>
     <disable_collisions link1="nj_link_6" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="nj_link_6" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_link_6" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_link_6" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="nj_link_6" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_link_6" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_link_6" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_link_6" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_link_6" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="nj_motor_1" link2="nj_motor_2" reason="Never"/>
     <disable_collisions link1="nj_motor_1" link2="nj_motor_3" reason="Never"/>
     <disable_collisions link1="nj_motor_1" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="nj_motor_1" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_motor_1" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_motor_1" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_motor_1" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_1" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_motor_2" link2="nj_motor_3" reason="Never"/>
     <disable_collisions link1="nj_motor_2" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="nj_motor_2" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_motor_2" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_motor_2" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_motor_2" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_2" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_motor_3" link2="nj_motor_4" reason="Never"/>
     <disable_collisions link1="nj_motor_3" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_motor_3" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="omron_arm_link_3" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_motor_3" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_motor_3" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_3" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_motor_4" link2="nj_motor_5" reason="Never"/>
     <disable_collisions link1="nj_motor_4" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_motor_4" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_4" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_motor_4" link2="omron_arm_link_1" reason="Never"/>
     <disable_collisions link1="nj_motor_4" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_motor_4" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_motor_4" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_4" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_4" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_4" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_4" link2="table_tabletop_link" reason="Never"/>
     <disable_collisions link1="nj_motor_5" link2="nj_motor_6" reason="Never"/>
+    <disable_collisions link1="nj_motor_5" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_5" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_motor_5" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="nj_motor_5" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="nj_motor_5" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="nj_motor_5" link2="omron_arm_link_6" reason="Never"/>
     <disable_collisions link1="nj_motor_5" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_motor_5" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_motor_5" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_5" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_5" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_5" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_5" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_6" link2="omron_agv_base_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_6" link2="omron_arm_link_0" reason="Never"/>
+    <disable_collisions link1="nj_motor_6" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="nj_motor_6" link2="omron_arm_link_5" reason="Never"/>
     <disable_collisions link1="nj_motor_6" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="nj_motor_6" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="nj_motor_6" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_6" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_6" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_6" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="nj_motor_6" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron_agv_base_link" link2="omron_arm_link_0" reason="Adjacent"/>
+    <disable_collisions link1="omron_agv_base_link" link2="omron_arm_link_1" reason="Never"/>
+    <disable_collisions link1="omron_agv_base_link" link2="structure_base_link" reason="Adjacent"/>
+    <disable_collisions link1="omron_agv_base_link" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron_agv_base_link" link2="table_leg1_link" reason="Adjacent"/>
+    <disable_collisions link1="omron_agv_base_link" link2="table_leg2_link" reason="Adjacent"/>
+    <disable_collisions link1="omron_agv_base_link" link2="table_leg3_link" reason="Adjacent"/>
+    <disable_collisions link1="omron_agv_base_link" link2="table_leg4_link" reason="Adjacent"/>
+    <disable_collisions link1="omron_agv_base_link" link2="table_tabletop_link" reason="Adjacent"/>
+    <disable_collisions link1="omron_arm_link_0" link2="omron_arm_link_1" reason="Adjacent"/>
+    <disable_collisions link1="omron_arm_link_0" link2="omron_arm_link_2" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_0" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_0" link2="structure_base_link" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_0" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_0" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_1" link2="omron_arm_link_2" reason="Adjacent"/>
+    <disable_collisions link1="omron_arm_link_1" link2="omron_arm_link_4" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_1" link2="omron_arm_link_5" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_1" link2="structure_base_link" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_1" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_1" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_2" link2="omron_arm_link_3" reason="Adjacent"/>
+    <disable_collisions link1="omron_arm_link_2" link2="structure_base_link" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_2" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_3" link2="omron_arm_link_4" reason="Adjacent"/>
+    <disable_collisions link1="omron_arm_link_3" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_4" link2="omron_arm_link_5" reason="Adjacent"/>
+    <disable_collisions link1="omron_arm_link_4" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_5" link2="omron_arm_link_6" reason="Adjacent"/>
+    <disable_collisions link1="omron_arm_link_5" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron_arm_link_6" link2="structure_link_1" reason="Never"/>
     <disable_collisions link1="structure_base_link" link2="structure_link_1" reason="Adjacent"/>
+    <disable_collisions link1="structure_base_link" link2="table_leg1_link" reason="Adjacent"/>
+    <disable_collisions link1="structure_base_link" link2="table_leg2_link" reason="Adjacent"/>
+    <disable_collisions link1="structure_base_link" link2="table_leg3_link" reason="Adjacent"/>
+    <disable_collisions link1="structure_base_link" link2="table_leg4_link" reason="Adjacent"/>
+    <disable_collisions link1="structure_base_link" link2="table_tabletop_link" reason="Adjacent"/>
+    <disable_collisions link1="structure_link_1" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="structure_link_1" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="structure_link_1" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="structure_link_1" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="structure_link_1" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="table_leg1_link" link2="table_leg2_link" reason="Adjacent"/>
+    <disable_collisions link1="table_leg1_link" link2="table_leg3_link" reason="Adjacent"/>
+    <disable_collisions link1="table_leg1_link" link2="table_leg4_link" reason="Adjacent"/>
+    <disable_collisions link1="table_leg1_link" link2="table_tabletop_link" reason="Adjacent"/>
+    <disable_collisions link1="table_leg2_link" link2="table_leg3_link" reason="Adjacent"/>
+    <disable_collisions link1="table_leg2_link" link2="table_leg4_link" reason="Adjacent"/>
+    <disable_collisions link1="table_leg2_link" link2="table_tabletop_link" reason="Adjacent"/>
+    <disable_collisions link1="table_leg3_link" link2="table_leg4_link" reason="Adjacent"/>
+    <disable_collisions link1="table_leg3_link" link2="table_tabletop_link" reason="Adjacent"/>
+    <disable_collisions link1="table_leg4_link" link2="table_tabletop_link" reason="Adjacent"/>
 </robot>
