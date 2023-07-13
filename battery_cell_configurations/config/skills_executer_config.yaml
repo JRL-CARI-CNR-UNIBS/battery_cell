@@ -1,0 +1,8 @@
+skills_executer:
+  robots:
+    - "kuka"
+    - "comau"
+  kuka:
+    end_link_frame: "kr_flange"
+  comau:
+    end_link_frame: "nj_flange"
