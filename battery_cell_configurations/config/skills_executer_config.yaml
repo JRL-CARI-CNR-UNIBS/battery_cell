@@ -1,4 +1,7 @@
 skills_executer:
+  use_ur: false
+  use_pybullet: false
+
   robots:
     - "kuka"
     - "comau"

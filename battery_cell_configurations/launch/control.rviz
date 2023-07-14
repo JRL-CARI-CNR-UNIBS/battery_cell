@@ -6,7 +6,6 @@ Panels:
       Expanded:
         - /Global Options1
         - /MotionPlanning1
-        - /MotionPlanning1/Status1
         - /MotionPlanning1/Planning Request1
         - /MotionPlanning1/Planned Path1
         - /TF1
@@ -708,13 +707,35 @@ Visualization Manager:
           Value: true
         kr_gripper_base:
           Value: true
+        kr_left_base_rod:
+          Value: true
+        kr_left_crank:
+          Value: true
+        kr_left_external_crank:
+          Value: true
         kr_left_phalanx:
           Value: true
         kr_left_rod:
           Value: true
+        kr_link1:
+          Value: true
+        kr_link2:
+          Value: true
+        kr_link3:
+          Value: true
+        kr_link4:
+          Value: true
+        kr_link5:
+          Value: true
         kr_link6:
           Value: true
         kr_open_tip:
+          Value: true
+        kr_right_base_rod:
+          Value: true
+        kr_right_crank:
+          Value: true
+        kr_right_external_crank:
           Value: true
         kr_right_phalanx:
           Value: true
@@ -730,9 +751,25 @@ Visualization Manager:
           Value: true
         nj_link_1:
           Value: true
+        nj_link_2:
+          Value: true
+        nj_link_2_1:
+          Value: true
+        nj_link_2_2:
+          Value: true
+        nj_link_2_2_virtual:
+          Value: true
+        nj_link_2_3:
+          Value: true
         nj_link_2_4:
           Value: true
         nj_link_3:
+          Value: true
+        nj_link_3_virtual:
+          Value: true
+        nj_link_4:
+          Value: true
+        nj_link_5:
           Value: true
         nj_link_6:
           Value: true
@@ -761,50 +798,69 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        kr_left_rod:
-          kr_left_phalanx:
-            {}
-        kr_link6:
-          kr_flange:
-            kr_gripper_base:
-              kr_closed_tip:
-                {}
-              kr_open_tip:
-                {}
-              kr_zero_pos_tip:
-                {}
-        kr_right_rod:
-          kr_right_phalanx:
-            {}
-        nj_link_1:
-          nj_external_piece:
-            {}
-          nj_motor_1:
-            {}
-          nj_motor_2:
-            {}
-          nj_motor_3:
-            {}
-        nj_link_3:
-          nj_link_2_4:
-            {}
-          nj_motor_4:
-            {}
-          nj_motor_5:
-            {}
-          nj_motor_6:
-            {}
-        nj_link_6:
-          nj_flange:
-            {}
-        structure_link_1:
-          kr_base_link:
-            {}
         world:
           nj_base_link:
-            {}
+            nj_link_1:
+              nj_external_piece:
+                {}
+              nj_link_2:
+                nj_link_3_virtual:
+                  nj_link_3:
+                    nj_link_2_4:
+                      {}
+                    nj_link_4:
+                      nj_link_5:
+                        nj_link_6:
+                          nj_flange:
+                            {}
+                    nj_motor_4:
+                      {}
+                    nj_motor_5:
+                      {}
+                    nj_motor_6:
+                      {}
+              nj_link_2_1:
+                nj_link_2_2_virtual:
+                  nj_link_2_2:
+                    nj_link_2_3:
+                      {}
+              nj_motor_1:
+                {}
+              nj_motor_2:
+                {}
+              nj_motor_3:
+                {}
           structure_base_link:
-            {}
+            structure_link_1:
+              kr_base_link:
+                kr_link1:
+                  kr_link2:
+                    kr_link3:
+                      kr_link4:
+                        kr_link5:
+                          kr_link6:
+                            kr_flange:
+                              kr_gripper_base:
+                                kr_closed_tip:
+                                  {}
+                                kr_left_crank:
+                                  kr_left_rod:
+                                    kr_left_external_crank:
+                                      kr_left_base_rod:
+                                        {}
+                                    kr_left_phalanx:
+                                      {}
+                                kr_open_tip:
+                                  {}
+                                kr_right_crank:
+                                  kr_right_rod:
+                                    kr_right_external_crank:
+                                      kr_right_base_rod:
+                                        {}
+                                    kr_right_phalanx:
+                                      {}
+                                kr_zero_pos_tip:
+                                  {}
       Update Interval: 0
       Value: true
     - Class: rviz/Camera
@@ -993,14 +1049,14 @@ Window Geometry:
   Help:
     collapsed: false
   Hide Left Dock: false
-  Hide Right Dock: false
+  Hide Right Dock: true
   Image:
     collapsed: false
   MotionPlanning:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd00000003000000000000021d000003b9fc020000000bfc0000003d00000165000000e60100001cfa000000020100000003fb0000000a0049006d0061006700650100000000ffffffff0000005e00fffffffb0000000c00430061006d0065007200610100000000ffffffff0000006900fffffffb000000100044006900730070006c0061007900730100000000000003050000015600fffffffb0000000800480065006c00700000000191000000bb0000006e00fffffffb0000000a005600690065007700730000000144000000b7000000a400fffffffb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fc000001a80000024e0000018800fffffffa000000030100000004fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000a0049006d0061006700650000000000ffffffff0000000000000000fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000000000000244000001f300fffffffb0000000c00430061006d0065007200610200000000000000000000078000000438fb0000000c00430061006d006500720061010000018d000002720000000000000000fb0000000a0049006d006100670065000000003d0000039e0000000000000000fb0000000a0049006d0061006700650000000206000001d50000000000000000fb000000100044006900730070006c00610079007300000002b300000128000000c900ffffff00000001000000ff000003b9fc0200000003fc0000003d000003b90000013100fffffffa000000020100000003fb0000002600480061006e0064004500790065002000430061006c006900620072006100740069006f006e0000000000ffffffff0000000000000000fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb000000280043006f006e00660069006700750072006100740069006f006e004d0061006e006100670065007201000005e90000014f000000ff00fffffffb000000280043006f006e00660069006700750072006100740069006f006e004d0061006e0061006700650072000000003d0000039e0000013100fffffffb000000280043006f006e00660069006700750072006100740069006f006e004d0061006e0061006700650072000000003d0000039e0000013100ffffff00000002000004ad0000023afc0100000001fb0000000c00430061006d0065007200610100000290000004ad000000000000000000000458000003b900000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000003000000000000021d000003b9fc020000000bfc0000003d00000165000000e60100001cfa000000020100000003fb0000000a0049006d0061006700650100000000ffffffff0000005e00fffffffb0000000c00430061006d0065007200610100000000ffffffff0000006900fffffffb000000100044006900730070006c0061007900730100000000000003050000015600fffffffb0000000800480065006c00700000000191000000bb0000006e00fffffffb0000000a005600690065007700730000000144000000b7000000a400fffffffb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fc000001a80000024e0000017d00fffffffa000000030100000004fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000a0049006d0061006700650000000000ffffffff0000000000000000fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000000000000244000001f300fffffffb0000000c00430061006d0065007200610200000000000000000000078000000438fb0000000c00430061006d006500720061010000018d000002720000000000000000fb0000000a0049006d006100670065000000003d0000039e0000000000000000fb0000000a0049006d0061006700650000000206000001d50000000000000000fb000000100044006900730070006c00610079007300000002b300000128000000c900ffffff00000001000001b2000003ccfc0200000003fc0000003d000003cc0000000000fffffffa000000000100000003fb0000002600480061006e0064004500790065002000430061006c006900620072006100740069006f006e0000000000ffffffff0000000000000000fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb000000280043006f006e00660069006700750072006100740069006f006e004d0061006e006100670065007200000005e90000014f000001b200fffffffb000000280043006f006e00660069006700750072006100740069006f006e004d0061006e0061006700650072000000003d0000039e000003cc00fffffffb000000280043006f006e00660069006700750072006100740069006f006e004d0061006e0061006700650072000000003d0000039e000003cc00ffffff00000002000004ad0000023afc0100000001fb0000000c00430061006d0065007200610100000290000004ad00000000000000000000055d000003b900000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1920

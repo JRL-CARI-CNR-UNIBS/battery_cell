@@ -5,8 +5,10 @@
 <arg name="fake" default="true"/>
 <arg name="run_moveit" default="true"/>
 <arg name="run_control" default="true"/>
-<arg name="rviz_config" default="$(find battery_cell_configurations)/launch/control.rviz"/>
+<arg name="run_skills_servers" default="true"/>
 <arg name="auto_control_configurations" default="true"/>
+
+<arg name="rviz_config" default="$(find battery_cell_configurations)/launch/control.rviz"/>
 <arg name="auto_controllers_configurations" default="$(find battery_cell_configurations)/config/auto_controllers_configurations.yaml" />
 <arg name="controllers_configurations" default="$(find battery_cell_configurations)/config/controllers_configurations.yaml" doc="Kinematics config file used for calibration correction. This will be used to verify the robot's calibration is matching the robot_description."/>
 <arg name="controllers_dispatches" default="$(find battery_cell_configurations)/config/controllers_dispatches.yaml"/>
@@ -29,5 +31,7 @@
   <arg name="pipeline" value="$(arg pipeline)"/>
   <arg name="rviz_config" value="$(arg rviz_config)"/>
 </include>
+
+<include if="$(arg run_skills_servers)" file="$(find battery_cell_configurations)/launch/skills_servers.launch" />
 
 </launch>
