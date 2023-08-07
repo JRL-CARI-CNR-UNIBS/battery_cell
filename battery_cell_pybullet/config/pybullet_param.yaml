@@ -10,10 +10,11 @@ joint_state_publish_rate: 250
 joint_target_publish_rate: 250
 object_tf_publish_rate: 250
 ##### Cell layout
+
 robots:
-- 'kr_50_r2500'
-- 'parallel_gripper'
-- 'table'
+- 'kuka'
+- 'comau'
+- 'omron'
 
 kr_50_r2500:
   start_position: [0,0,0]
