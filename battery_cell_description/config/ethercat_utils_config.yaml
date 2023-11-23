@@ -1,0 +1,25 @@
+delta_utils:
+  ros__parameters:
+    control_word:
+      controller_name: delta_controller
+      command_interface: structure_joint_1/ctrl_word
+    status_word:
+      controller_name: delta_controller
+      state_interface: structure_joint_1/status_word
+    mode_of_operation:
+      controller_name: delta_controller
+      command_interface: structure_joint_1/moo
+    mode_of_operation_display:
+      controller_name: delta_controller
+      state_interface: structure_joint_1/moo_display
+
+    joint_trajectory_controller_name: kuka_jt_controller
+
+battery_cell_utils:
+  ros__parameters:
+    lubrification_command:
+      controller_name: digital_io_controller
+      command_interface: digital_outputs1/lubrication_command
+    lubrification_state:
+      controller_name: digital_io_controller
+      state_interface: digital_inputs/lubrication_state

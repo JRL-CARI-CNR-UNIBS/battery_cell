@@ -2,7 +2,7 @@
 <robot name="battery_table" xmlns:xacro="http://www.ros.org/wiki/xacro">
 <xacro:macro name="battery_table" params="prefix:=''">
 
-  <xacro:property name="leg_height" value="0.900" />
+  <xacro:property name="leg_height" value="0.865" />
   <xacro:property name="leg_width" value="0.060" />
   <xacro:property name="table_thickness" value="0.015" />
   <xacro:property name="table_width" value="1.500" />
@@ -12,8 +12,43 @@
   <xacro:property name="m_table" value="${steel_density*table_thickness*table_width*table_length}" />
   <xacro:property name="m_leg" value="${(m_tot - m_table) / 4}" />
 
-  <link name="${prefix}base_link"/>
-
+  <link name="${prefix}base_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.0001" />
+      <inertia
+        ixx="0.000001"
+        ixy="0"
+        ixz="0"
+        iyy="0.000001"
+        iyz="0"
+        izz="0.000001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 ${(leg_height+table_thickness)/2}"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="${table_width+0.1} ${table_length+0.1} ${leg_height+table_thickness+0.1}"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1176 0.5059 0.6902 0.5" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 ${(leg_height+table_thickness)/2}"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="${table_width} ${table_length} ${leg_height+table_thickness}"/>
+      </geometry>
+    </collision>
+  </link>
   <link name="${prefix}leg1_link">
     <inertial>
       <origin
@@ -51,7 +86,6 @@
       </geometry>
     </collision>
   </link>
-
   <joint name="${prefix}base_to_leg1" type="fixed">
     <origin
       xyz="${table_width/2-leg_width/2} ${table_length/2-leg_width/2} 0"
@@ -59,7 +93,6 @@
     <parent link="${prefix}base_link"/>
     <child link="${prefix}leg1_link"/>
   </joint>
-
   <link name="${prefix}leg2_link">
     <inertial>
       <origin
@@ -97,7 +130,6 @@
       </geometry>
     </collision>
   </link>
-
   <joint name="${prefix}base_to_leg2" type="fixed">
     <origin
       xyz="${table_width/2-leg_width/2} ${-table_length/2+leg_width/2} 0"
@@ -105,7 +137,6 @@
     <parent link="${prefix}base_link"/>
     <child link="${prefix}leg2_link"/>
   </joint>
-
   <link name="${prefix}leg3_link">
     <inertial>
       <origin
@@ -143,7 +174,6 @@
       </geometry>
     </collision>
   </link>
-
   <joint name="${prefix}base_to_leg3" type="fixed">
     <origin
       xyz="${-table_width/2+leg_width/2} ${-table_length/2+leg_width/2} 0"
@@ -151,7 +181,6 @@
     <parent link="${prefix}base_link"/>
     <child link="${prefix}leg3_link"/>
   </joint>
-
   <link name="${prefix}leg4_link">
     <inertial>
       <origin
@@ -189,7 +218,6 @@
       </geometry>
     </collision>
   </link>
-
   <joint name="${prefix}base_to_leg4" type="fixed">
     <origin
       xyz="${-table_width/2+leg_width/2} ${table_length/2-leg_width/2} 0"
@@ -197,7 +225,6 @@
     <parent link="${prefix}base_link"/>
     <child link="${prefix}leg4_link"/>
   </joint>
-
   <link name="${prefix}tabletop_link">
     <inertial>
       <origin
@@ -235,13 +262,61 @@
       </geometry>
     </collision>
   </link>
-
   <joint name="${prefix}base_to_tabletop" type="fixed">
     <origin
       xyz="0 0 ${leg_height}"
       rpy="0 0 0" />
     <parent link="${prefix}base_link"/>
     <child link="${prefix}tabletop_link"/>
+  </joint>
+
+  <xacro:property name="battery_thickness" value="0.4" />
+  <xacro:property name="battery_width" value="${table_width}" />
+  <xacro:property name="battery_length" value="${table_length}" />
+
+  <link name="${prefix}battery_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.0001" />
+      <inertia
+        ixx="0.000001"
+        ixy="0"
+        ixz="0"
+        iyy="0.000001"
+        iyz="0"
+        izz="0.000001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 ${battery_thickness/2}"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="${battery_width} ${battery_length} ${battery_thickness}"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1176 0.5059 0.6902 0.5" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 ${battery_thickness/2}"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="${battery_width} ${battery_length} ${battery_thickness}"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="${prefix}base_to_battery" type="fixed">
+    <origin
+      xyz="0 0 ${leg_height+table_thickness}"
+      rpy="0 0 0" />
+    <parent link="${prefix}base_link"/>
+    <child link="${prefix}battery_link"/>
   </joint>
 
 </xacro:macro>

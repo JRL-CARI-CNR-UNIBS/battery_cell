@@ -8,118 +8,73 @@ default_acceleration_scaling_factor: 0.1
 # Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
 # Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
 joint_limits:
-  kr_joint1:
-    has_velocity_limits: true
-    max_velocity: 3.05433
-    has_acceleration_limits: false
-    max_acceleration: 0
-  kr_joint2:
-    has_velocity_limits: true
-    max_velocity: 2.75762
-    has_acceleration_limits: false
-    max_acceleration: 0
-  kr_joint3:
-    has_velocity_limits: true
-    max_velocity: 3.05433
-    has_acceleration_limits: false
-    max_acceleration: 0
-  kr_joint4:
-    has_velocity_limits: true
-    max_velocity: 4.36332
-    has_acceleration_limits: false
-    max_acceleration: 0
-  kr_joint5:
-    has_velocity_limits: true
-    max_velocity: 4.36332
-    has_acceleration_limits: false
-    max_acceleration: 0
-  kr_joint6:
-    has_velocity_limits: true
-    max_velocity: 6.28319
-    has_acceleration_limits: false
-    max_acceleration: 0
-  nj_joint_1:
+  comau_joint_1:
     has_velocity_limits: true
     max_velocity: 1.74533
     has_acceleration_limits: false
     max_acceleration: 0
-  nj_joint_2:
+  comau_joint_2:
     has_velocity_limits: true
     max_velocity: 1.5708
     has_acceleration_limits: false
     max_acceleration: 0
-  nj_joint_2m:
-    has_velocity_limits: true
-    max_velocity: 3.40339
+  comau_joint_2m:
+    has_velocity_limits: false
+    max_velocity: 0
     has_acceleration_limits: false
     max_acceleration: 0
-  nj_joint_3:
+  comau_joint_3:
     has_velocity_limits: true
-    max_velocity: 1.91986
+    max_velocity: 1.9198599999999999
     has_acceleration_limits: false
     max_acceleration: 0
-  nj_joint_4:
+  comau_joint_4:
     has_velocity_limits: true
-    max_velocity: 2.26893
+    max_velocity: 2.2689300000000001
     has_acceleration_limits: false
     max_acceleration: 0
-  nj_joint_5:
+  comau_joint_5:
     has_velocity_limits: true
-    max_velocity: 2.26893
+    max_velocity: 2.2689300000000001
     has_acceleration_limits: false
     max_acceleration: 0
-  nj_joint_6:
+  comau_joint_6:
     has_velocity_limits: true
-    max_velocity: 3.40339
+    max_velocity: 3.4033899999999999
     has_acceleration_limits: false
     max_acceleration: 0
-  omron_arm_joint_1:
+  kuka_joint1:
     has_velocity_limits: true
-    max_velocity: 2.094395102393195
-    has_acceleration_limits: false
-    max_acceleration: 0
-  omron_arm_joint_2:
+    max_velocity: 0.3 # 3.0543300000000002
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  kuka_joint2:
     has_velocity_limits: true
-    max_velocity: 2.094395102393195
-    has_acceleration_limits: false
-    max_acceleration: 0
-  omron_arm_joint_3:
+    max_velocity: 0.3 #2.7576200000000002
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  kuka_joint3:
     has_velocity_limits: true
-    max_velocity: 3.141592653589793
-    has_acceleration_limits: false
-    max_acceleration: 0
-  omron_arm_joint_4:
+    max_velocity: 0.3 #3.0543300000000002
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  kuka_joint4:
     has_velocity_limits: true
-    max_velocity: 3.141592653589793
-    has_acceleration_limits: false
-    max_acceleration: 0
-  omron_arm_joint_5:
+    max_velocity: 0.3 #4.3633199999999999
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  kuka_joint5:
     has_velocity_limits: true
-    max_velocity: 3.141592653589793
-    has_acceleration_limits: false
-    max_acceleration: 0
-  omron_arm_joint_6:
+    max_velocity: 0.3 #4.3633199999999999
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  kuka_joint6:
     has_velocity_limits: true
-    max_velocity: 3.141592653589793
-    has_acceleration_limits: false
-    max_acceleration: 0
-  omron_joint_rev:
-    has_velocity_limits: true
-    max_velocity: 3.14159
-    has_acceleration_limits: false
-    max_acceleration: 0
-  omron_joint_x:
-    has_velocity_limits: true
-    max_velocity: 2
-    has_acceleration_limits: false
-    max_acceleration: 0
-  omron_joint_y:
-    has_velocity_limits: true
-    max_velocity: 2
-    has_acceleration_limits: false
-    max_acceleration: 0
+    max_velocity: 0.3 #6.2831900000000003
+    has_acceleration_limits: true
+    max_acceleration: 1.0
   structure_joint_1:
     has_velocity_limits: true
-    max_velocity: 1.74533
-    has_acceleration_limits: false
-    max_acceleration: 0
+    max_velocity: 0.3 #1.74533
+    has_acceleration_limits: true
+    max_acceleration: 1.0

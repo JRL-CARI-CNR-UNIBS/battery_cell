@@ -1,0 +1,16 @@
+# Default initial positions for battery_cell's ros2_control fake system
+
+initial_positions:
+  comau_joint_1: 0
+  comau_joint_2: 0
+  comau_joint_3: 0
+  comau_joint_4: 0
+  comau_joint_5: 0
+  comau_joint_6: 0
+  kuka_joint1: 0
+  kuka_joint2: 0
+  kuka_joint3: 0
+  kuka_joint4: 0
+  kuka_joint5: 0
+  kuka_joint6: 0
+  structure_joint_1: 0

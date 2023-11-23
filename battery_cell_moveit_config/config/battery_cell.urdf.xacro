@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="battery_cell">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import battery_cell urdf file -->
+    <xacro:include filename="$(find battery_cell_description)/urdf/battery_cell_rviz.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="battery_cell.ros2_control.xacro" />
+
+
+    <xacro:battery_cell_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>
