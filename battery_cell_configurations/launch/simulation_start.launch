@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="pipeline" default="ompl"/>
+  <arg name="use_rviz" default="true" />
+  <arg name="type" default="pybullet"/>
+  <arg name="use_moveit" default="false" />
+
+  <include file="$(find battery_cell_configurations)/launch/start.launch">
+    <arg name="type" value="$(arg type)"/>
+    <arg name="pipeline" value="$(arg pipeline)"/>
+    <arg name="use_rviz" value="$(arg use_rviz)"/>
+  </include>
+
+  <include file="$(find battery_cell_pybullet)/launch/simulation.launch">
+    <arg name="use_moveit" default="$(arg use_moveit)" />
+  </include>
+
+  <include file="$(find battery_cell_configurations)/launch/simulation_gripper_server.launch"/>
+</launch>

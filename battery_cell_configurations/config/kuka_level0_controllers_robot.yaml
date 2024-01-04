@@ -6,7 +6,10 @@ kuka_level0_hw:
   - "/kuka_level0_hw/microinterpolator/follow_joint_trajectory/result"
   - "/kuka_level0_hw/microinterpolator/follow_joint_trajectory/status"
   - "/kuka_level0_hw/microinterpolator/unscaled_joint_target"
+  - "/kuka_level0_hw/microinterpolator/execution_ratio"
+
   - "/kuka_level0_hw/js_pub/joint_states"
+
   - "/kuka_level0_hw/cartesian_position/relative_move/cancel"
   - "/kuka_level0_hw/cartesian_position/relative_move/feedback"
   - "/kuka_level0_hw/cartesian_position/relative_move/goal"
@@ -20,7 +23,10 @@ kuka_level0_hw:
   - "/kuka/follow_joint_trajectory/result"
   - "/kuka/follow_joint_trajectory/status"
   - "/kuka/unscaled_joint_target"
-  - "/kuka/joint_states"
+  - "/kuka/execution_ratio"
+
+  - "/kuka/controller_manager/joint_states"
+
   - "/kuka/relative_move/cancel"
   - "/kuka/relative_move/feedback"
   - "/kuka/relative_move/goal"
@@ -41,8 +47,8 @@ kuka_level0_hw:
     pattern_layout: "[%5p][%d{HH:mm:ss,SSS}][%M:%L][%c] %m%n"
     file_name: "kuka_hw_ft_pub"
     type: "cnr/control/ForceTorquePublisher"
-    name: wrench
-    published_topic: "/kuka_gripper/wrench"
+    name: kuka_wrench
+    published_topic: "/kuka/kuka_sensor_to_gripper_flange/wrench"
 
   microinterpolator:
     type: "cnr/control/ScaledFJTPosVelEffController"
@@ -52,6 +58,11 @@ kuka_level0_hw:
     levels: [debug, info]
     pattern_layout: "[%5p][%d{HH:mm:ss,SSS}][%M:%L][%c] %m%n"
     file_name: "microinterpolator"
+    goal_tolerance: 0.0001
+    path_tolerance: 0.001
+    check_tolerance: true
+    pub_log_target: true
+    clik_gain: 0.0
 
   cartesian_velocity:
     appenders: [file, screen]
@@ -73,7 +84,7 @@ kuka_level0_hw:
     kin_update_period : 0.002
 
   ctrl:
-    type:        cnr/control/OpenLoopPositionController
+    type: cnr/control/OpenLoopPositionController
     setpoint_topic_name: "/kuka/joint_target"
     controlled_joint: all
     enable_setpoint_watchdog: false

@@ -1,37 +1,26 @@
 <?xml version="1.0"?>
 
 <launch>
-<arg name="pipeline" default="ompl"/>
-<arg name="fake" default="true"/>
-<arg name="run_moveit" default="true"/>
-<arg name="run_control" default="true"/>
-<arg name="run_skills_servers" default="true"/>
-<arg name="auto_control_configurations" default="true"/>
+  <arg name="pipeline" default="ompl"/>
+  <arg name="use_rviz" default="true" />
+  <arg name="type" default="fake"/>
+  <arg name="run_moveit" default="true"/>
+  <arg name="run_control" default="true"/>
+  <arg name="run_skills_servers" default="true"/>
 
-<arg name="rviz_config" default="$(find battery_cell_configurations)/launch/control.rviz"/>
-<arg name="auto_controllers_configurations" default="$(find battery_cell_configurations)/config/auto_controllers_configurations.yaml" />
-<arg name="controllers_configurations" default="$(find battery_cell_configurations)/config/controllers_configurations.yaml" doc="Kinematics config file used for calibration correction. This will be used to verify the robot's calibration is matching the robot_description."/>
-<arg name="controllers_dispatches" default="$(find battery_cell_configurations)/config/controllers_dispatches.yaml"/>
+  <node unless="$(eval type == 'robot')" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+    <param name="rate" value="500"/>
+    <rosparam param="/source_list">[/kuka/joint_states]</rosparam>
+  </node>
 
-<!-- the controller does not manage the hand, use a joint_state_publisher to handle it -->
-<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
- <param name="/use_gui" value="false"/>
- <param name="rate" value="500"/>
- <rosparam param="/source_list">[/kuka/joint_states,/comau/joint_states]</rosparam>
-</node>
+  <include if="$(arg run_control)" file="$(find battery_cell_configurations)/launch/robot_control.launch">
+    <arg name="type" value="$(arg type)"/>
+  </include>
 
-<include if="$(arg run_control)" file="$(find battery_cell_configurations)/launch/robot_control.launch">
-  <arg name="fake" value="$(arg fake)"/>
-  <arg name="auto_control_configurations" value="$(arg auto_control_configurations)"/>
-  <arg name="controllers_configurations" value="$(arg controllers_configurations)"/>
-  <arg name="controllers_dispatches" value="$(arg controllers_dispatches)"/>
-</include>
-
-<include if="$(arg run_moveit)" file="$(find battery_cell_configurations)/launch/moveit.launch">
-  <arg name="pipeline" value="$(arg pipeline)"/>
-  <arg name="rviz_config" value="$(arg rviz_config)"/>
-</include>
-
-<include if="$(arg run_skills_servers)" file="$(find battery_cell_configurations)/launch/skills_servers.launch" />
+  <include if="$(arg run_moveit)" file="$(find battery_cell_configurations)/launch/moveit.launch">
+    <arg name="use_rviz" value="$(arg use_rviz)"/>
+    <arg name="pipeline" value="$(arg pipeline)"/>
+  </include>
 
 </launch>

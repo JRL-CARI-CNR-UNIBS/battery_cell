@@ -1,3 +1,0 @@
-configuration_dispatches:
-  - { name: comau_watch__kuka_watch, at: 0.5 }
-  - { name: comau_trajectory_tracking__kuka_trajectory_tracking,  at: 1.0 }

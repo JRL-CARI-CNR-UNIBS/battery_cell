@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<robot name="battery_table" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find battery_cell_description)/urdf/battery_table.xacro" />
+    <xacro:battery_table prefix="table_" type="pybullet"/>
+
+</robot>

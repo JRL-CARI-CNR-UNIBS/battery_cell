@@ -1,0 +1,52 @@
+#Publish all joint states
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 250
+
+open_loop_position_controller_1:
+  type: "control/OpenLoopPositionController"
+  controlled_joint:
+    kuka_joint1
+  setpoint_topic_name:
+    /kuka/joint_target
+  default_value: 0.0
+
+open_loop_position_controller_2:
+  type: "control/OpenLoopPositionController"
+  controlled_joint:
+    kuka_joint2
+  setpoint_topic_name:
+    /kuka/joint_target
+  default_value: -1.5708
+
+open_loop_position_controller_3:
+  type: "control/OpenLoopPositionController"
+  controlled_joint:
+    kuka_joint3
+  setpoint_topic_name:
+    /kuka/joint_target
+  default_value: 1.5708
+
+open_loop_position_controller_4:
+  type: "control/OpenLoopPositionController"
+  controlled_joint:
+    kuka_joint4
+  setpoint_topic_name:
+    /kuka/joint_target
+  default_value: 0.0
+
+open_loop_position_controller_5:
+  type: "control/OpenLoopPositionController"
+  controlled_joint:
+    kuka_joint5
+  setpoint_topic_name:
+    /kuka/joint_target
+  default_value: 1.5708
+
+open_loop_position_controller_6:
+  type: "control/OpenLoopPositionController"
+  controlled_joint:
+    kuka_joint6
+  setpoint_topic_name:
+    /kuka/joint_target
+  default_value: 0.0

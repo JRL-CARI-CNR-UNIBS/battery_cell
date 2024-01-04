@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="pipeline" default="ompl"/>
+  <arg name="use_rviz" default="true" />
+  <arg name="type" default="fake"/>
+
+  <include file="$(find battery_cell_configurations)/launch/start.launch">
+    <arg name="type" value="$(arg type)"/>
+    <arg name="pipeline" value="$(arg pipeline)"/>
+    <arg name="use_rviz" value="$(arg use_rviz)"/>
+  </include>
+
+  <node pkg="battery_cell_tests"
+      type="can_spawner.py"
+      name="can_spawner" output="screen"/>
+
+</launch>

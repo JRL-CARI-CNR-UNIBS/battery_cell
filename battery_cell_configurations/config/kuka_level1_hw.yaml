@@ -8,12 +8,12 @@ kuka_level1_hw:
   resources: [ joint_resource, wrench_resource ]  # this TopicsRobotHW manages topic of type: joint
   joint_resource:  # joint handles managed by planner_hw
     joint_names:  # name of the joint handles
-    - kr_joint1
-    - kr_joint2
-    - kr_joint3
-    - kr_joint4
-    - kr_joint5
-    - kr_joint6
+    - kuka_joint1
+    - kuka_joint2
+    - kuka_joint3
+    - kuka_joint4
+    - kuka_joint5
+    - kuka_joint6
     subscribed_topics:  # name of topics sensor_msgs/JointState which contains the state of the joint handle
     - /kuka/joint_states
     - /kuka/joint_states
@@ -28,7 +28,7 @@ kuka_level1_hw:
     sensor_name: kuka_wrench
     frame_id: kuka_gripper_base_link
     subscribed_topics:
-    - /kuka_gripper/wrench
+    - /kuka/kuka_sensor_to_gripper_flange/wrench
 
   sampling_period: 0.002
   diagnostic_period: 0.1
@@ -36,7 +36,7 @@ kuka_level1_hw:
   maximum_missing_cycles: 1000
   kin_update_period: 0.002
   base_link: "world"
-  tool_link: "kr_flange"
+  tool_link: "kuka_flange"
   robot_description_param: /robot_description
   robot_description_planning_param: /robot_description_planning
   kin_update_period: 0.002

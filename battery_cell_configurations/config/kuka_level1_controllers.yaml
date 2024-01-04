@@ -81,7 +81,7 @@ kuka_level1_hw:
     type:         cnr/control/JointStatePublisher
     controlled_joint: all
     base_link: "world"
-    tool_link: "kr_flange"
+    tool_link: "kuka_flange"
     robot_description_param: /robot_description
     robot_description_planning_param: /robot_description_planning
 
@@ -99,6 +99,6 @@ kuka_level1_hw:
     type: cnr/control/SimpleTouchController
     sensor_name : "kuka_wrench"
     base_link   : "world"
-    tool_link   : "kr_flange"
-    sensor_frame: "kr_flange"
+    tool_link   : "kuka_flange"
+    sensor_frame: "kuka_gripper_base_link"
     output_twist_ns: "/kuka/target_cart_twist"

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot name="battery_cell" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:arg name="use_fake_hardware" default="false"/>
+  <xacro:property name="use_fake_hardware" value="'$(arg use_fake_hardware)'" />
+
+  <link name="world"/>
+
+  <xacro:include filename="$(find battery_cell_description)/urdf/kuka_setup.xacro" />
+  <xacro:kuka_setup use_fake_hardware="${use_fake_hardware}" type='rviz'/>
+
+  <joint name="world_to_kuka" type="fixed">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <parent link="world"/>
+      <child link="structure_base_link"/>
+  </joint>
+
+  <xacro:include filename="$(find battery_cell_description)/urdf/battery_table.xacro" />
+  <xacro:property name="table_prefix" value="'table_'" />
+  <xacro:battery_table prefix="${table_prefix}" type='rviz'/>
+
+  <joint name="world_to_table" type="fixed">
+    <origin
+      xyz="0.051 -1.61 0"
+      rpy="0 0 -0.015"/>
+    <parent link="world"/>
+    <child link="${table_prefix}base_link"/>
+  </joint>
+  
+ <xacro:include filename="$(find battery_cell_description)/urdf/comau_setup.xacro" />
+  <xacro:comau_setup use_fake_hardware="${use_fake_hardware}"/>
+
+  <joint name="world_to_comau" type="fixed">
+      <origin
+        xyz="-2.708 -0.430 0"
+        rpy="0 0 3.14159" />
+      <parent link="world"/>
+      <child link="comau_basement"/>
+  </joint>
+
+</robot>

@@ -4,7 +4,7 @@
   <arg name="pipeline" default="ompl" />
   <arg name="debug" default="false" />
   <arg name="use_rviz" default="true" />
-  <arg name="rviz_config" default="$(find battery_cell_configurations)/launch/control.rviz"/>
+  <arg name="rviz_config" default="$(find battery_cell_moveit_config)/launch/moveit.rviz"/>
 
 <!-- <node pkg="object_loader" name="context_manager_node" type="context_manager_node" respawn="true" output="screen"/> -->
 

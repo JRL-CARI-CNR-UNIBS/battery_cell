@@ -17,12 +17,12 @@ kuka_level0_hw:
   - "/kuka_level0_hw/cartesian_position/relative_move/status"
 
   remap_target_args:
-  - "/kuka_controller/follow_joint_trajectory/cancel"
-  - "/kuka_controller/follow_joint_trajectory/feedback"
-  - "/kuka_controller/follow_joint_trajectory/goal"
-  - "/kuka_controller/follow_joint_trajectory/result"
-  - "/kuka_controller/follow_joint_trajectory/status"
-  - "/kuka_controller/unscaled_joint_target"
+  - "/kuka/follow_joint_trajectory/cancel"
+  - "/kuka/follow_joint_trajectory/feedback"
+  - "/kuka/follow_joint_trajectory/goal"
+  - "/kuka/follow_joint_trajectory/result"
+  - "/kuka/follow_joint_trajectory/status"
+  - "/kuka/unscaled_joint_target"
   - "/kuka/execution_ratio"
 
   - "/kuka/controller_manager/joint_states"
@@ -36,8 +36,8 @@ kuka_level0_hw:
   js_pub:
     type: cnr/control/JointStatePublisher
     controlled_joint: all
-    base_link: world
-    tool_link: kr_flange
+    base_link: structure_base_link
+    tool_link: kuka_flange
     robot_description_param: /robot_description
     robot_description_planning_param: /robot_description_planning
 
@@ -47,8 +47,8 @@ kuka_level0_hw:
     pattern_layout: "[%5p][%d{HH:mm:ss,SSS}][%M:%L][%c] %m%n"
     file_name: "kuka_hw_ft_pub"
     type: "cnr/control/ForceTorquePublisher"
-    name: wrench
-    published_topic: "/kuka_gripper/wrench"
+    name: kuka_wrench
+    published_topic: "/kuka/wrench"
 
   microinterpolator:
     type: "cnr/control/ScaledFJTPosVelEffController"
@@ -84,7 +84,7 @@ kuka_level0_hw:
     kin_update_period : 0.002
 
   ctrl:
-    type:        cnr/control/OpenLoopPositionController
+    type: cnr/control/OpenLoopPositionController
     setpoint_topic_name: "/kuka/joint_target"
     controlled_joint: all
     enable_setpoint_watchdog: false

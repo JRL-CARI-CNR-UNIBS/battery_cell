@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-
-<launch>
-  <include file="$(find battery_cell_configurations)/launch/rosdyn_node.launch"/>
-  
-  <rosparam command="load" file="$(find battery_cell_configurations)/config/skills_executer_config.yaml" />
-  <node name="configurations_bridge_node" pkg="skills_util" type="configurations_bridge_node" />
-  <include file="$(find skills_util)/launch/skills_servers.launch"/>
-</launch>

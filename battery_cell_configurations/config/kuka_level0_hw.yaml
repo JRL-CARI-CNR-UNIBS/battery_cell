@@ -9,15 +9,14 @@ kuka_level0_hw:
   maximum_missing_cycles: 100
   feedback_joint_state_timeout: 10
   joint_names:
-    - structure_joint_1
-    - kr_joint1
-    - kr_joint2
-    - kr_joint3
-    - kr_joint4
-    - kr_joint5
-    - kr_joint6
+    - kuka_joint1
+    - kuka_joint2
+    - kuka_joint3
+    - kuka_joint4
+    - kuka_joint5
+    - kuka_joint6
   base_link: world
-  tool_link: kr_flange
+  tool_link: kuka_flange
   robot_description_param: /robot_description
   robot_description_planning_param: /robot_description_planning
   kin_update_period: 0.002

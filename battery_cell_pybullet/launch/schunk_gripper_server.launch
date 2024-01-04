@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="robot_name" default="kuka"/>
+  <arg name="gripper_name" default="kuka"/>
+  <arg name="controlled_joint_prefix" default="gripper_"/>
+
+  <node pkg="schunk_gripper_jpg_p_160_description"
+        type="gripper_server.py"
+        name="schunk_gripper_jpg_p_160_server"
+        args="$(arg robot_name) $(arg gripper_name) $(arg controlled_joint_prefix)"
+        output="screen" />
+</launch>

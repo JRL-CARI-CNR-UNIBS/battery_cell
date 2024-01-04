@@ -1,248 +1,474 @@
 <?xml version="1.0"?>
 <robot name="battery_table" xmlns:xacro="http://www.ros.org/wiki/xacro">
-<xacro:macro name="battery_table" params="prefix:=''">
+  <xacro:macro name="battery_table" params="prefix:='' type:='rviz'">
 
-  <xacro:property name="leg_height" value="0.900" />
-  <xacro:property name="leg_width" value="0.060" />
-  <xacro:property name="table_thickness" value="0.015" />
-  <xacro:property name="table_width" value="1.500" />
-  <xacro:property name="table_length" value="1.480" />
-  <xacro:property name="steel_density" value="7859.0" /> <!-- tabletop material: S355J2+N steel (density in kg/m^3) -->
-  <xacro:property name="m_tot" value="300.0" />
-  <xacro:property name="m_table" value="${steel_density*table_thickness*table_width*table_length}" />
-  <xacro:property name="m_leg" value="${(m_tot - m_table) / 4}" />
+    <xacro:property name="leg_height" value="0.94" />
+    <xacro:property name="leg_width" value="0.060" />
+    <xacro:property name="table_thickness" value="0.015" />
+    <xacro:property name="table_width" value="1.500" />
+    <xacro:property name="table_length" value="1.480" />
+    <xacro:property name="steel_density" value="7859.0" /> <!-- tabletop material: S355J2+N steel (density in kg/m^3) -->
+    <xacro:property name="m_tot" value="300.0" />
+    <xacro:property name="m_table" value="${steel_density*table_thickness*table_width*table_length}" />
+    <xacro:property name="m_leg" value="${(m_tot - m_table) / 4}" />
 
-  <link name="${prefix}base_link"/>
 
-  <link name="${prefix}leg1_link">
-    <inertial>
-      <origin
-        xyz="0 0 ${leg_height/2}"
-        rpy="0 0 0" />
-      <mass
-        value="${m_leg}" />
-      <inertia
-        ixx="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
-        ixy="0"
-        ixz="0"
-        iyy="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
-        iyz="0"
-        izz="${1/12*m_leg*(leg_width*leg_width + leg_width*leg_width)}" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 ${leg_height/2}"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="${leg_width} ${leg_width} ${leg_height}"/>
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.1176 0.5059 0.6902 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 ${leg_height/2}"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="${leg_width} ${leg_width} ${leg_height}"/>
-      </geometry>
-    </collision>
-  </link>
+    <xacro:if value="${type == 'rviz'}">
+      <link name="${prefix}base_link">
+        <inertial>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <mass
+            value="0.0001" />
+          <inertia
+            ixx="0.000001"
+            ixy="0"
+            ixz="0"
+            iyy="0.000001"
+            iyz="0"
+            izz="0.000001" />
+        </inertial>
+        <!-- <visual>
+          <origin
+            xyz="0 0 ${(leg_height+table_thickness)/2}"
+            rpy="0 0 0" />
+          <geometry>
+            <box size="${table_width+0.1} ${table_length+0.1} ${leg_height+table_thickness+0.1}"/>
+          </geometry>
+          <material
+            name="">
+            <color
+              rgba="0.1176 0.5059 0.6902 0.5" />
+          </material>
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 ${(leg_height+table_thickness)/2}"
+            rpy="0 0 0" />
+          <geometry>
+            <box size="${table_width} ${table_length} ${leg_height+table_thickness}"/>
+          </geometry>
+        </collision> -->
+      </link>
+    </xacro:if>
+    <xacro:unless value="${type == 'rviz'}">
+      <link name="${prefix}base_link">
+        <inertial>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <mass
+            value="0.0001" />
+          <inertia
+            ixx="0.000001"
+            ixy="0"
+            ixz="0"
+            iyy="0.000001"
+            iyz="0"
+            izz="0.000001" />
+        </inertial>
+      </link>
+    </xacro:unless>
 
-  <joint name="${prefix}base_to_leg1" type="fixed">
-    <origin
-      xyz="${table_width/2-leg_width/2} ${table_length/2-leg_width/2} 0"
-      rpy="0 0 0" />
-    <parent link="${prefix}base_link"/>
-    <child link="${prefix}leg1_link"/>
-  </joint>
+    <link name="${prefix}leg1_link">
+      <inertial>
+        <origin
+          xyz="0 0 ${leg_height/2}"
+          rpy="0 0 0" />
+        <mass
+          value="${m_leg}" />
+        <inertia
+          ixx="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
+          ixy="0"
+          ixz="0"
+          iyy="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
+          iyz="0"
+          izz="${1/12*m_leg*(leg_width*leg_width + leg_width*leg_width)}" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 ${leg_height/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${leg_width} ${leg_width} ${leg_height}"/>
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.1176 0.5059 0.6902 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 ${leg_height/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${leg_width} ${leg_width} ${leg_height}"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}base_to_leg1" type="fixed">
+      <origin
+        xyz="${table_width/2-leg_width/2} ${table_length/2-leg_width/2} 0"
+        rpy="0 0 0" />
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}leg1_link"/>
+    </joint>
+    <link name="${prefix}leg2_link">
+      <inertial>
+        <origin
+          xyz="0 0 ${leg_height/2}"
+          rpy="0 0 0" />
+        <mass
+          value="${m_leg}" />
+        <inertia
+          ixx="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
+          ixy="0"
+          ixz="0"
+          iyy="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
+          iyz="0"
+          izz="${1/12*m_leg*(leg_width*leg_width + leg_width*leg_width)}" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 ${leg_height/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${leg_width} ${leg_width} ${leg_height}"/>
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.1176 0.5059 0.6902 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 ${leg_height/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${leg_width} ${leg_width} ${leg_height}"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}base_to_leg2" type="fixed">
+      <origin
+        xyz="${table_width/2-leg_width/2} ${-table_length/2+leg_width/2} 0"
+        rpy="0 0 0" />
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}leg2_link"/>
+    </joint>
+    <link name="${prefix}leg3_link">
+      <inertial>
+        <origin
+          xyz="0 0 ${leg_height/2}"
+          rpy="0 0 0" />
+        <mass
+          value="${m_leg}" />
+        <inertia
+          ixx="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
+          ixy="0"
+          ixz="0"
+          iyy="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
+          iyz="0"
+          izz="${1/12*m_leg*(leg_width*leg_width + leg_width*leg_width)}" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 ${leg_height/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${leg_width} ${leg_width} ${leg_height}"/>
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.1176 0.5059 0.6902 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 ${leg_height/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${leg_width} ${leg_width} ${leg_height}"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}base_to_leg3" type="fixed">
+      <origin
+        xyz="${-table_width/2+leg_width/2} ${-table_length/2+leg_width/2} 0"
+        rpy="0 0 0" />
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}leg3_link"/>
+    </joint>
+    <link name="${prefix}leg4_link">
+      <inertial>
+        <origin
+          xyz="0 0 ${leg_height/2}"
+          rpy="0 0 0" />
+        <mass
+          value="${m_leg}" />
+        <inertia
+          ixx="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
+          ixy="0"
+          ixz="0"
+          iyy="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
+          iyz="0"
+          izz="${1/12*m_leg*(leg_width*leg_width + leg_width*leg_width)}" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 ${leg_height/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${leg_width} ${leg_width} ${leg_height}"/>
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.1176 0.5059 0.6902 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 ${leg_height/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${leg_width} ${leg_width} ${leg_height}"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}base_to_leg4" type="fixed">
+      <origin
+        xyz="${-table_width/2+leg_width/2} ${table_length/2-leg_width/2} 0"
+        rpy="0 0 0" />
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}leg4_link"/>
+    </joint>
+    <link name="${prefix}tabletop_link">
+      <inertial>
+        <origin
+          xyz="0 0 ${table_thickness/2}"
+          rpy="0 0 0" />
+        <mass
+          value="${m_leg}" />
+        <inertia
+          ixx="${1/12*m_table*(table_length*table_length + table_thickness*table_thickness)}"
+          ixy="0"
+          ixz="0"
+          iyy="${1/12*m_table*(table_width*table_width + table_thickness*table_thickness)}"
+          iyz="0"
+          izz="${1/12*m_table*(table_width*table_width + table_length*table_length)}" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 ${table_thickness/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${table_width} ${table_length} ${table_thickness}"/>
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.6608 0.6608 0.7878 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 ${table_thickness/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${table_width} ${table_length} ${table_thickness}"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}base_to_tabletop" type="fixed">
+      <origin
+        xyz="0 0 ${leg_height}"
+        rpy="0 0 0" />
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}tabletop_link"/>
+    </joint>
 
-  <link name="${prefix}leg2_link">
-    <inertial>
+    <link name="${prefix}can_hole" concave="yes">
+      <inertial>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <mass
+          value="0.0001" />
+        <inertia
+          ixx="0.00000001"
+          ixy="0"
+          ixz="0"
+          iyy="0.00000001"
+          iyz="0"
+          izz="0.00000001" />
+      </inertial>
+      <visual concave="yes">
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://battery_cell_description/meshes/Hole_60_big.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.6608 0.6608 0.7878 1" />
+        </material>
+      </visual>
+      <collision concave="yes">
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://battery_cell_description/meshes/Hole_60_big.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}tabletop_to_hole" type="fixed">
       <origin
-        xyz="0 0 ${leg_height/2}"
+        xyz="0.65 0.35 ${table_thickness}"
         rpy="0 0 0" />
-      <mass
-        value="${m_leg}" />
-      <inertia
-        ixx="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
-        ixy="0"
-        ixz="0"
-        iyy="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
-        iyz="0"
-        izz="${1/12*m_leg*(leg_width*leg_width + leg_width*leg_width)}" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 ${leg_height/2}"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="${leg_width} ${leg_width} ${leg_height}"/>
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.1176 0.5059 0.6902 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 ${leg_height/2}"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="${leg_width} ${leg_width} ${leg_height}"/>
-      </geometry>
-    </collision>
-  </link>
+      <parent link="${prefix}tabletop_link"/>
+      <child link="${prefix}can_hole"/>
+    </joint>
 
-  <joint name="${prefix}base_to_leg2" type="fixed">
-    <origin
-      xyz="${table_width/2-leg_width/2} ${-table_length/2+leg_width/2} 0"
-      rpy="0 0 0" />
-    <parent link="${prefix}base_link"/>
-    <child link="${prefix}leg2_link"/>
-  </joint>
+    <xacro:if value="${type == 'rviz'}">
+      <link name="${prefix}fake_plane">
+        <inertial>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <mass
+            value="0.0001" />
+          <inertia
+            ixx="0.000001"
+            ixy="0"
+            ixz="0"
+            iyy="0.000001"
+            iyz="0"
+            izz="0.000001" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 -0.01"
+            rpy="0 0 0" />
+          <geometry>
+            <!-- <box size="10 10 0.02"/> -->
+            <box size="10 10 0.03"/>
+          </geometry>
+          <material
+            name="">
+            <color
+              rgba="0.1176 0.5059 0.6902 0.5" />
+          </material>
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 -0.01"
+            rpy="0 0 0" />
+          <geometry>
+            <box size="10 10 0.02"/>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="${prefix}base_to_plane" type="fixed">
+        <origin
+          xyz="0 0 ${leg_height+table_thickness}"
+          rpy="0 0 0" />
+        <parent link="${prefix}base_link"/>
+        <child link="${prefix}fake_plane"/>
+      </joint>
+      <link name="${prefix}fake_wall">
+        <inertial>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <mass
+            value="0.0001" />
+          <inertia
+            ixx="0.000001"
+            ixy="0"
+            ixz="0"
+            iyy="0.000001"
+            iyz="0"
+            izz="0.000001" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 -0.01 1"
+            rpy="0 0 0" />
+          <geometry>
+            <box size="3 0.02 2"/>
+          </geometry>
+          <material
+            name="">
+            <color
+              rgba="0.1176 0.5059 0.6902 0.5" />
+          </material>
+        </visual>
+        <collision>
+          <origin
+            xyz="0 -0.01 1"
+            rpy="0 0 0" />
+          <geometry>
+            <box size="3 0.02 2"/>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="${prefix}base_to_wall" type="fixed">
+        <origin
+          xyz="0 -0.40 0.5"
+          rpy="0 0 0" />
+        <parent link="${prefix}base_link"/>
+        <child link="${prefix}fake_wall"/>
+      </joint>
 
-  <link name="${prefix}leg3_link">
-    <inertial>
-      <origin
-        xyz="0 0 ${leg_height/2}"
-        rpy="0 0 0" />
-      <mass
-        value="${m_leg}" />
-      <inertia
-        ixx="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
-        ixy="0"
-        ixz="0"
-        iyy="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
-        iyz="0"
-        izz="${1/12*m_leg*(leg_width*leg_width + leg_width*leg_width)}" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 ${leg_height/2}"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="${leg_width} ${leg_width} ${leg_height}"/>
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.1176 0.5059 0.6902 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 ${leg_height/2}"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="${leg_width} ${leg_width} ${leg_height}"/>
-      </geometry>
-    </collision>
-  </link>
+      <link name="${prefix}vertex0"/>
+      <link name="${prefix}vertex1"/>
+      <link name="${prefix}vertex2"/>
+      <link name="${prefix}vertex3"/>
+      <link name="${prefix}vertex4"/>
+      <joint name="${prefix}vertex0" type="fixed">
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <parent link="${prefix}tabletop_link"/>
+        <child link="${prefix}vertex0"/>
+      </joint>
+      <joint name="${prefix}vertex1" type="fixed">
+        <origin
+          xyz="${table_width/2} ${table_length/2} 0"
+          rpy="0 0 0" />
+        <parent link="${prefix}tabletop_link"/>
+        <child link="${prefix}vertex1"/>
+      </joint>
+      <joint name="${prefix}vertex2" type="fixed">
+        <origin
+          xyz="${table_width/2} ${-table_length/2} 0"
+          rpy="0 0 0" />
+        <parent link="${prefix}tabletop_link"/>
+        <child link="${prefix}vertex2"/>
+      </joint>
+      <joint name="${prefix}vertex3" type="fixed">
+        <origin
+          xyz="${-table_width/2} ${table_length/2} 0"
+          rpy="0 0 0" />
+        <parent link="${prefix}tabletop_link"/>
+        <child link="${prefix}vertex3"/>
+      </joint>
+      <joint name="${prefix}vertex4" type="fixed">
+        <origin
+          xyz="${-table_width/2} ${-table_length/2} 0"
+          rpy="0 0 0" />
+        <parent link="${prefix}tabletop_link"/>
+        <child link="${prefix}vertex4"/>
+      </joint>
+   </xacro:if>
 
-  <joint name="${prefix}base_to_leg3" type="fixed">
-    <origin
-      xyz="${-table_width/2+leg_width/2} ${-table_length/2+leg_width/2} 0"
-      rpy="0 0 0" />
-    <parent link="${prefix}base_link"/>
-    <child link="${prefix}leg3_link"/>
-  </joint>
-
-  <link name="${prefix}leg4_link">
-    <inertial>
-      <origin
-        xyz="0 0 ${leg_height/2}"
-        rpy="0 0 0" />
-      <mass
-        value="${m_leg}" />
-      <inertia
-        ixx="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
-        ixy="0"
-        ixz="0"
-        iyy="${1/12*m_leg*(leg_width*leg_width + leg_height*leg_height)}"
-        iyz="0"
-        izz="${1/12*m_leg*(leg_width*leg_width + leg_width*leg_width)}" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 ${leg_height/2}"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="${leg_width} ${leg_width} ${leg_height}"/>
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.1176 0.5059 0.6902 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 ${leg_height/2}"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="${leg_width} ${leg_width} ${leg_height}"/>
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="${prefix}base_to_leg4" type="fixed">
-    <origin
-      xyz="${-table_width/2+leg_width/2} ${table_length/2-leg_width/2} 0"
-      rpy="0 0 0" />
-    <parent link="${prefix}base_link"/>
-    <child link="${prefix}leg4_link"/>
-  </joint>
-
-  <link name="${prefix}tabletop_link">
-    <inertial>
-      <origin
-        xyz="0 0 ${table_thickness/2}"
-        rpy="0 0 0" />
-      <mass
-        value="${m_leg}" />
-      <inertia
-        ixx="${1/12*m_table*(table_length*table_length + table_thickness*table_thickness)}"
-        ixy="0"
-        ixz="0"
-        iyy="${1/12*m_table*(table_width*table_width + table_thickness*table_thickness)}"
-        iyz="0"
-        izz="${1/12*m_table*(table_width*table_width + table_length*table_length)}" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 ${table_thickness/2}"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="${table_width} ${table_length} ${table_thickness}"/>
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.6608 0.6608 0.7878 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 ${table_thickness/2}"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="${table_width} ${table_length} ${table_thickness}"/>
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="${prefix}base_to_tabletop" type="fixed">
-    <origin
-      xyz="0 0 ${leg_height}"
-      rpy="0 0 0" />
-    <parent link="${prefix}base_link"/>
-    <child link="${prefix}tabletop_link"/>
-  </joint>
-
-</xacro:macro>
+  </xacro:macro>
 </robot>

@@ -1,0 +1,75 @@
+pybullet_simulation:
+  robots:
+    kuka:
+      package_name: 'battery_cell_description'
+      xacro_file_path: 'urdf/kuka_setup_pybullet.xacro'   # an urdf file with the same name will be generated
+      controlled_joint_name: 
+      - 'kuka_joint1'
+      - 'kuka_joint2'
+      - 'kuka_joint3'
+      - 'kuka_joint4'
+      - 'kuka_joint5'
+      - 'kuka_joint6'
+      - 'gripper_left_joint_circle'
+      joint_control_mode : 'position' # position (which is in fact POSITION_VELOCITY_PD), velocity, torque and pd.
+      joint_control_integral_gain: [0,0,0,0,0,0,0,0]
+      sensors: # define an array that containing the sensorized joints
+      - 'kuka_sensor_to_gripper_flange'
+
+      constraints:
+
+        - parent_body: 'kuka'
+          parent_link: 'gripper_shadow_left_slider'
+          child_body: 'kuka'
+          child_link: 'gripper_end_left_circle'
+          type: 'fixed'             # joint type: prismatic, fixed, point2point, gear
+          axis: [0,0,0]                   # joint axis, in child link frame
+          parent_frame_position: [0, 0, 0]  # position of the joint frame relative to parent center of mass frame.
+          child_frame_position: [0,0,0]   # position of the joint frame relative to a given child center of mass frame (or world origin if no child specified)
+          parent_frame_orientation: [0,0,0,1] # the orientation of the joint frame relative to parent center of mass coordinate frame
+          child_frame_orientation: [0,0,0,1]  # the orientation of the joint frame relative to the child center of mass coordinate frame (or world origin frame if no child specified)
+          max_force: 10000
+        - parent_body: 'kuka'
+          parent_link: 'gripper_shadow_right_slider'
+          child_body: 'kuka'
+          child_link: 'gripper_end_right_circle'
+          type: 'fixed'             # joint type: prismatic, fixed, point2point, gear
+          axis: [0,0,0]                   # joint axis, in child link frame
+          parent_frame_position: [0, 0, 0]  # position of the joint frame relative to parent center of mass frame.
+          child_frame_position: [0,0,0]   # position of the joint frame relative to a given child center of mass frame (or world origin if no child specified)
+          parent_frame_orientation: [0,0,1,0] # the orientation of the joint frame relative to parent center of mass coordinate frame
+          child_frame_orientation: [0,0,0,1]  # the orientation of the joint frame relative to the child center of mass coordinate frame (or world origin frame if no child specified)
+          max_force: 10000
+        - parent_body: 'kuka'
+          parent_link: 'gripper_left_circle'
+          child_body: 'kuka'
+          child_link: 'gripper_right_circle'
+          type: 'gear'             # joint type: prismatic, fixed, point2point, gear
+          gear_ratio: 1
+          erp: 10
+          # erp: 0.1
+          axis: [0,1,0]                   # joint axis, in child link frame
+          parent_frame_position: [0,0,0]  # position of the joint frame relative to parent center of mass frame.
+          child_frame_position: [0,0,0]   # position of the joint frame relative to a given child center of mass frame (or world origin if no child specified)
+          parent_frame_orientation: [0,0,0,1] # the orientation of the joint frame relative to parent center of mass coordinate frame
+          child_frame_orientation: [0,0,0,1]  # the orientation of the joint frame relative to the child center of mass coordinate frame (or world origin frame if no child specified)
+          max_force: 10000
+      link_dynamics:
+        - link_name: 'gripper_left_finger'
+          lateral_friction: 60
+          spinning_friction: 0.1
+          rolling_friction: 0.1
+          contact_stiffness: 1000000
+          contact_damping: 1
+          linear_damping: 0
+          angular_damping: 0
+          friction_anchor: 1
+        - link_name: 'gripper_right_finger'
+          lateral_friction: 60
+          spinning_friction: 0.1
+          rolling_friction: 0.1
+          contact_stiffness: 1000000
+          contact_damping: 1
+          linear_damping: 0
+          angular_damping: 0
+          friction_anchor: 1

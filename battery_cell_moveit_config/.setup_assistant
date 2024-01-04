@@ -1,11 +1,11 @@
 moveit_setup_assistant_config:
   URDF:
     package: battery_cell_description
-    relative_path: urdf/battery_cell.xacro
+    relative_path: urdf/battery_cell_rviz.xacro
     xacro_args: ""
   SRDF:
     relative_path: config/battery_cell.srdf
   CONFIG:
-    author_name: Michele Ferrari
-    author_email: michele.ferrari@unibs.it
-    generated_timestamp: 1689155662
+    author_name: Michele Delledonne
+    author_email: m.delledonne002@unibs.it
+    generated_timestamp: 1704119856
