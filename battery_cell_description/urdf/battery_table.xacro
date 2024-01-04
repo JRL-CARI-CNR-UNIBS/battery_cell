@@ -469,10 +469,5 @@
       </joint>
    </xacro:if>
 
-<<<<<<< HEAD
   </xacro:macro>
 </robot>
-=======
-</xacro:macro>
-</robot>
->>>>>>> 4cf6f8cb3c5076118f2ddc0fe4f8ab67712ee64f
