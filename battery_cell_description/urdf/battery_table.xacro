@@ -12,7 +12,6 @@
     <xacro:property name="m_table" value="${steel_density*table_thickness*table_width*table_length}" />
     <xacro:property name="m_leg" value="${(m_tot - m_table) / 4}" />
 
-
     <xacro:if value="${type == 'rviz'}">
       <link name="${prefix}base_link">
         <inertial>
@@ -470,5 +469,10 @@
       </joint>
    </xacro:if>
 
+<<<<<<< HEAD
   </xacro:macro>
 </robot>
+=======
+</xacro:macro>
+</robot>
+>>>>>>> 4cf6f8cb3c5076118f2ddc0fe4f8ab67712ee64f
