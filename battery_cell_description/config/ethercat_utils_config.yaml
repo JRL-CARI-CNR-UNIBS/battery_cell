@@ -17,9 +17,24 @@ delta_utils:
 
 battery_cell_utils:
   ros__parameters:
-    lubrification_command:
-      controller_name: digital_io_controller
+    lubrication:
+      command_controller_name: digital_io_controller
       command_interface: digital_outputs1/lubrication_command
-    lubrification_state:
-      controller_name: digital_io_controller
+      state_controller_name: digital_io_controller
       state_interface: digital_inputs/lubrication_state
+    pneumatic_gripper:
+      controller_name: digital_io_controller
+      command_interface: digital_outputs1/pneumatic_gripper
+    ati_sensor:
+      controller_name: ft_ati_controller
+      command_interface: analog_inputs/sensor_reset
+      state_interfaces: # use the sequence of the sensor channels [force_x, force_y, force_z, torque_x, torque_y, torque_z]
+      - analog_inputs/force_x
+      - analog_inputs/force_y
+      - analog_inputs/force_z
+      - analog_inputs/torque_x 
+      - analog_inputs/torque_y
+      - analog_inputs/torque_z
+      published_topic: /kuka_sensor/wrench
+      publication_rate: 1000.0
+      frame_id: kuka_gripper_base_link

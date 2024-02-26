@@ -123,10 +123,10 @@ def launch_setup(context, *args, **kwargs):
                    "/controller_manager"],
     )
 
-    kuka_jt_controller_spawner = Node(
+    structure_jt_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["kuka_jt_controller",
+        arguments=["structure_jt_controller",
                    "-c",
                    "/controller_manager",
                    "--stopped"],
@@ -139,14 +139,6 @@ def launch_setup(context, *args, **kwargs):
            parameters=[moveit_config.to_dict()],
            arguments=["--ros-args", "--log-level", "info"],
     )
-
-#    comau_jt_controller_spawner = Node(
-#        package="controller_manager",
-#        executable="spawner",
-#        arguments=["comau_jt_controller",
-#                   "-c",
-#                   "/controller_manager"],
-#    )
 
     delta_controller_spawner = Node(
         package="controller_manager",
@@ -175,8 +167,7 @@ def launch_setup(context, *args, **kwargs):
         robot_state_pub_node,
         rviz_node,
         joint_state_broadcaster_spawner,
-        kuka_jt_controller_spawner,
-        # comau_jt_controller_spawner,
+        structure_jt_controller_spawner,
         delta_controller_spawner,
         digital_io_controller_spawner,
         ft_ati_controller_spawner,
@@ -191,7 +182,7 @@ def generate_launch_description():
     launch_arguments = []
     launch_arguments.append(DeclareLaunchArgument(
         'fake',
-        default_value='false'
+        default_value='true'
     ))
     launch_arguments.append(DeclareLaunchArgument(
         'rviz_gui',

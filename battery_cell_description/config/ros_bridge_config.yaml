@@ -1,0 +1,6 @@
+ros_bridge:
+  ros__parameters:
+    topics:
+    - {topic: /kuka_sensor/wrench, type: geometry_msgs/msg/WrenchStamped}
+    - {topic: /joint_states, type: sensor_msgs/msg/JointState}
+

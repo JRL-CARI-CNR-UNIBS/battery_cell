@@ -2,11 +2,8 @@ controller_manager:
   ros__parameters:
     update_rate: 1000  # Hz
 
-    kuka_jt_controller:
+    structure_jt_controller:
       type: joint_trajectory_controller/JointTrajectoryController
-
-    # comau_jt_controller:
-    #   type: joint_trajectory_controller/JointTrajectoryController
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -20,42 +17,23 @@ controller_manager:
     ft_ati_controller:
       type: ethercat_utils/GPIOController
 
-kuka_jt_controller:
+structure_jt_controller:
   ros__parameters:
     joints: 
     - structure_joint_1
-    - kuka_joint1
-    - kuka_joint2
-    - kuka_joint3
-    - kuka_joint4
-    - kuka_joint5
-    - kuka_joint6
-
     command_interfaces:
       - position
     state_interfaces:
       - position
-
     state_publish_rate: 50.0
     action_monitor_rate: 20.0
 
-# comau_jt_controller:
-#   ros__parameters:
-#     joints: 
-#     - comau_joint_1
-#     - comau_joint_2
-#     - comau_joint_3
-#     - comau_joint_4
-#     - comau_joint_5
-#     - comau_joint_6
-
-#     command_interfaces:
-#       - position
-#     state_interfaces:
-#       - position
-
-#     state_publish_rate: 50.0
-#     action_monitor_rate: 20.0
+joint_state_broadcaster:
+  ros__parameters:
+    joints:
+    - structure_joint_1
+    interfaces:
+    - position
 
 delta_controller:
   ros__parameters:
@@ -70,8 +48,8 @@ digital_io_controller:
   ros__parameters:
     outputs:
       - digital_outputs1/lubrication_command
-      - digital_outputs1/opening_pneumatic_gripper
-      - digital_outputs1/closure_pneumatic_gripper
+      - digital_outputs1/d_output.1
+      - digital_outputs1/pneumatic_gripper
       - digital_outputs1/d_output.3
       - digital_outputs1/d_output.4
       - digital_outputs1/d_output.5
@@ -86,9 +64,9 @@ digital_io_controller:
       - digital_outputs2/d_output.6
       - digital_outputs2/d_output.7
     inputs:
+      - digital_inputs/lubrication_state
       - digital_inputs/limit_switch_homing
       - digital_inputs/limit_switch_end
-      - digital_inputs/lubrication_state
       - digital_inputs/d_input.3
       - digital_inputs/d_input.4
       - digital_inputs/d_input.5

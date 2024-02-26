@@ -28,7 +28,7 @@
     <child link="${table_prefix}base_link"/>
   </joint>
   
- <xacro:include filename="$(find battery_cell_description)/urdf/comau_setup.xacro" />
+ <!-- <xacro:include filename="$(find battery_cell_description)/urdf/comau_setup.xacro" />
   <xacro:comau_setup use_fake_hardware="${use_fake_hardware}"/>
 
   <joint name="world_to_comau" type="fixed">
@@ -37,6 +37,6 @@
         rpy="0 0 3.14159" />
       <parent link="world"/>
       <child link="comau_basement"/>
-  </joint>
+  </joint> -->
 
 </robot>
