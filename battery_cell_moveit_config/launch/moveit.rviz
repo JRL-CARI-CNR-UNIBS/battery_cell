@@ -8,7 +8,7 @@ Panels:
         - /TF1
         - /TF1/Frames1
       Splitter Ratio: 0.5
-    Tree Height: 421
+    Tree Height: 410
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -267,26 +267,6 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          table_vertex0:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          table_vertex1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          table_vertex2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          table_vertex3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          table_vertex4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           world:
             Alpha: 1
             Show Axes: false
@@ -530,26 +510,6 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          table_vertex0:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          table_vertex1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          table_vertex2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          table_vertex3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          table_vertex4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           world:
             Alpha: 1
             Show Axes: false
@@ -566,37 +526,33 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        camera_aligned_depth_to_color_frame:
-          Value: false
-        camera_color_frame:
-          Value: false
-        camera_color_optical_frame:
-          Value: false
-        camera_depth_frame:
-          Value: false
-        camera_depth_optical_frame:
-          Value: false
-        camera_link:
-          Value: false
         comau_basement:
           Value: false
         comau_fake_robot:
           Value: false
         gripper_base:
           Value: false
+        gripper_end_left_circle:
+          Value: true
+        gripper_end_right_circle:
+          Value: true
+        gripper_left_circle:
+          Value: true
         gripper_left_finger:
           Value: false
         gripper_left_slider:
           Value: false
+        gripper_middle_left_circle:
+          Value: true
+        gripper_middle_right_circle:
+          Value: true
+        gripper_right_circle:
+          Value: true
         gripper_right_finger:
           Value: false
         gripper_right_slider:
           Value: false
         gripper_working_point:
-          Value: false
-        hole_approach:
-          Value: false
-        home:
           Value: false
         kuka_base_link:
           Value: false
@@ -650,26 +606,6 @@ Visualization Manager:
           Value: false
         table_tabletop_link:
           Value: false
-        table_vertex0:
-          Value: false
-        table_vertex1:
-          Value: false
-        table_vertex2:
-          Value: false
-        table_vertex3:
-          Value: false
-        table_vertex4:
-          Value: false
-        vertex_0:
-          Value: false
-        vertex_1:
-          Value: false
-        vertex_2:
-          Value: false
-        vertex_3:
-          Value: false
-        vertex_4:
-          Value: false
         world:
           Value: false
       Marker Alpha: 1
@@ -679,18 +615,10 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        gripper_left_slider:
-          gripper_left_finger:
-            {}
-        gripper_right_slider:
-          gripper_right_finger:
-            {}
         world:
           comau_basement:
             comau_fake_robot:
               {}
-          home:
-            {}
           structure_base_link:
             structure_fake_structure:
               {}
@@ -700,15 +628,6 @@ Visualization Manager:
               {}
             structure_link_1:
               kuka_base_link:
-                camera_link:
-                  camera_aligned_depth_to_color_frame:
-                    camera_color_optical_frame:
-                      {}
-                  camera_color_frame:
-                    {}
-                  camera_depth_frame:
-                    camera_depth_optical_frame:
-                      {}
                 kuka_link1:
                   kuka_link2:
                     kuka_link3:
@@ -721,6 +640,20 @@ Visualization Manager:
                                   kuka_sensor:
                                     kuka_gripper_flange:
                                       gripper_base:
+                                        gripper_left_circle:
+                                          gripper_middle_left_circle:
+                                            gripper_end_left_circle:
+                                              {}
+                                        gripper_left_slider:
+                                          gripper_left_finger:
+                                            {}
+                                        gripper_right_circle:
+                                          gripper_middle_right_circle:
+                                            gripper_end_right_circle:
+                                              {}
+                                        gripper_right_slider:
+                                          gripper_right_finger:
+                                            {}
                                         gripper_working_point:
                                           {}
           table_base_link:
@@ -738,23 +671,7 @@ Visualization Manager:
               {}
             table_tabletop_link:
               table_can_hole:
-                hole_approach:
-                  {}
-              table_vertex0:
-                vertex_0:
-                  {}
-              table_vertex1:
-                vertex_1:
-                  {}
-              table_vertex2:
-                vertex_2:
-                  {}
-              table_vertex3:
-                vertex_3:
-                  {}
-              table_vertex4:
-                vertex_4:
-                  {}
+                {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -795,21 +712,21 @@ Visualization Manager:
     Saved: ~
 Window Geometry:
   ConfigurationManager:
-    collapsed: false
+    collapsed: true
   Displays:
-    collapsed: false
+    collapsed: true
   Height: 1043
   Help:
     collapsed: false
-  Hide Left Dock: false
-  Hide Right Dock: false
+  Hide Left Dock: true
+  Hide Right Dock: true
   MotionPlanning:
-    collapsed: false
+    collapsed: true
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000200000000000001f3000003b9fc0200000007fb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000a00560069006500770073000000010c000000a4000000a400fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb000000100044006900730070006c006100790073010000003d00000236000000c900fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006701000002790000017d0000017d00ffffff0000000100000156000003b9fc0200000001fb000000280043006f006e00660069006700750072006100740069006f006e004d0061006e0061006700650072010000003d000003b90000018800ffffff0000042b000003b900000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000200000000000001f3000003b9fc0200000007fb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000a00560069006500770073000000010c000000a4000000a400fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb000000100044006900730070006c006100790073000000003d0000022b000000c900fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067000000026e000001880000017d00ffffff0000000100000156000003b9fc0200000001fb000000280043006f006e00660069006700750072006100740069006f006e004d0061006e0061006700650072000000003d000003b90000018800ffffff000003c0000003b900000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1920
-  X: 0
+  Width: 960
+  X: 960
   Y: 0

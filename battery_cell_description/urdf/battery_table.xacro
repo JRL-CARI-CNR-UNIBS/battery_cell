@@ -357,7 +357,6 @@
             xyz="0 0 -0.01"
             rpy="0 0 0" />
           <geometry>
-            <!-- <box size="10 10 0.02"/> -->
             <box size="10 10 0.03"/>
           </geometry>
           <material
@@ -427,7 +426,7 @@
         <child link="${prefix}fake_wall"/>
       </joint>
 
-      <link name="${prefix}vertex0"/>
+      <!-- <link name="${prefix}vertex0"/>
       <link name="${prefix}vertex1"/>
       <link name="${prefix}vertex2"/>
       <link name="${prefix}vertex3"/>
@@ -466,7 +465,7 @@
           rpy="0 0 0" />
         <parent link="${prefix}tabletop_link"/>
         <child link="${prefix}vertex4"/>
-      </joint>
+      </joint> -->
    </xacro:if>
 
   </xacro:macro>

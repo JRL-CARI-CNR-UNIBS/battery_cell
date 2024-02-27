@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<robot name="hole_model">
+  <link name="hole" concave="yes">
+    <inertial>
+      <mass value="0.390" />
+      <origin xyz="0 0 0.0575" />
+      <inertia  ixx="0.00058" ixy="0.0"  ixz="0.0"  iyy="0.00058"  iyz="0.0"  izz="0.00019" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://battery_cell_description/meshes/Hole_60.STL"/>
+      </geometry>
+    </visual>
+    <collision concave="yes">
+    <!-- <collision> -->
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://battery_cell_description/meshes/Hole_60.STL"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>
