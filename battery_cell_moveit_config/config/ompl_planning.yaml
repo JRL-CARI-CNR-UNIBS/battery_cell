@@ -130,11 +130,6 @@ kuka:
     - BiTRRT
     - LBTRRT
     - BiEST
-    - ProjEST
-    - LazyPRM
-    - LazyPRMstar
-    - SPARS
-    - SPARStwo
 comau:
   default_planner_config: BiTRRT
   planner_configs:
@@ -156,8 +151,3 @@ comau:
     - BiTRRT
     - LBTRRT
     - BiEST
-    - ProjEST
-    - LazyPRM
-    - LazyPRMstar
-    - SPARS
-    - SPARStwo

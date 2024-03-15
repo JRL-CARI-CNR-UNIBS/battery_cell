@@ -13,7 +13,7 @@ delta_utils:
       controller_name: delta_controller
       state_interface: structure_joint_1/moo_display
 
-    joint_trajectory_controller_name: kuka_jt_controller
+    joint_trajectory_controller_name: kuka_jt_controller #TODO: convert to list and add the controller for the COMAU robot
 
 battery_cell_utils:
   ros__parameters:
@@ -25,6 +25,7 @@ battery_cell_utils:
     pneumatic_gripper:
       controller_name: digital_io_controller
       command_interface: digital_outputs1/pneumatic_gripper
+      controlled_joint_name: pneumatic_gripper
     ati_sensor:
       controller_name: ft_ati_controller
       command_interface: analog_inputs/sensor_reset

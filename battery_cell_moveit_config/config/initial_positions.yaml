@@ -13,4 +13,10 @@ initial_positions:
   kuka_joint4: 0
   kuka_joint5: 0
   kuka_joint6: 0
+  omron/joint_1: 0
+  omron/joint_2: 0
+  omron/joint_3: 0
+  omron/joint_4: 0
+  omron/joint_5: 0
+  omron/joint_6: 0
   structure_joint_1: 0

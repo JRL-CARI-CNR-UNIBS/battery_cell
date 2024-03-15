@@ -3,3 +3,4 @@
 *~
 *.0000000*
 default_warehouse_mongo_db/
+.vscode/

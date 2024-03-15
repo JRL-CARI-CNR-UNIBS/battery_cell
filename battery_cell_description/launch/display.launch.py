@@ -14,8 +14,7 @@
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, OpaqueFunction
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, FindExecutable
-from launch.substitutions import Command
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, FindExecutable, Command
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.parameter_descriptions import ParameterValue
@@ -37,12 +36,13 @@ def launch_setup(context, *args, **kwargs):
                     [FindPackageShare('battery_cell_description'),
                      "urdf", "battery_cell_rviz.xacro"]
                 ),
+                " ",
+                "use_fake_hardware:='true'"
             ]
         ),
         value_type=str
     )
 
-    print(type(robot_description_content))
     robot_description = {'robot_description': robot_description_content}
 
     joint_target_publisher = Node(
@@ -63,6 +63,7 @@ def launch_setup(context, *args, **kwargs):
         executable="rviz2",
         name="rviz2",
         arguments=["-d", rviz_config_file],
+        parameters=[robot_description],
     )
 
     nodes_to_start = [

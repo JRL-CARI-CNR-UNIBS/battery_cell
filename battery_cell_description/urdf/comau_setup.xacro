@@ -42,8 +42,9 @@
       </collision>
     </link>
 
-    <xacro:include filename="$(find nj_220_2_7_description)/urdf/nj_220_2_7.xacro" />
-    <xacro:nj_220_2_7 prefix="${prefix}${nj_prefix}"/>
+    <xacro:include filename="$(find nj-220-27_description)/urdf/nj-220-27.xacro" />
+    <xacro:nj-220-27 prefix="${prefix}${nj_prefix}"
+                     use_fake_hardware="${use_fake_hardware}"/>
 
     <joint name="${prefix}${nj_prefix}basement_to_robot" type="fixed">
       <origin
@@ -54,7 +55,7 @@
     </joint>
 
   <!-- increased collisions -->
-    <xacro:property name="fake_robot_lenght_x" value="4" />
+    <!-- <xacro:property name="fake_robot_lenght_x" value="4" />
     <xacro:property name="fake_robot_lenght_y" value="3" />
     <xacro:property name="fake_robot_lenght_z" value="3" />
 
@@ -98,7 +99,7 @@
           <box size="${fake_robot_lenght_x} ${fake_robot_lenght_y} ${fake_robot_lenght_z}"/>
         </geometry>
       </collision>
-    </link>
+    </link> -->
   <!-- end increased collisions -->
 
 

@@ -22,21 +22,30 @@
 
   <joint name="world_to_table" type="fixed">
     <origin
-      xyz="-0.30 -1.58 0"
+      xyz="0.025 -1.58 0"
       rpy="0 0 0" />
     <parent link="world"/>
     <child link="${table_prefix}base_link"/>
   </joint>
   
- <!-- <xacro:include filename="$(find battery_cell_description)/urdf/comau_setup.xacro" />
-  <xacro:comau_setup use_fake_hardware="${use_fake_hardware}"/>
+  <xacro:include filename="$(find battery_cell_description)/urdf/comau_setup.xacro" />
+  <xacro:comau_setup use_fake_hardware="true"/>
+  <!-- <xacro:comau_setup use_fake_hardware="${use_fake_hardware}"/> -->
 
   <joint name="world_to_comau" type="fixed">
       <origin
         xyz="-2.708 -0.430 0"
-        rpy="0 0 3.14159" />
+        rpy="0 0 0" />
       <parent link="world"/>
       <child link="comau_basement"/>
-  </joint> -->
+  </joint>
+
+  <xacro:include filename="$(find battery_cell_description)/urdf/omron_setup.xacro" />
+  <xacro:omron_setup use_fake_hardware="${use_fake_hardware}"/>
+  <joint name="world_to_map" type="fixed">
+    <parent link="world"/>
+    <child link="omron/map"/>
+    <origin xyz="0.0 -4.0 0.0"/>
+  </joint>
 
 </robot>
