@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot name="battery_cell" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:arg name="use_fake_hardware" default="false"/>
+  <xacro:arg name="use_fake_hardware" default="true"/>
   <xacro:property name="use_fake_hardware" value="'$(arg use_fake_hardware)'" />
 
   <link name="world"/>
@@ -29,8 +29,7 @@
   </joint>
   
   <xacro:include filename="$(find battery_cell_description)/urdf/comau_setup.xacro" />
-  <xacro:comau_setup use_fake_hardware="true"/>
-  <!-- <xacro:comau_setup use_fake_hardware="${use_fake_hardware}"/> -->
+  <xacro:comau_setup use_fake_hardware="${use_fake_hardware}"/>
 
   <joint name="world_to_comau" type="fixed">
       <origin

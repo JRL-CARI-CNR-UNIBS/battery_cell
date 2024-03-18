@@ -1,1 +1,114 @@
-/home/gino/projects/kuka_cell_ws/src/battery_cell/battery_cell_description/config/ros2_controller_config.yaml
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    kuka_jt_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    comau_jt_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    delta_controller:
+      type: ethercat_utils/GPIOController
+
+
+    digital_io_controller:
+      type: ethercat_utils/GPIOController
+
+
+    ft_ati_controller:
+      type: ethercat_utils/GPIOController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+kuka_jt_controller:
+  ros__parameters:
+    joints:
+      - structure_joint_1
+      - kuka_joint1
+      - kuka_joint2
+      - kuka_joint3
+      - kuka_joint4
+      - kuka_joint5
+      - kuka_joint6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+comau_jt_controller:
+  ros__parameters:
+    joints:
+      - comau_joint_1
+      - comau_joint_2
+      - comau_joint_3
+      - comau_joint_4
+      - comau_joint_5
+      - comau_joint_6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+delta_controller:
+  ros__parameters:
+    outputs:
+      - structure_joint_1/ctrl_word
+      - structure_joint_1/moo
+    inputs:
+      - structure_joint_1/status_word
+      - structure_joint_1/moo_display
+
+digital_io_controller:
+  ros__parameters:
+    outputs:
+      - digital_outputs1/lubrication_command
+      - digital_outputs1/d_output.1
+      - digital_outputs1/pneumatic_gripper
+      - digital_outputs1/d_output.3
+      - digital_outputs1/d_output.4
+      - digital_outputs1/d_output.5
+      - digital_outputs1/d_output.6
+      - digital_outputs1/d_output.7
+      - digital_outputs2/d_output.0
+      - digital_outputs2/d_output.1
+      - digital_outputs2/d_output.2
+      - digital_outputs2/d_output.3
+      - digital_outputs2/d_output.4
+      - digital_outputs2/d_output.5
+      - digital_outputs2/d_output.6
+      - digital_outputs2/d_output.7
+    inputs:
+      - digital_inputs/lubrication_state
+      - digital_inputs/limit_switch_homing
+      - digital_inputs/limit_switch_end
+      - digital_inputs/d_input.3
+      - digital_inputs/d_input.4
+      - digital_inputs/d_input.5
+      - digital_inputs/d_input.6
+      - digital_inputs/d_input.7
+
+ft_ati_controller:
+  ros__parameters:
+    outputs:
+      - analog_inputs/sensor_reset
+    inputs:
+      - analog_inputs/sensor_channel_0
+      - analog_inputs/sensor_channel_1
+      - analog_inputs/sensor_channel_2
+      - analog_inputs/sensor_channel_3 
+      - analog_inputs/sensor_channel_4
+      - analog_inputs/sensor_channel_5
+      - analog_inputs/a_input_6
+      - analog_inputs/a_input_7
+      - analog_inputs/force_x
+      - analog_inputs/force_y
+      - analog_inputs/force_z
+      - analog_inputs/torque_x
+      - analog_inputs/torque_y
+      - analog_inputs/torque_z

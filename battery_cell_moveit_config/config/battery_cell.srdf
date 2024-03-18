@@ -192,6 +192,8 @@
     <disable_collisions link1="comau_link_2" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="kuka_link2" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="kuka_link3" reason="Never"/>
+    <disable_collisions link1="comau_link_2" link2="kuka_link4" reason="Never"/>
+    <disable_collisions link1="comau_link_2" link2="kuka_link5" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="omron/left_inner_finger" reason="Never"/>
@@ -336,8 +338,11 @@
     <disable_collisions link1="comau_link_2_2" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="kuka_link2" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="kuka_link3" reason="Never"/>
+    <disable_collisions link1="comau_link_2_2" link2="kuka_link5" reason="Never"/>
+    <disable_collisions link1="comau_link_2_2" link2="kuka_link6" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="kuka_sensor_flange1" reason="Never"/>
+    <disable_collisions link1="comau_link_2_2" link2="kuka_sensor_flange2" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/left_inner_finger" reason="Never"/>
@@ -600,6 +605,7 @@
     <disable_collisions link1="comau_link_4" link2="comau_link_6" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="kuka_link1" reason="Never"/>
+    <disable_collisions link1="comau_link_4" link2="kuka_link2" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="omron/left_inner_finger" reason="Never"/>
@@ -629,6 +635,7 @@
     <disable_collisions link1="comau_link_5" link2="comau_link_6" reason="Adjacent"/>
     <disable_collisions link1="comau_link_5" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="kuka_link1" reason="Never"/>
+    <disable_collisions link1="comau_link_5" link2="kuka_link2" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="omron/left_inner_finger" reason="Never"/>
@@ -657,6 +664,11 @@
     <disable_collisions link1="comau_link_5" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="kuka_link1" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="kuka_link2" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="kuka_link6" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="kuka_sensor" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="kuka_sensor_flange1" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="kuka_sensor_flange2" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/left_inner_finger" reason="Never"/>
@@ -903,7 +915,6 @@
     <disable_collisions link1="kuka_link6" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="kuka_link6" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="kuka_link6" link2="table_leg3_link" reason="Never"/>
-    <disable_collisions link1="kuka_link6" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="kuka_sensor" link2="kuka_sensor_flange2" reason="Adjacent"/>
     <disable_collisions link1="kuka_sensor" link2="omron/base_link" reason="Never"/>
@@ -954,7 +965,6 @@
     <disable_collisions link1="kuka_sensor_flange1" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange1" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange1" link2="table_leg3_link" reason="Never"/>
-    <disable_collisions link1="kuka_sensor_flange1" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange2" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange2" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange2" link2="omron/left_inner_finger" reason="Never"/>
@@ -1060,7 +1070,6 @@
     <disable_collisions link1="omron/left_inner_finger_pad" link2="structure_fake_structure_left_foot" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="structure_fake_structure_right_foot" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="structure_link_1" reason="Never"/>
-    <disable_collisions link1="omron/left_inner_finger_pad" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="table_leg2_link" reason="Never"/>
@@ -1273,7 +1282,6 @@
     <disable_collisions link1="omron/right_inner_finger_pad" link2="structure_fake_structure_left_foot" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="structure_fake_structure_right_foot" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="structure_link_1" reason="Never"/>
-    <disable_collisions link1="omron/right_inner_finger_pad" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="table_leg2_link" reason="Never"/>

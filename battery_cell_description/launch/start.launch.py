@@ -28,25 +28,25 @@ def launch_setup(context, *args, **kwargs):
     fake = LaunchConfiguration('fake')
     rviz_gui = LaunchConfiguration('rviz_gui')
 
-    # robot_description = {
-    #     'robot_description':
-    #     ParameterValue(
-    #         Command(
-    #             [PathJoinSubstitution([FindExecutable(name='xacro')]),
-    #                 " ",
-    #                 PathJoinSubstitution(
-    #                     [FindPackageShare('battery_cell_description'),
-    #                     "urdf",
-    #                     "battery_cell_rviz.xacro"]
-    #                 ),
-    #                 " ",
-    #                 "use_fake_hardware:='",
-    #                 fake.perform(context),
-    #                 "'",]
-    #         ),
-    #         value_type=str
-    #     )
-    # }
+    robot_description = {
+        'robot_description':
+        ParameterValue(
+            Command(
+                [PathJoinSubstitution([FindExecutable(name='xacro')]),
+                    " ",
+                    PathJoinSubstitution(
+                        [FindPackageShare('battery_cell_description'),
+                        "urdf",
+                        "battery_cell_rviz.xacro"]
+                    ),
+                    " ",
+                    "use_fake_hardware:='",
+                    fake.perform(context),
+                    "'",]
+            ),
+            value_type=str
+        )
+    }
 
     moveit_config = (
         MoveItConfigsBuilder("battery_cell")
@@ -64,9 +64,9 @@ def launch_setup(context, *args, **kwargs):
     )
 
     controller_config = PathJoinSubstitution(
-        [FindPackageShare("battery_cell_moveit_config"),
+        [FindPackageShare("battery_cell_description"),
          "config",
-         "ros2_controllers.yaml"]
+         "ros2_controller_config.yaml"]
     )
 
     rviz_config_file = PathJoinSubstitution(
@@ -85,14 +85,17 @@ def launch_setup(context, *args, **kwargs):
         package="controller_manager",
         executable="ros2_control_node",
         output="both",
-        parameters=[moveit_config.robot_description, controller_config],
+        # parameters=[controller_config],
+        # remappings=[("/controller_manager/robot description", "/robot_description")],
+        parameters=[robot_description, controller_config],
+        # arguments=["--ros-args", "--log-level", "debug"],
     )
 
     robot_state_pub_node = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
         output="both",
-        parameters=[moveit_config.robot_description],
+        parameters=[robot_description],
     )
 
     rviz_node = Node(
@@ -144,39 +147,39 @@ def launch_setup(context, *args, **kwargs):
         package="controller_manager",
         executable="spawner",
         arguments=["kuka_jt_controller",
-                   "-c",
+                   "--controller-manager",
                    "/controller_manager",]
                 #    "--inactive"], # start the controller in an INACTIVE state
     )
 
-    comau_jt_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["comau_jt_controller",
-                   "-c",
-                   "/controller_manager",
-                   "--inactive"], # start the controller in an INACTIVE state
-    )
+    # comau_jt_controller_spawner = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=["comau_jt_controller",
+    #                "--controller-manager",
+    #                "/controller_manager",]
+    #             #    "--inactive"], # start the controller in an INACTIVE state
+    # )
     
     delta_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["delta_controller",
-                   "-c",
+                   "--controller-manager",
                    "/controller_manager"],
     )
     digital_io_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["digital_io_controller",
-                   "-c",
+                   "--controller-manager",
                    "/controller_manager"],
     )
     ft_ati_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["ft_ati_controller",
-                   "-c",
+                   "--controller-manager",
                    "/controller_manager"],
     )
 
@@ -225,9 +228,9 @@ def launch_setup(context, *args, **kwargs):
         joint_state_broadcaster_spawner,
         kuka_jt_controller_spawner,
         # comau_jt_controller_spawner,
-        delta_controller_spawner,
-        digital_io_controller_spawner,
-        ft_ati_controller_spawner,
+        # delta_controller_spawner,
+        # digital_io_controller_spawner,
+        # ft_ati_controller_spawner,
         move_group_node,
         delta_utils_node,
         battery_cell_utils_node,
