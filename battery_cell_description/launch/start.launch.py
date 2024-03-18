@@ -214,7 +214,7 @@ def launch_setup(context, *args, **kwargs):
         ]),
         launch_arguments={
             'use_fake_hardware': fake,
-            'robot_description': moveit_config.robot_description,
+            # 'robot_description': moveit_config.robot_description,
         }.items()
     )
 

@@ -9,7 +9,7 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     launch_args = [
         DeclareLaunchArgument("use_fake_hardware"),
-        DeclareLaunchArgument("robot_description"),
+        # DeclareLaunchArgument("robot_description"),
         # DeclareLaunchArgument("robot_description_semantic"),
         DeclareLaunchArgument("ns", default_value="omron"),
         # DeclareLaunchArgument("controller_manager")
@@ -19,7 +19,7 @@ def generate_launch_description():
 
 def launch_setup(context, *args, **kwargs):
     use_fake_hardware  = LaunchConfiguration("use_fake_hardware")
-    robot_description =  LaunchConfiguration("robot_description")
+    # robot_description =  LaunchConfiguration("robot_description")
     ns =                 LaunchConfiguration("ns")
     # controller_manager = LaunchConfiguration("controller_manager")
 
@@ -40,7 +40,9 @@ def launch_setup(context, *args, **kwargs):
         executable="ros2_control_node",
         # name="controller_manager",
         namespace=ns,
-        parameters=[ros2_controllers_path, ld60_params, robot_description],
+        parameters=[ros2_controllers_path, ld60_params],
+        remappings=[("/omron/controller_manager/robot_description", "/robot_description"),
+                    ("/omron/joint_states","/joint_states")],
         output="screen",
         ros_arguments=["--log-level","info"]
     )
@@ -61,7 +63,7 @@ def launch_setup(context, *args, **kwargs):
         package="controller_manager",
         executable="spawner",
         name="omron_tm12_controller_spawner",
-        arguments=["joint_trajectory_controller", "-p", ros2_controllers_path,
+        arguments=["omron_jt_controller", "-p", ros2_controllers_path,
                     "-c", controller_manager
                     ],
         output="screen"
@@ -85,9 +87,12 @@ def launch_setup(context, *args, **kwargs):
     )
 
     return [
-        ros2_control_node,
         TimerAction(
-            period=3.0,
+            period=5.0,
+            actions=[ros2_control_node],
+        ),
+        TimerAction(
+            period=10.0,
             actions=[
                 omron_joint_state_broadcaster_spawner,
                 omron_tm12_controller_spawner,

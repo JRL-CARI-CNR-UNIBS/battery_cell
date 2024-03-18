@@ -6,7 +6,7 @@ moveit_simple_controller_manager:
   controller_names:
     - kuka_jt_controller
     - comau_jt_controller
-    - omron_controller_manager
+    - omron/omron_jt_controller
 
   kuka_jt_controller:
     type: FollowJointTrajectory
@@ -35,7 +35,7 @@ moveit_simple_controller_manager:
       - comau_joint_6
     action_ns: follow_joint_trajectory
     default: true
-  omron_controller_manager:
+  omron/omron_jt_controller:
     type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
     default: true
@@ -46,5 +46,3 @@ moveit_simple_controller_manager:
       - omron/joint_4
       - omron/joint_5
       - omron/joint_6
-    action_ns: omron/follow_joint_trajectory
-    default: true
