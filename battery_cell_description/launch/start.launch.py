@@ -88,7 +88,7 @@ def launch_setup(context, *args, **kwargs):
         # parameters=[controller_config],
         # remappings=[("/controller_manager/robot description", "/robot_description")],
         parameters=[robot_description, controller_config],
-        # arguments=["--ros-args", "--log-level", "debug"],
+        arguments=["--ros-args", "--log-level", "info"],
     )
 
     robot_state_pub_node = Node(
@@ -148,8 +148,8 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["kuka_jt_controller",
                    "--controller-manager",
-                   "/controller_manager",]
-                #    "--inactive"], # start the controller in an INACTIVE state
+                   "/controller_manager"],
+                   #"--inactive"], # start the controller in an INACTIVE state
     )
 
     comau_jt_controller_spawner = Node(
@@ -159,6 +159,24 @@ def launch_setup(context, *args, **kwargs):
                    "--controller-manager",
                    "/controller_manager",]
                 #    "--inactive"], # start the controller in an INACTIVE state
+    )
+
+    comau_scaled_fjt_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["comau_scaled_fjt_controller",
+                   "--controller-manager",
+                   "/controller_manager",
+                   "--inactive"], # start the controller in an INACTIVE state
+    )
+
+    kuka_scaled_fjt_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["kuka_scaled_fjt_controller",
+                   "--controller-manager",
+                   "/controller_manager",
+                   "--inactive"], # start the controller in an INACTIVE state
     )
     
     delta_controller_spawner = Node(
@@ -195,11 +213,11 @@ def launch_setup(context, *args, **kwargs):
         arguments = ['--x', '0.0', '--y', '0.0', '--z', '0.22', '--qx', '0.0', '--qy', '0.0', '--qz', '0.0', '--qw', '1.0', '--frame-id', 'kuka_sensor', '--child-frame-id', 'kuka_closed_tip'],
     )
 
-    # map_tf_spawner = Node(
-    #     package='tf2_ros',
-    #     executable='static_transform_publisher',
-    #     arguments = ['--x', '0.0', '--y', '0.0', '--z', '0.0', '--qx', '0.0', '--qy', '0.0', '--qz', '0.0', '--qw', '1.0', '--frame-id', 'world', '--child-frame-id', 'omron/map'],
-    # )
+    map_tf_spawner = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments = ['--x', '0.0', '--y', '0.0', '--z', '0.0', '--qx', '0.0', '--qy', '0.0', '--qz', '0.0', '--qw', '1.0', '--frame-id', 'world', '--child-frame-id', 'omron/map'],
+    )
 
     # omron_base_link_tf_spawner = Node(
     #     package='tf2_ros',
@@ -217,6 +235,7 @@ def launch_setup(context, *args, **kwargs):
                 ]),
                 launch_arguments={
                     'use_fake_hardware': fake,
+                    # 'use_fake_hardware': 'false',
                     # 'robot_description': moveit_config.robot_description,
                 }.items()
     )
@@ -228,6 +247,8 @@ def launch_setup(context, *args, **kwargs):
         joint_state_broadcaster_spawner,
         kuka_jt_controller_spawner,
         comau_jt_controller_spawner,
+        kuka_scaled_fjt_controller_spawner,
+        comau_scaled_fjt_controller_spawner,
         # delta_controller_spawner,
         # digital_io_controller_spawner,
         # ft_ati_controller_spawner,
@@ -237,7 +258,7 @@ def launch_setup(context, *args, **kwargs):
         cameras_tf_spawner,
         closed_tip_tf_spawner,
         # omron_utils_launch_description,
-        # map_tf_spawner,
+        map_tf_spawner,
         # omron_base_link_tf_spawner,
         ]
 

@@ -131,6 +131,7 @@ kuka_scaled_fjt_controller:
     open_loop_control: true
     constraints:
       goal_time: 0.0
+    speed_ovr_topic: "speed_ovr2"
 comau_scaled_fjt_controller:
   ros__parameters:
     joints:
