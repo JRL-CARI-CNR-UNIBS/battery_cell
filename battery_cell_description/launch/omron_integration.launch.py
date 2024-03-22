@@ -42,7 +42,9 @@ def launch_setup(context, *args, **kwargs):
         namespace=ns,
         parameters=[ros2_controllers_path, ld60_params],
         remappings=[("/omron/controller_manager/robot_description", "/robot_description"),
-                    ("/omron/joint_states","/joint_states")],
+                    ("/omron/joint_states","/joint_states"),
+                    ],
+
         output="screen",
         ros_arguments=["--log-level","info"]
     )
@@ -64,8 +66,7 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         name="omron_tm12_controller_spawner",
         arguments=["omron_jt_controller", "-p", ros2_controllers_path,
-                    "-c", controller_manager
-                    ],
+                    "-c", controller_manager],
         output="screen"
     )
 
@@ -92,7 +93,7 @@ def launch_setup(context, *args, **kwargs):
             actions=[ros2_control_node],
         ),
         TimerAction(
-            period=10.0,
+            period=7.0,
             actions=[
                 omron_joint_state_broadcaster_spawner,
                 omron_tm12_controller_spawner,

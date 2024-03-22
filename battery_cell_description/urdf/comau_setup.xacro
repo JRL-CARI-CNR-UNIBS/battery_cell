@@ -43,8 +43,17 @@
     </link>
 
     <xacro:include filename="$(find nj-220-27_description)/urdf/nj-220-27.xacro" />
-    <xacro:nj-220-27 prefix="${prefix}${nj_prefix}"
-                     use_fake_hardware="${use_fake_hardware}"/>
+    <xacro:nj-220-27 
+                    prefix="${prefix}${nj_prefix}"
+                    use_fake_hardware="${use_fake_hardware}"
+                    mqtt_broker_ip="10.7.7.245"
+                    mqtt_client_id="comau_c5gopen_hw_mqtt_client"
+                    mqtt_port="1883"
+                    mqtt_loop_timeout="1"
+                    topic_fdb_pos_name="robot/arm1/real_joints_positions"
+                    topic_fdb_vel_name="robot/arm1/real_joints_velocities"
+                    topic_cmd_name="robot/arm1/target_joints_trajectory"
+                    read_only="false"/>
 
     <joint name="${prefix}${nj_prefix}basement_to_robot" type="fixed">
       <origin

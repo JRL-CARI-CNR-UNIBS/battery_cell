@@ -13,10 +13,10 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, OpaqueFunction, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, OpaqueFunction, IncludeLaunchDescription, GroupAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command, FindExecutable
-from launch_ros.actions import Node
+from launch_ros.actions import Node, SetRemap
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.parameter_descriptions import ParameterValue
 from launch.conditions import IfCondition
@@ -152,14 +152,14 @@ def launch_setup(context, *args, **kwargs):
                 #    "--inactive"], # start the controller in an INACTIVE state
     )
 
-    # comau_jt_controller_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["comau_jt_controller",
-    #                "--controller-manager",
-    #                "/controller_manager",]
-    #             #    "--inactive"], # start the controller in an INACTIVE state
-    # )
+    comau_jt_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["comau_jt_controller",
+                   "--controller-manager",
+                   "/controller_manager",]
+                #    "--inactive"], # start the controller in an INACTIVE state
+    )
     
     delta_controller_spawner = Node(
         package="controller_manager",
@@ -208,17 +208,17 @@ def launch_setup(context, *args, **kwargs):
     # )
 
     omron_utils_launch_description = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            PathJoinSubstitution([
-                FindPackageShare("battery_cell_description"),
-                "launch",
-                "omron_integration.launch.py"
-            ])
-        ]),
-        launch_arguments={
-            'use_fake_hardware': fake,
-            # 'robot_description': moveit_config.robot_description,
-        }.items()
+                PythonLaunchDescriptionSource([
+                    PathJoinSubstitution([
+                        FindPackageShare("battery_cell_description"),
+                        "launch",
+                        "omron_integration.launch.py"
+                    ])
+                ]),
+                launch_arguments={
+                    'use_fake_hardware': fake,
+                    # 'robot_description': moveit_config.robot_description,
+                }.items()
     )
 
     nodes_to_start = [
@@ -227,7 +227,7 @@ def launch_setup(context, *args, **kwargs):
         rviz_node,
         joint_state_broadcaster_spawner,
         kuka_jt_controller_spawner,
-        # comau_jt_controller_spawner,
+        comau_jt_controller_spawner,
         # delta_controller_spawner,
         # digital_io_controller_spawner,
         # ft_ati_controller_spawner,
@@ -236,7 +236,7 @@ def launch_setup(context, *args, **kwargs):
         battery_cell_utils_node,
         cameras_tf_spawner,
         closed_tip_tf_spawner,
-        omron_utils_launch_description,
+        # omron_utils_launch_description,
         # map_tf_spawner,
         # omron_base_link_tf_spawner,
         ]

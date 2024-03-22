@@ -10,39 +10,39 @@ default_acceleration_scaling_factor: 0.1
 joint_limits:
   comau_joint_1:
     has_velocity_limits: true
-    max_velocity: 1.74533
-    has_acceleration_limits: false
-    max_acceleration: 0
+    max_velocity: 2.616
+    has_acceleration_limits: true
+    max_acceleration: 1.0
   comau_joint_2:
     has_velocity_limits: true
-    max_velocity: 1.5708
-    has_acceleration_limits: false
-    max_acceleration: 0
+    max_velocity: 2.616
+    has_acceleration_limits: true
+    max_acceleration: 1.0
   comau_joint_2m:
-    has_velocity_limits: false
-    max_velocity: 0
-    has_acceleration_limits: false
-    max_acceleration: 0
+    has_velocity_limits: true
+    max_velocity: 2.616
+    has_acceleration_limits: true
+    max_acceleration: 1.0
   comau_joint_3:
     has_velocity_limits: true
-    max_velocity: 1.9198599999999999
-    has_acceleration_limits: false
-    max_acceleration: 0
+    max_velocity: 2.616
+    has_acceleration_limits: true
+    max_acceleration: 1.0
   comau_joint_4:
     has_velocity_limits: true
-    max_velocity: 2.2689300000000001
-    has_acceleration_limits: false
-    max_acceleration: 0
+    max_velocity: 2.616
+    has_acceleration_limits: true
+    max_acceleration: 1.0
   comau_joint_5:
     has_velocity_limits: true
-    max_velocity: 2.2689300000000001
-    has_acceleration_limits: false
-    max_acceleration: 0
+    max_velocity: 2.616
+    has_acceleration_limits: true
+    max_acceleration: 1.0
   comau_joint_6:
     has_velocity_limits: true
-    max_velocity: 3.4033899999999999
-    has_acceleration_limits: false
-    max_acceleration: 0
+    max_velocity: 2.616
+    has_acceleration_limits: true
+    max_acceleration: 1.0
   kuka_joint1:
     has_velocity_limits: true
     max_velocity: 0.3 # 3.0543300000000002

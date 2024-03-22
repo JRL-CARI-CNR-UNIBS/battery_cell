@@ -40,7 +40,9 @@
   </joint>
 
   <xacro:include filename="$(find battery_cell_description)/urdf/omron_setup.xacro" />
-  <xacro:omron_setup use_fake_hardware="${use_fake_hardware}"/>
+    <xacro:omron_setup use_fake_hardware="true"/>
+
+  <!-- <xacro:omron_setup use_fake_hardware="${use_fake_hardware}"/> -->
   <joint name="world_to_map" type="fixed">
     <parent link="world"/>
     <child link="omron/map"/>

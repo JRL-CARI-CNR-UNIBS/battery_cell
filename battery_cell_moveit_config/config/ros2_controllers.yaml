@@ -6,25 +6,26 @@ controller_manager:
     kuka_jt_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
-
     comau_jt_controller:
       type: joint_trajectory_controller/JointTrajectoryController
-
 
     delta_controller:
       type: ethercat_utils/GPIOController
 
-
     digital_io_controller:
       type: ethercat_utils/GPIOController
-
 
     ft_ati_controller:
       type: ethercat_utils/GPIOController
 
-
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
+
+    kuka_scaled_fjt_controller:
+      type: "scaled_fjt_controller/ScaledFjtController"
+
+    comau_scaled_fjt_controller:
+      type: "scaled_fjt_controller/ScaledFjtController"
 
 kuka_jt_controller:
   ros__parameters:
@@ -112,3 +113,38 @@ ft_ati_controller:
       - analog_inputs/torque_x
       - analog_inputs/torque_y
       - analog_inputs/torque_z
+kuka_scaled_fjt_controller:
+  ros__parameters:
+    joints:
+      - structure_joint_1
+      - kuka_joint1
+      - kuka_joint2
+      - kuka_joint3
+      - kuka_joint4
+      - kuka_joint5
+      - kuka_joint6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    open_loop_control: true
+    constraints:
+      goal_time: 0.0
+comau_scaled_fjt_controller:
+  ros__parameters:
+    joints:
+      - comau_joint_1
+      - comau_joint_2
+      - comau_joint_3
+      - comau_joint_4
+      - comau_joint_5
+      - comau_joint_6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    open_loop_control: true
+    constraints:
+      goal_time: 0.0
