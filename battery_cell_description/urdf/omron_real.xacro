@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<robot name="imm_real" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:arg name="name" default="imm"/>
+    <xacro:arg name="prefix" default="omron/"/>
+    <xacro:include filename="$(find battery_cell_description)/urdf/omron_setup.xacro"/>
+    <xacro:omron_setup robot_name="$(arg name)" prefix="$(arg prefix)" use_fake_hardware="false"/>
+</robot>

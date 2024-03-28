@@ -9,26 +9,26 @@ moveit_simple_controller_manager:
     - kuka_scaled_fjt_controller
     - comau_scaled_fjt_controller
     # - omron_jt_controller
-    # - omron
+    - omron
 
   kuka_jt_controller:
     type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
-    default: true
+    default: false
     joints:
-      - structure_joint_1
       - kuka_joint1
       - kuka_joint2
       - kuka_joint3
       - kuka_joint4
       - kuka_joint5
       - kuka_joint6
+      - structure_joint_1
     action_ns: follow_joint_trajectory
-    default: true
+    default: false
   comau_jt_controller:
     type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
-    default: true
+    default: false
     joints:
       - comau_joint_1
       - comau_joint_2
@@ -37,26 +37,25 @@ moveit_simple_controller_manager:
       - comau_joint_5
       - comau_joint_6
     action_ns: follow_joint_trajectory
+    default: false
+  omron:
+    type: FollowJointTrajectory
+    action_ns: omron_jt_controller/follow_joint_trajectory
     default: true
-  # omron_jt_controller:
-  # omron:
-  #   type: FollowJointTrajectory
-  #   action_ns: omron_jt_controller/follow_joint_trajectory
-  #   default: true
-  #   joints:
-  #     - omron/joint_1
-  #     - omron/joint_2
-  #     - omron/joint_3
-  #     - omron/joint_4
-  #     - omron/joint_5
-  #     - omron/joint_6
-  #   action_ns: omron_jt_controller/follow_joint_trajectory
-  #   default: true
+    joints:
+      - omron/joint_1
+      - omron/joint_2
+      - omron/joint_3
+      - omron/joint_4
+      - omron/joint_5
+      - omron/joint_6
+    action_ns: omron_jt_controller/follow_joint_trajectory
+    default: true
 
   kuka_scaled_fjt_controller:
     type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
-    default: false
+    default: true
     joints:
       - structure_joint_1
       - kuka_joint1
@@ -66,7 +65,7 @@ moveit_simple_controller_manager:
       - kuka_joint5
       - kuka_joint6
     action_ns: follow_joint_trajectory
-    default: false
+    default: true
     execution_duration_monitoring: false
     allowed_goal_duration_margin: 1000000000
   comau_scaled_fjt_controller:

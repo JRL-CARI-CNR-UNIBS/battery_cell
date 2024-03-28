@@ -13,7 +13,7 @@ delta_utils:
       controller_name: delta_controller
       state_interface: structure_joint_1/moo_display
 
-    joint_trajectory_controller_name: kuka_jt_controller #TODO: convert to list and add the controller for the COMAU robot
+    joint_trajectory_controller_name: kuka_scaled_fjt_controller #TODO: convert to list and add the controller for the COMAU robot
 
 battery_cell_utils:
   ros__parameters:

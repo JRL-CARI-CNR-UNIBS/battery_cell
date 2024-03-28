@@ -13,9 +13,9 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, OpaqueFunction, IncludeLaunchDescription, GroupAction
+from launch.actions import DeclareLaunchArgument, OpaqueFunction, IncludeLaunchDescription, ExecuteProcess
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command, FindExecutable
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command, FindExecutable, NotSubstitution
 from launch_ros.actions import Node, SetRemap
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.parameter_descriptions import ParameterValue
@@ -148,8 +148,8 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["kuka_jt_controller",
                    "--controller-manager",
-                   "/controller_manager"],
-                   #"--inactive"], # start the controller in an INACTIVE state
+                   "/controller_manager",
+                   "--inactive"], # start the controller in an INACTIVE state
     )
 
     comau_jt_controller_spawner = Node(
@@ -157,8 +157,8 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["comau_jt_controller",
                    "--controller-manager",
-                   "/controller_manager",]
-                #    "--inactive"], # start the controller in an INACTIVE state
+                   "/controller_manager",
+                    "--inactive"], # start the controller in an INACTIVE state
     )
 
     comau_scaled_fjt_controller_spawner = Node(
@@ -166,8 +166,8 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["comau_scaled_fjt_controller",
                    "--controller-manager",
-                   "/controller_manager",
-                   "--inactive"], # start the controller in an INACTIVE state
+                   "/controller_manager"],
+                   #"--inactive"], # start the controller in an INACTIVE state
     )
 
     kuka_scaled_fjt_controller_spawner = Node(
@@ -175,8 +175,8 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["kuka_scaled_fjt_controller",
                    "--controller-manager",
-                   "/controller_manager",
-                   "--inactive"], # start the controller in an INACTIVE state
+                   "/controller_manager"],
+                   #"--inactive"], # start the controller in an INACTIVE state
     )
     
     delta_controller_spawner = Node(
@@ -219,26 +219,43 @@ def launch_setup(context, *args, **kwargs):
         arguments = ['--x', '0.0', '--y', '0.0', '--z', '0.0', '--qx', '0.0', '--qy', '0.0', '--qz', '0.0', '--qw', '1.0', '--frame-id', 'world', '--child-frame-id', 'omron/map'],
     )
 
-    # omron_base_link_tf_spawner = Node(
-    #     package='tf2_ros',
-    #     executable='static_transform_publisher',
-    #     arguments = ['--x', '0.0', '--y', '0.0', '--z', '0.0', '--qx', '0.0', '--qy', '0.0', '--qz', '0.0', '--qw', '1.0', '--frame-id', 'omron/map', '--child-frame-id', 'omron/base_link'],
-    # )
+    ###########
+    ## Omron ##
+    ###########
 
-    omron_utils_launch_description = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([
-                    PathJoinSubstitution([
-                        FindPackageShare("battery_cell_description"),
-                        "launch",
-                        "omron_integration.launch.py"
-                    ])
-                ]),
-                launch_arguments={
-                    'use_fake_hardware': fake,
-                    # 'use_fake_hardware': 'false',
-                    # 'robot_description': moveit_config.robot_description,
-                }.items()
+    omron_robot_description = {
+        'robot_description':
+        ParameterValue(
+            Command(
+                [PathJoinSubstitution([FindExecutable(name='xacro')]),
+                    " ",
+                    PathJoinSubstitution(
+                        [FindPackageShare('battery_cell_description'),
+                        "urdf",
+                        "omron_real.xacro"]
+                    ),
+                    ], # TODO: cambia in false
+
+            ),
+            value_type=str
+        )
+    }
+
+    # TODO: sostituisci con pubblicatore solo di robot_description
+    omron_robot_description_pub = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        namespace="omron",
+        parameters=[omron_robot_description],
+        remappings=[("/tf", "/omron/tf"), ("/tf_static","/omron/tf_static"), # intercept tf
+                    ("/omron/joint_states", "/joint_states")],
+        # condition=IfCondition(NotSubstitution(fake)),
     )
+
+
+    ##############
+    ## To Start ##
+    ##############
 
     nodes_to_start = [
         control_node,
@@ -249,7 +266,7 @@ def launch_setup(context, *args, **kwargs):
         comau_jt_controller_spawner,
         kuka_scaled_fjt_controller_spawner,
         comau_scaled_fjt_controller_spawner,
-        # delta_controller_spawner,
+        delta_controller_spawner,
         # digital_io_controller_spawner,
         # ft_ati_controller_spawner,
         move_group_node,
@@ -257,9 +274,8 @@ def launch_setup(context, *args, **kwargs):
         battery_cell_utils_node,
         cameras_tf_spawner,
         closed_tip_tf_spawner,
-        # omron_utils_launch_description,
+        # omron_robot_description_pub,
         map_tf_spawner,
-        # omron_base_link_tf_spawner,
         ]
 
     return nodes_to_start
@@ -294,7 +310,7 @@ def generate_launch_description():
     return LaunchDescription(
         launch_arguments +
         [
-            cameras_launch_description,
+            # cameras_launch_description,
             # omron_utils_launch_description,
             OpaqueFunction(function=launch_setup)
         ]

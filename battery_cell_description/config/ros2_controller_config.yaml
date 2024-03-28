@@ -27,10 +27,10 @@ controller_manager:
       type: joint_state_broadcaster/JointStateBroadcaster
     
     kuka_scaled_fjt_controller:
-      type: "scaled_fjt_controller/ScaledFjtController"
+      type: scaled_fjt_controller/ScaledFjtController
 
     comau_scaled_fjt_controller:
-      type: "scaled_fjt_controller/ScaledFjtController"
+      type: scaled_fjt_controller/ScaledFjtController
 
 joint_state_broadcaster:
   ros__parameters:

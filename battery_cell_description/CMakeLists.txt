@@ -13,4 +13,8 @@ install(
         share/${PROJECT_NAME}
 )
 
+install(PROGRAMS
+        scripts/clock_node.py
+        DESTINATION lib/${PROJECT_NAME})
+
 ament_package()

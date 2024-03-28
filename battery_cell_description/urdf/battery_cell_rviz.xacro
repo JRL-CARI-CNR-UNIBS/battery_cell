@@ -39,15 +39,14 @@
       <child link="comau_basement"/>
   </joint>
 
-  <!-- <xacro:include filename="$(find battery_cell_description)/urdf/omron_setup.xacro" />
-    <xacro:omron_setup use_fake_hardware="true"/> -->
+  <xacro:include filename="$(find battery_cell_description)/urdf/omron_setup.xacro" />
+  <!-- the real robot hardware_interface will be published by other means -->
+  <xacro:omron_setup use_fake_hardware="true"/> 
 
-  <!-- <xacro:omron_setup use_fake_hardware="${use_fake_hardware}"/> -->
-
-  <!-- <joint name="world_to_map" type="fixed">
+  <joint name="world_to_map" type="fixed">
     <parent link="world"/>
     <child link="omron/map"/>
     <origin xyz="0.0 -4.0 0.0"/>
-  </joint> -->
+  </joint>
 
 </robot>
