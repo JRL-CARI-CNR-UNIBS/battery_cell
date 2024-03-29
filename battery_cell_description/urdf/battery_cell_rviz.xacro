@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot name="battery_cell" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:arg name="use_fake_hardware" default="true"/>
+  <xacro:arg name="include_omron" default="true"/>
   <xacro:property name="use_fake_hardware" value="'$(arg use_fake_hardware)'" />
 
   <link name="world"/>
@@ -39,14 +40,16 @@
       <child link="comau_basement"/>
   </joint>
 
-  <xacro:include filename="$(find battery_cell_description)/urdf/omron_setup.xacro" />
-  <!-- the real robot hardware_interface will be published by other means -->
-  <xacro:omron_setup use_fake_hardware="true"/> 
+  <xacro:if value="$(arg include_omron)">
+    <xacro:include filename="$(find battery_cell_description)/urdf/omron_setup.xacro" />
+    <!-- the real robot hardware_interface will be published by other means -->
+    <xacro:omron_setup use_fake_hardware="true"/> 
 
-  <joint name="world_to_map" type="fixed">
-    <parent link="world"/>
-    <child link="omron/map"/>
-    <origin xyz="0.0 -4.0 0.0"/>
-  </joint>
+    <joint name="world_to_map" type="fixed">
+      <parent link="world"/>
+      <child link="omron/map"/>
+      <origin xyz="0.0 -4.0 0.0"/>
+    </joint>
+  </xacro:if>
 
 </robot>

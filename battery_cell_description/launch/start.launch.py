@@ -27,6 +27,8 @@ def launch_setup(context, *args, **kwargs):
 
     fake = LaunchConfiguration('fake')
     rviz_gui = LaunchConfiguration('rviz_gui')
+    include_omron = LaunchConfiguration('include_omron')
+
 
     robot_description = {
         'robot_description':
@@ -39,10 +41,8 @@ def launch_setup(context, *args, **kwargs):
                         "urdf",
                         "battery_cell_rviz.xacro"]
                     ),
-                    " ",
-                    "use_fake_hardware:='",
-                    fake.perform(context),
-                    "'",]
+                    " ", "use_fake_hardware:='", fake.perform(context),"'",
+                    " ", "include_omron:=", include_omron]
             ),
             value_type=str
         )
@@ -234,8 +234,7 @@ def launch_setup(context, *args, **kwargs):
                         "urdf",
                         "omron_real.xacro"]
                     ),
-                    ], # TODO: cambia in false
-
+                    ],
             ),
             value_type=str
         )
@@ -249,7 +248,7 @@ def launch_setup(context, *args, **kwargs):
         parameters=[omron_robot_description],
         remappings=[("/tf", "/omron/tf"), ("/tf_static","/omron/tf_static"), # intercept tf
                     ("/omron/joint_states", "/joint_states")],
-        # condition=IfCondition(NotSubstitution(fake)),
+        condition=IfCondition(include_omron),
     )
 
 
@@ -274,7 +273,7 @@ def launch_setup(context, *args, **kwargs):
         battery_cell_utils_node,
         cameras_tf_spawner,
         closed_tip_tf_spawner,
-        # omron_robot_description_pub,
+        omron_robot_description_pub,
         map_tf_spawner,
         ]
 
@@ -289,6 +288,11 @@ def generate_launch_description():
     ))
     launch_arguments.append(DeclareLaunchArgument(
         'rviz_gui',
+        default_value="true"
+    ))
+    launch_arguments.append(DeclareLaunchArgument(
+        'include_omron',
+        description="Include omron imm in the cell, both nodes and robot_description",
         default_value="true"
     ))
 
