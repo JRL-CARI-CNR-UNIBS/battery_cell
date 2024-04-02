@@ -207,17 +207,18 @@ def launch_setup(context, *args, **kwargs):
         arguments = ['--x', '1.086547', '--y', '0.676920', '--z', '1.546772', '--qx', '0.037883', '--qy', '0.035933', '--qz', '-0.692783', '--qw', '0.719253', '--frame-id', 'world', '--child-frame-id', 'zed_camera_link'],
     )
 
-    closed_tip_tf_spawner = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        arguments = ['--x', '0.0', '--y', '0.0', '--z', '0.22', '--qx', '0.0', '--qy', '0.0', '--qz', '0.0', '--qw', '1.0', '--frame-id', 'kuka_sensor', '--child-frame-id', 'kuka_closed_tip'],
-    )
+    # map_tf_spawner = Node(
+    #     package='tf2_ros',
+    #     executable='static_transform_publisher',
+    #     arguments = ['--x', '3.80', '--y', '0.52', '--z', '0.0', '--yaw', '-1.5707963267948966', '--frame-id', 'world', '--child-frame-id', 'omron/map'],
+    # )
 
-    map_tf_spawner = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        arguments = ['--x', '0.0', '--y', '0.0', '--z', '0.0', '--qx', '0.0', '--qy', '0.0', '--qz', '0.0', '--qw', '1.0', '--frame-id', 'world', '--child-frame-id', 'omron/map'],
-    )
+    # # Used just for camera calibration
+    # kuka_closed_tip_tf_spawner = Node(
+    #     package='tf2_ros',
+    #     executable='static_transform_publisher',
+    #     arguments = ['--x', '0.0', '--y', '0.0', '--z', '0.22', '--qx', '0.0', '--qy', '0.0', '--qz', '0.0', '--qw', '1.0', '--frame-id', 'kuka_sensor', '--child-frame-id', 'kuka_closed_tip'],
+    # )
 
     ###########
     ## Omron ##
@@ -246,7 +247,7 @@ def launch_setup(context, *args, **kwargs):
         executable="robot_state_publisher",
         namespace="omron",
         parameters=[omron_robot_description],
-        remappings=[("/tf", "/omron/tf"), ("/tf_static","/omron/tf_static"), # intercept tf
+        remappings=[#("/tf", "/omron/tf"), ("/tf_static","/omron/tf_static"), # intercept tf
                     ("/omron/joint_states", "/joint_states")],
         condition=IfCondition(include_omron),
     )
@@ -272,9 +273,9 @@ def launch_setup(context, *args, **kwargs):
         delta_utils_node,
         battery_cell_utils_node,
         cameras_tf_spawner,
-        closed_tip_tf_spawner,
+        # kuka_closed_tip_tf_spawner,
+        # map_tf_spawner,
         omron_robot_description_pub,
-        map_tf_spawner,
         ]
 
     return nodes_to_start
@@ -314,7 +315,7 @@ def generate_launch_description():
     return LaunchDescription(
         launch_arguments +
         [
-            # cameras_launch_description,
+            cameras_launch_description,
             # omron_utils_launch_description,
             OpaqueFunction(function=launch_setup)
         ]

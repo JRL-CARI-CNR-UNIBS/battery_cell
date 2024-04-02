@@ -48,7 +48,7 @@
     <joint name="world_to_map" type="fixed">
       <parent link="world"/>
       <child link="omron/map"/>
-      <origin xyz="0.0 -4.0 0.0"/>
+      <origin xyz="3.80 0.52 0.0" rpy="0.0 0.0 -1.5707963267948966"/>
     </joint>
   </xacro:if>
 
