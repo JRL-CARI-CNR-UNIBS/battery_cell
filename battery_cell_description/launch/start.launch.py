@@ -15,34 +15,44 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, OpaqueFunction, IncludeLaunchDescription, ExecuteProcess
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command, FindExecutable, NotSubstitution
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command, FindExecutable, NotSubstitution, OrSubstitution
 from launch_ros.actions import Node, SetRemap
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.parameter_descriptions import ParameterValue
 from launch.conditions import IfCondition
 from moveit_configs_utils import MoveItConfigsBuilder
+from ament_index_python.packages import get_package_share_directory
+
 
 
 def launch_setup(context, *args, **kwargs):
 
     fake = LaunchConfiguration('fake')
+    kuka_fake = LaunchConfiguration('kuka_fake')
+    linear_axis_fake = LaunchConfiguration('linear_axis_fake')
+    comau_fake = LaunchConfiguration('comau_fake')
     rviz_gui = LaunchConfiguration('rviz_gui')
     include_omron = LaunchConfiguration('include_omron')
-
+    launch_trj_loader = LaunchConfiguration('launch_trj_loader')
 
     robot_description = {
         'robot_description':
         ParameterValue(
             Command(
-                [PathJoinSubstitution([FindExecutable(name='xacro')]),
+                [
+                    PathJoinSubstitution([FindExecutable(name='xacro')]),
                     " ",
                     PathJoinSubstitution(
                         [FindPackageShare('battery_cell_description'),
                         "urdf",
                         "battery_cell_rviz.xacro"]
                     ),
-                    " ", "use_fake_hardware:='", fake.perform(context),"'",
-                    " ", "include_omron:=", include_omron]
+                    " ", "use_fake_hardware:='",             fake.perform(context),"'",
+                    " ", "use_kuka_fake_hardware:='",        OrSubstitution(fake.perform(context),kuka_fake.perform(context)),"'",
+                    " ", "use_linear_axis_fake_hardware:='", OrSubstitution(fake.perform(context),linear_axis_fake.perform(context)),"'",
+                    " ", "use_comau_fake_hardware:='",       OrSubstitution(fake.perform(context),comau_fake.perform(context)),"'",
+                    " ", "include_omron:=",                  include_omron,
+                ]
             ),
             value_type=str
         )
@@ -207,12 +217,6 @@ def launch_setup(context, *args, **kwargs):
         arguments = ['--x', '1.086547', '--y', '0.676920', '--z', '1.546772', '--qx', '0.037883', '--qy', '0.035933', '--qz', '-0.692783', '--qw', '0.719253', '--frame-id', 'world', '--child-frame-id', 'zed_camera_link'],
     )
 
-    # map_tf_spawner = Node(
-    #     package='tf2_ros',
-    #     executable='static_transform_publisher',
-    #     arguments = ['--x', '3.80', '--y', '0.52', '--z', '0.0', '--yaw', '-1.5707963267948966', '--frame-id', 'world', '--child-frame-id', 'omron/map'],
-    # )
-
     # # Used just for camera calibration
     # kuka_closed_tip_tf_spawner = Node(
     #     package='tf2_ros',
@@ -252,12 +256,25 @@ def launch_setup(context, *args, **kwargs):
         condition=IfCondition(include_omron),
     )
 
+    ########################
+    ## Trj loader actions ##
+    ########################
+    trj_loader_launch_description = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('battery_cell_description'),
+                'launch',
+                'trajectory_loader_server.launch.py'
+            ])
+        ]),
+        condition=IfCondition(launch_trj_loader),
+    )
 
     ##############
     ## To Start ##
     ##############
 
-    nodes_to_start = [
+    what_to_launch = [
         control_node,
         robot_state_pub_node,
         rviz_node,
@@ -267,18 +284,18 @@ def launch_setup(context, *args, **kwargs):
         kuka_scaled_fjt_controller_spawner,
         comau_scaled_fjt_controller_spawner,
         delta_controller_spawner,
-        # digital_io_controller_spawner,
+        digital_io_controller_spawner,
         # ft_ati_controller_spawner,
         move_group_node,
         delta_utils_node,
         battery_cell_utils_node,
         cameras_tf_spawner,
-        # kuka_closed_tip_tf_spawner,
-        # map_tf_spawner,
         omron_robot_description_pub,
+        # kuka_closed_tip_tf_spawner,
+        trj_loader_launch_description,
         ]
 
-    return nodes_to_start
+    return what_to_launch
 
 
 def generate_launch_description():
@@ -288,12 +305,29 @@ def generate_launch_description():
         default_value='true'
     ))
     launch_arguments.append(DeclareLaunchArgument(
+        'kuka_fake',
+        default_value='false'
+    ))
+    launch_arguments.append(DeclareLaunchArgument(
+        'linear_axis_fake',
+        default_value='false'
+    ))
+    launch_arguments.append(DeclareLaunchArgument(
+        'comau_fake',
+        default_value='false'
+    ))
+    launch_arguments.append(DeclareLaunchArgument(
         'rviz_gui',
         default_value="true"
     ))
     launch_arguments.append(DeclareLaunchArgument(
         'include_omron',
         description="Include omron imm in the cell, both nodes and robot_description",
+        default_value="true"
+    ))
+    launch_arguments.append(DeclareLaunchArgument(
+        'launch_trj_loader',
+        description="Launch trajectory loader servers",
         default_value="true"
     ))
 
@@ -311,12 +345,10 @@ def generate_launch_description():
         }.items()
     )
 
-
     return LaunchDescription(
         launch_arguments +
         [
-            cameras_launch_description,
-            # omron_utils_launch_description,
+            # cameras_launch_description,
             OpaqueFunction(function=launch_setup)
         ]
     )

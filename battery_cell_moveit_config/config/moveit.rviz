@@ -4,7 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /MotionPlanning1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 397
   - Class: rviz_common/Help
@@ -153,6 +153,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          floor_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           kuka_base_link:
             Alpha: 1
             Show Axes: false
@@ -203,6 +208,163 @@ Visualization Manager:
             Show Trail: false
             Value: true
           kuka_sensor_flange2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/base:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/flange:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/ft300_sensor:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/ft_to_gripper:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/interface_coupling:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/left_bar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/left_inner_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/left_inner_finger_pad:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/left_inner_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/left_outer_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/left_outer_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_4:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_5:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_6:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/map:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/odom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/right_bar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/right_inner_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/right_inner_finger_pad:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/right_inner_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/right_outer_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/right_outer_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/robotiq_140_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/robotiq_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/robotiq_ft_frame_id:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/tip:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/tm_controller:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/tm_support:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -404,6 +566,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          floor_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           kuka_base_link:
             Alpha: 1
             Show Axes: false
@@ -454,6 +621,163 @@ Visualization Manager:
             Show Trail: false
             Value: true
           kuka_sensor_flange2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/base:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/flange:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/ft300_sensor:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/ft_to_gripper:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/interface_coupling:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/left_bar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/left_inner_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/left_inner_finger_pad:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/left_inner_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/left_outer_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/left_outer_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_4:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_5:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/link_6:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/map:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/odom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/right_bar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/right_inner_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/right_inner_finger_pad:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/right_inner_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/right_outer_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/right_outer_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/robotiq_140_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/robotiq_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/robotiq_ft_frame_id:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/tip:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          omron/tm_controller:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          omron/tm_support:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -522,11 +846,352 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-        Robot Alpha: 0.5
+        Robot Alpha: 1
         Show Robot Collision: false
         Show Robot Visual: true
       Value: true
       Velocity_Scaling_Factor: 1
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        comau_base_link:
+          Value: false
+        comau_basement:
+          Value: false
+        comau_flange:
+          Value: false
+        comau_link_1:
+          Value: false
+        comau_link_2:
+          Value: false
+        comau_link_2_1:
+          Value: false
+        comau_link_2_1_1:
+          Value: false
+        comau_link_2_2:
+          Value: false
+        comau_link_2_2_virtual:
+          Value: false
+        comau_link_2_4:
+          Value: false
+        comau_link_2_5:
+          Value: false
+        comau_link_2_6:
+          Value: false
+        comau_link_2_7:
+          Value: false
+        comau_link_3:
+          Value: false
+        comau_link_3_virtual:
+          Value: false
+        comau_link_4:
+          Value: false
+        comau_link_5:
+          Value: false
+        comau_link_6:
+          Value: false
+        floor_link:
+          Value: true
+        kuka_base_link:
+          Value: false
+        kuka_flange:
+          Value: false
+        kuka_link1:
+          Value: false
+        kuka_link2:
+          Value: false
+        kuka_link3:
+          Value: false
+        kuka_link4:
+          Value: false
+        kuka_link5:
+          Value: false
+        kuka_link6:
+          Value: false
+        kuka_sensor:
+          Value: false
+        kuka_sensor_flange1:
+          Value: false
+        kuka_sensor_flange2:
+          Value: false
+        omron/base:
+          Value: false
+        omron/base_link:
+          Value: false
+        omron/flange:
+          Value: false
+        omron/ft300_sensor:
+          Value: false
+        omron/ft_to_gripper:
+          Value: false
+        omron/interface_coupling:
+          Value: false
+        omron/left_bar:
+          Value: false
+        omron/left_inner_finger:
+          Value: false
+        omron/left_inner_finger_pad:
+          Value: false
+        omron/left_outer_finger:
+          Value: false
+        omron/left_outer_knuckle:
+          Value: false
+        omron/link_0:
+          Value: false
+        omron/link_6:
+          Value: false
+        omron/map:
+          Value: true
+        omron/odom:
+          Value: false
+        omron/right_bar:
+          Value: false
+        omron/right_inner_finger:
+          Value: false
+        omron/right_inner_finger_pad:
+          Value: false
+        omron/right_outer_finger:
+          Value: false
+        omron/right_outer_knuckle:
+          Value: false
+        omron/robotiq_140_base_link:
+          Value: false
+        omron/robotiq_base_link:
+          Value: false
+        omron/robotiq_ft_frame_id:
+          Value: false
+        omron/tip:
+          Value: false
+        omron/tm_controller:
+          Value: false
+        omron/tm_support:
+          Value: false
+        structure_base_link:
+          Value: false
+        structure_fake_structure:
+          Value: false
+        structure_fake_structure_left_foot:
+          Value: false
+        structure_fake_structure_right_foot:
+          Value: false
+        structure_link_1:
+          Value: false
+        table_base_link:
+          Value: false
+        table_battery_link:
+          Value: false
+        table_leg1_link:
+          Value: false
+        table_leg2_link:
+          Value: false
+        table_leg3_link:
+          Value: false
+        table_leg4_link:
+          Value: false
+        table_tabletop_link:
+          Value: false
+        world:
+          Value: false
+        zed_baro_link:
+          Value: false
+        zed_camera_center:
+          Value: false
+        zed_camera_link:
+          Value: false
+        zed_left_camera_frame:
+          Value: false
+        zed_left_camera_optical_frame:
+          Value: false
+        zed_mag_link:
+          Value: false
+        zed_right_camera_frame:
+          Value: false
+        zed_right_camera_optical_frame:
+          Value: false
+        zed_temp_left_link:
+          Value: false
+        zed_temp_right_link:
+          Value: false
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        world:
+          comau_basement:
+            comau_base_link:
+              comau_link_1:
+                comau_link_2:
+                  comau_link_2_5:
+                    {}
+                  comau_link_2_6:
+                    {}
+                  comau_link_2_7:
+                    {}
+                  comau_link_3_virtual:
+                    comau_link_3:
+                      comau_link_4:
+                        comau_link_5:
+                          comau_link_6:
+                            comau_flange:
+                              {}
+                comau_link_2_1:
+                  comau_link_2_1_1:
+                    {}
+                  comau_link_2_2_virtual:
+                    comau_link_2_2:
+                      comau_link_2_4:
+                        {}
+          floor_link:
+            {}
+          omron/map:
+            omron/odom:
+              omron/base_link:
+                omron/base:
+                  omron/link_0:
+                    {}
+                omron/left_bar:
+                  omron/tm_controller:
+                    {}
+                omron/right_bar:
+                  {}
+                omron/tm_support:
+                  {}
+          structure_base_link:
+            structure_fake_structure:
+              {}
+            structure_fake_structure_left_foot:
+              {}
+            structure_fake_structure_right_foot:
+              {}
+            structure_link_1:
+              kuka_base_link:
+                kuka_link1:
+                  kuka_link2:
+                    kuka_link3:
+                      kuka_link4:
+                        kuka_link5:
+                          kuka_link6:
+                            kuka_flange:
+                              kuka_sensor_flange1:
+                                kuka_sensor_flange2:
+                                  kuka_sensor:
+                                    {}
+          table_base_link:
+            table_battery_link:
+              {}
+            table_leg1_link:
+              {}
+            table_leg2_link:
+              {}
+            table_leg3_link:
+              {}
+            table_leg4_link:
+              {}
+            table_tabletop_link:
+              {}
+          zed_camera_link:
+            zed_camera_center:
+              zed_baro_link:
+                {}
+              zed_left_camera_frame:
+                zed_left_camera_optical_frame:
+                  {}
+                zed_temp_left_link:
+                  {}
+              zed_mag_link:
+                {}
+              zed_right_camera_frame:
+                zed_right_camera_optical_frame:
+                  {}
+                zed_temp_right_link:
+                  {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description File: /home/gino/projects/kuka_cell_ws/src/battery_cell/battery_cell_description/urdf/battery_cell_rviz.xacro
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /zed/robot_description
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        zed_baro_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed_camera_center:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        zed_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed_left_camera_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed_left_camera_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed_mag_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed_right_camera_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed_right_camera_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed_temp_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed_temp_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Mass Properties:
+        Inertia: false
+        Mass: false
+      Name: ZedModel
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: ZedImage
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /zed/zed_node/rgb/image_rect_color
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -545,25 +1210,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 3.671325206756592
+      Distance: 20.74475860595703
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.42545977234840393
-        Y: -1.2668819427490234
-        Z: 0.6643824577331543
+        X: 1.4000816345214844
+        Y: -0.21122775971889496
+        Z: 0.7071830630302429
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7450003623962402
+      Pitch: 0.8100002408027649
       Target Frame: world
       Value: Orbit (rviz_default_plugins)
-      Yaw: 5.510199546813965
+      Yaw: 2.972001791000366
     Saved: ~
 Window Geometry:
   Displays:
@@ -577,9 +1242,11 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002b40000039efc0200000005fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004100fffffffb000000100044006900730070006c006100790073010000003d00000210000000c900fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000253000001880000017d00fffffffb0000000800480065006c0070000000029a0000006e0000006e00fffffffb0000000a00560069006500770073000000031d000000be000000a400ffffff000004800000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000200000000000001f30000039efc0200000005fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004100fffffffb000000100044006900730070006c006100790073010000003d00000210000000c900fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000253000001880000017d00fffffffb0000000800480065006c0070000000029a0000006e0000006e00fffffffb0000000a00560069006500770073000000031d000000be000000a400ffffff00000001000001a10000039efc0200000001fb00000010005a006500640049006d006100670065010000003d0000039e0000002800ffffff000003e00000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1850
-  X: 70
+  Width: 1920
+  X: 0
   Y: 27
+  ZedImage:
+    collapsed: false

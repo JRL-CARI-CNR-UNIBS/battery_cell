@@ -15,6 +15,7 @@ install(
 
 install(PROGRAMS
         scripts/clock_node.py
+        scripts/calibrate_omron.py
         DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

@@ -110,9 +110,9 @@ digital_io_controller:
       - digital_outputs2/d_output.2
       - digital_outputs2/d_output.3
       - digital_outputs2/d_output.4
-      - digital_outputs2/d_output.5
+      - digital_outputs2/screwdriver_hp # (screwdriver high pressure) [CABLE LABEL: AV ALTA]
       - digital_outputs2/d_output.6
-      - digital_outputs2/d_output.7
+      - digital_outputs2/screwdriver_lp # (screwdriver low pressure) [CABLE LABEL: AV BASSA] 
     inputs:
       - digital_inputs/lubrication_state
       - digital_inputs/limit_switch_homing

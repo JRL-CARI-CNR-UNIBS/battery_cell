@@ -1,13 +1,19 @@
 <?xml version="1.0"?>
 <robot name="battery_cell" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:arg name="use_fake_hardware" default="true"/>
+  <xacro:arg name="use_kuka_fake_hardware" default="true"/>
+  <xacro:arg name="use_linear_axis_fake_hardware" default="true"/>
+  <xacro:arg name="use_comau_fake_hardware" default="true"/>
+
   <xacro:arg name="include_omron" default="true"/>
   <xacro:property name="use_fake_hardware" value="'$(arg use_fake_hardware)'" />
+  <!-- <xacro:property name="use_kuka_fake_hardware" value="'$(arg use_kuka_fake_hardware)'" /> -->
 
   <link name="world"/>
 
   <xacro:include filename="$(find battery_cell_description)/urdf/kuka_setup.xacro" />
-  <xacro:kuka_setup use_fake_hardware="${use_fake_hardware}"/>
+  <xacro:kuka_setup use_kuka_fake_hardware="$(arg use_kuka_fake_hardware)"
+                    use_linear_axis_fake_hardware="$(arg use_linear_axis_fake_hardware)"/>
 
   <joint name="world_to_kuka" type="fixed">
       <origin
@@ -30,7 +36,8 @@
   </joint>
   
   <xacro:include filename="$(find battery_cell_description)/urdf/comau_setup.xacro" />
-  <xacro:comau_setup use_fake_hardware="${use_fake_hardware}"/>
+  <!-- <xacro:comau_setup use_fake_hardware="${use_fake_hardware}"/> -->
+  <xacro:comau_setup use_fake_hardware="$(arg use_comau_fake_hardware)"/>
 
   <joint name="world_to_comau" type="fixed">
       <origin
@@ -51,5 +58,253 @@
       <origin xyz="3.80 0.52 0.0" rpy="0.0 0.0 -1.5707963267948966"/>
     </joint>
   </xacro:if>
+
+  <!-- increased collisions -->
+  <!-- FLOOR -->
+  <xacro:property name="floor_thickness" value="0.10" />
+  <xacro:property name="floor_length" value="${8.20+2*floor_thickness}" />
+  <xacro:property name="floor_width" value="11.0" />
+  <link name="floor_link">
+    <inertial>
+      <origin
+        xyz="0 0 ${floor_thickness/2}"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 ${floor_thickness/2}"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="${floor_width} ${floor_length} ${floor_thickness}"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.6608 0.6608 0.7878 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 ${floor_thickness/2}"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="${floor_width} ${floor_length} ${floor_thickness}"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="world_to_floor" type="fixed">
+    <origin
+      xyz="0.5 -1.5 ${-floor_thickness}"
+      rpy="0 0 0" />
+    <parent link="world"/>
+    <child link="floor_link"/>
+  </joint>
+
+  <!-- REAR WALL -->
+  <xacro:property name="wall_thickness" value="0.10" />
+  <xacro:property name="wall_height" value="4.0" />
+  <xacro:property name="wall_width" value="11.0" />
+  <link name="wall_link">
+    <inertial>
+      <origin
+        xyz="0.0 0.0 ${-wall_thickness/2}"
+        rpy="0.0 0.0 0.0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0 0.0 ${-wall_thickness/2}"
+        rpy="0.0 0.0 0.0" />
+      <geometry>
+        <box size="${wall_height} ${wall_width} ${wall_thickness}"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.6608 0.6608 0.7878 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0 0.0 ${-wall_thickness/2}"
+        rpy="0.0 0.0 0.0" />
+      <geometry>
+        <box size="${wall_height} ${wall_width} ${wall_thickness}"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="world_to_wall" type="fixed">
+    <origin
+      xyz="0.5 2.60 ${wall_height/2}"
+      rpy="1.5708 1.5708 0" />
+    <parent link="world"/>
+    <child link="wall_link"/>
+  </joint>
+
+  <!-- HORIZONTAL WALL-MOUNTED SUPPORT -->
+  <xacro:property name="support_height" value="1.20" />
+  <xacro:property name="support_length" value="0.50" />
+  <xacro:property name="support_width" value="${wall_width}" />
+  <xacro:property name="support_vert_offset" value="${wall_height/2-2.45}" />
+  <link name="support_link">
+    <inertial>
+      <origin
+        xyz="0.0 0.0 ${-support_height/2}"
+        rpy="0.0 0.0 0.0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0 0.0 ${-support_height/2}"
+        rpy="0.0 0.0 0.0" />
+      <geometry>
+        <box size="${support_length} ${support_width} ${support_height}"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1176 0.5059 0.6902 0.5" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0 0.0 ${-support_height/2}"
+        rpy="0.0 0.0 0.0" />
+      <geometry>
+        <box size="${support_length} ${support_width} ${support_height}"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wall_to_support" type="fixed">
+    <origin
+      xyz="${support_vert_offset} 0.0 ${support_height}"
+      rpy="0.0 0.0 0.0" />
+    <parent link="wall_link"/>
+    <child link="support_link"/>
+  </joint>
+
+  <!-- REAL WALL INCREASED -->
+  <xacro:property name="wall_fake_height" value="${wall_height}" />
+  <xacro:property name="wall_fake_length" value="0.50" />
+  <xacro:property name="wall_fake_width" value="${wall_width}" />
+  <link name="wall_fake_link">
+    <inertial>
+      <origin
+        xyz="0.0 0.0 ${-wall_fake_height/2}"
+        rpy="0.0 0.0 0.0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0 0.0 ${-wall_fake_height/2}"
+        rpy="0.0 0.0 0.0" />
+      <geometry>
+        <box size="${wall_fake_length} ${wall_fake_width} ${wall_fake_height}"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1176 0.5059 0.6902 0.5" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0 0.0 ${-wall_fake_height/2}"
+        rpy="0.0 0.0 0.0" />
+      <geometry>
+        <box size="${wall_fake_length} ${wall_fake_width} ${wall_fake_height}"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wall_to_wall_fake" type="fixed">
+    <origin
+      xyz="${wall_height/2} 0.0 ${wall_fake_length/2}"
+      rpy="0.0 1.5708 0.0" />
+    <parent link="wall_link"/>
+    <child link="wall_fake_link"/>
+  </joint>
+
+  <!-- KUKA CONTROLLER BOX -->
+  <xacro:property name="kuka_controller_height" value="1.40" /> <!-- TODO -->
+  <xacro:property name="kuka_controller_length" value="1.20" /> <!-- TODO -->
+  <xacro:property name="kuka_controller_width" value="1.20" />  <!-- TODO -->
+  <link name="kuka_controller_link">
+    <inertial>
+      <origin
+        xyz="0.0 0.0 0.0"
+        rpy="0.0 0.0 0.0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0 0.0 0.0"
+        rpy="0.0 0.0 0.0" />
+      <geometry>
+        <box size="${kuka_controller_length} ${kuka_controller_width} ${kuka_controller_height}"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1176 0.5059 0.6902 0.5" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0 0.0 0.0"
+        rpy="0.0 0.0 0.0" />
+      <geometry>
+        <box size="${kuka_controller_length} ${kuka_controller_width} ${kuka_controller_height}"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="structure_to_kuka_controller" type="fixed">
+    <origin
+      xyz="-3.0 1.0 0.0"      
+      rpy="0.0 0.0 0.0" />    <!-- TODO -->
+    <parent link="structure_base_link"/>
+    <child link="kuka_controller_link"/>
+  </joint>
+  <!-- end increased collisions -->
 
 </robot>

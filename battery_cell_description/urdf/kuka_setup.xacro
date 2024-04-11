@@ -1,21 +1,24 @@
 <?xml version="1.0"?>
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:macro name="kuka_setup"  params="prefix:='' robot_name:='kuka' use_fake_hardware='false'">
+  <xacro:macro name="kuka_setup"  params="prefix:=''
+                                          robot_name:='kuka'
+                                          use_kuka_fake_hardware='false'
+                                          use_linear_axis_fake_hardware='false'">
 
     <xacro:include filename="$(find kuka_structure_description)/urdf/kuka_structure.xacro" />
     <xacro:property name="kuka_structure_prefix" value="'structure_'" />
     <xacro:property name="kuka_structure_name" value="'kuka_structure'" />
     <xacro:kuka_structure prefix="${prefix}${kuka_structure_prefix}"
                           name="${prefix}${kuka_structure_name}"
-                          use_fake_hardware="${use_fake_hardware}"/>
+                          use_fake_hardware="${use_linear_axis_fake_hardware}"/>
 
     <xacro:include filename="$(find kr_50_r2500_description)/urdf/kr_50_r2500.xacro" />
     <xacro:property name="kuka_prefix" value="'kuka_'" />
     <xacro:property name="kuka_name" value="'kuka'" />
     <xacro:kr_50_r2500 prefix="${prefix}${kuka_prefix}"
                        name="${prefix}${kuka_name}"
-                       use_fake_hardware="${use_fake_hardware}" />
+                       use_fake_hardware="${use_kuka_fake_hardware}" />
 
     <joint name="kuka_structure_to_kr_50_r2500" type="fixed">
         <origin
@@ -159,13 +162,19 @@
 
 <!-- increased collisions -->
     <xacro:property name="fake_foot_lenght_x" value="0.87" />
-    <xacro:property name="fake_foot_lenght_y" value="1.5" />
-    <xacro:property name="fake_foot_lenght_z" value="1.3" />
+    <xacro:property name="fake_foot_lenght_y" value="1.50" />
+    <xacro:property name="fake_foot_lenght_z" value="1.30" />
 
-    <xacro:property name="fake_structure_lenght_x" value="4.3" />
-    <xacro:property name="fake_structure_lenght_y" value="1.5" />
-    <xacro:property name="fake_structure_lenght_z" value="4.0" />
+    <xacro:property name="fake_pillar_lenght_x" value="0.60" />
+    <xacro:property name="fake_pillar_lenght_y" value="0.70" />
+    <xacro:property name="fake_pillar_lenght_z" value="2.80" />
 
+    <xacro:property name="fake_structure_lenght_x" value="4.30" />
+    <xacro:property name="fake_structure_lenght_y" value="1.50" />
+    <xacro:property name="fake_structure_lenght_z" value="2.00" />
+    <xacro:property name="fake_structure_offset_z" value="2.50" />
+
+    <!-- RIGHT FOOT -->
     <joint name="${prefix}${kuka_prefix}fake_structure_right_foot" type="fixed">
       <origin
         xyz="-0.05 -0.05 0"
@@ -208,6 +217,50 @@
       </collision>
     </link>
 
+    <!-- RIGHT PILLAR -->
+    <joint name="${prefix}${kuka_prefix}fake_structure_right_pillar" type="fixed">
+      <origin
+        xyz="0.10 0.50 0"
+        rpy="0 0 0" />
+      <parent link="${prefix}${kuka_structure_prefix}base_link"/>
+      <child link="${prefix}${kuka_structure_prefix}fake_structure_right_pillar"/>
+    </joint>
+    <link name="${prefix}${kuka_structure_prefix}fake_structure_right_pillar">
+      <inertial>
+        <origin xyz="0 0 00" rpy="0 0 0" />
+        <mass value="10000" />
+        <inertia
+          ixx="0.1"
+          ixy="0.0"
+          ixz="0.0"
+          iyy="0.1"
+          iyz="0.0"
+          izz="0.1" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="${fake_pillar_lenght_x/2} ${fake_pillar_lenght_y/2} ${fake_pillar_lenght_z/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${fake_pillar_lenght_x} ${fake_pillar_lenght_y} ${fake_pillar_lenght_z}"/>
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.1176 0.5059 0.6902 0.5" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="${fake_pillar_lenght_x/2} ${fake_pillar_lenght_y/2} ${fake_pillar_lenght_z/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${fake_pillar_lenght_x} ${fake_pillar_lenght_y} ${fake_pillar_lenght_z}"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- LEFT FOOT -->
     <joint name="${prefix}${kuka_prefix}fake_structure_left_foot" type="fixed">
       <origin
         xyz="2.45 -0.05  0"
@@ -250,9 +303,53 @@
       </collision>
     </link>
 
+    <!-- LEFT PILLAR -->
+    <joint name="${prefix}${kuka_prefix}fake_structure_left_pillar" type="fixed">
+      <origin
+        xyz="2.55 0.50 0"
+        rpy="0 0 0" />
+      <parent link="${prefix}${kuka_structure_prefix}base_link"/>
+      <child link="${prefix}${kuka_structure_prefix}fake_structure_left_pillar"/>
+    </joint>
+    <link name="${prefix}${kuka_structure_prefix}fake_structure_left_pillar">
+      <inertial>
+        <origin xyz="0 0 00" rpy="0 0 0" />
+        <mass value="10000" />
+        <inertia
+          ixx="0.1"
+          ixy="0.0"
+          ixz="0.0"
+          iyy="0.1"
+          iyz="0.0"
+          izz="0.1" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="${fake_pillar_lenght_x/2} ${fake_pillar_lenght_y/2} ${fake_pillar_lenght_z/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${fake_pillar_lenght_x} ${fake_pillar_lenght_y} ${fake_pillar_lenght_z}"/>
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.1176 0.5059 0.6902 0.5" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="${fake_pillar_lenght_x/2} ${fake_pillar_lenght_y/2} ${fake_pillar_lenght_z/2}"
+          rpy="0 0 0" />
+        <geometry>
+          <box size="${fake_pillar_lenght_x} ${fake_pillar_lenght_y} ${fake_pillar_lenght_z}"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- PORTAL STRUCTURE -->
     <joint name="${prefix}${kuka_prefix}fake_structure" type="fixed">
       <origin
-        xyz="-0.45 0.2  0"
+        xyz="-0.45 0.2  ${fake_structure_offset_z}"
         rpy="0 0 0" />
       <parent link="${prefix}${kuka_structure_prefix}base_link"/>
       <child link="${prefix}${kuka_structure_prefix}fake_structure"/>

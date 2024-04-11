@@ -52,7 +52,7 @@ omron:
       tf:
         use_tf: true
         to: "omron/base_link"
-        from: "map"
+        from: "omron/map"
         odom: "omron/odom"
       interfaces:
         velocity:
