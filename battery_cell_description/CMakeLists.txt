@@ -9,6 +9,7 @@ install(
         launch 
         urdf
         meshes
+        trees
     DESTINATION
         share/${PROJECT_NAME}
 )

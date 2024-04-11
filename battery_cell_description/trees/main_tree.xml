@@ -1,0 +1,13 @@
+ <root BTCPP_format="4" >
+     <BehaviorTree ID="BatteryCellTree">
+        <Sequence name="root_sequence">
+            <Parallel name="root_parallel">
+                <TrajectoryLoaderSkill name="comau_trj_short" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_short"/>
+                <TrajectoryLoaderSkill name="kuka_trj_short" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_short"/>
+            </Parallel>
+
+            <TrajectoryLoaderSkill name="comau_trj_short2" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_short"/>
+            <TrajectoryLoaderSkill name="kuka_trj_short2" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_short"/>
+        </Sequence>
+     </BehaviorTree>
+ </root>

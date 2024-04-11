@@ -1,0 +1,51 @@
+bt_executer:
+  comau_trj_short:
+    group_name: "comau"
+    trj_names: ["trj_comau_short"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 5
+    recompute_time_law: False
+    simulation: False
+
+  kuka_trj_short:
+    group_name: "kuka"
+    trj_names: ["trj_kuka_short"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 10
+    recompute_time_law: False
+    simulation: False
+
+  # comau_move_test:
+  #   group_name: "comau"
+  #   ik_service_name: "/comau_ik_solver/get_ik"
+  #   location_name: "test_comau_location"
+  #   fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+  #   simulation: False
+
+  # comau_test_trj:
+  #   group_name: "comau"
+  #   trj_names: ["trj_comau"]
+  #   fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+  #   repetitions: 5
+  #   recompute_time_law: False
+  #   simulation: False
+
+  # kuka_test_trj:
+  #   group_name: "kuka"
+  #   trj_names: ["trj_kuka"]
+  #   fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+  #   repetitions: 2
+  #   recompute_time_law: False
+  #   simulation: False
+  
+  # trigger_service_test:
+  #   pause: 1.5 #seconds of pause before triggering
+
+  # set_bool_service_test:
+  #   pause: 1.5 #seconds of pause before setting the value
+  #   value: True
+  
+  # gpio_sequence_write_service_test:
+  #   name: ["io1","io2"] #names of the input to write
+  #   delay: [100,500] #delay before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
+  #   value: [True, False] #value to set

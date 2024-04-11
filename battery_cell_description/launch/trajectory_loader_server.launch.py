@@ -16,7 +16,7 @@ def generate_launch_description():
           FindExecutable(name="cnr_param_server"),
           "--path-to-file",
           PathJoinSubstitution([
-            FindPackageShare("trajectory_loader"),
+            FindPackageShare("battery_cell_description"),
             "config",
             "trajectory.yaml"
           ])
