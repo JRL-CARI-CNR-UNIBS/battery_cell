@@ -3,11 +3,25 @@
         <Sequence name="root_sequence">
             <Parallel name="root_parallel">
                 <TrajectoryLoaderSkill name="comau_trj_short" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_short"/>
-                <TrajectoryLoaderSkill name="kuka_trj_short" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_short"/>
+                <!-- <TrajectoryLoaderSkill name="kuka_trj_short" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_short"/> -->
+                <Sequence name="sequence gpio">
+                    <GPIOSequenceWriteSkill name="kuka_pneumatic_on" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_pneumatic_on"/>
+                    <GPIOSequenceWriteSkill name="kuka_pneumatic_off" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_pneumatic_off"/>
+                    <GPIOSequenceWriteSkill name="kuka_pneumatic_on1" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_pneumatic_on"/>
+                    <GPIOSequenceWriteSkill name="kuka_pneumatic_off1" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_pneumatic_off"/>
+                    <GPIOSequenceWriteSkill name="kuka_pneumatic_on2" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_pneumatic_on"/>
+                    <GPIOSequenceWriteSkill name="kuka_pneumatic_off2" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_pneumatic_off"/>
+                    <GPIOSequenceWriteSkill name="kuka_pneumatic_on3" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_pneumatic_on"/>
+                    <GPIOSequenceWriteSkill name="kuka_pneumatic_off3" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_pneumatic_off"/>
+                    <GPIOSequenceWriteSkill name="kuka_pneumatic_on4" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_pneumatic_on"/>
+                    <GPIOSequenceWriteSkill name="kuka_pneumatic_off4" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_pneumatic_off"/>
+                </Sequence>
             </Parallel>
 
-            <TrajectoryLoaderSkill name="comau_trj_short2" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_short"/>
+            <!-- <TrajectoryLoaderSkill name="comau_trj_short2" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_short"/>
             <TrajectoryLoaderSkill name="kuka_trj_short2" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_short"/>
+            <GPIOSequenceWriteSkill name="kuka_pneumatic_on" service_name="/TODO" param_ns="kuka_pneumatic_on"/>
+            <GPIOSequenceWriteSkill name="kuka_pneumatic_off" service_name="/TODO" param_ns="kuka_pneumatic_off"/> -->
         </Sequence>
      </BehaviorTree>
  </root>

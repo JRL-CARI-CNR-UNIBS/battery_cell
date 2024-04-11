@@ -3,7 +3,7 @@ bt_executer:
     group_name: "comau"
     trj_names: ["trj_comau_short"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
-    repetitions: 5
+    repetitions: 3
     recompute_time_law: False
     simulation: False
 
@@ -14,6 +14,16 @@ bt_executer:
     repetitions: 10
     recompute_time_law: False
     simulation: False
+  
+  kuka_pneumatic_on:
+    name: ["digital_outputs2/screwdriver_hp","digital_outputs2/screwdriver_lp"] #names of the input to write
+    delay: [2500,0] #delay before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
+    value: [True, True] #value to set
+  
+  kuka_pneumatic_off:
+    name: ["digital_outputs2/screwdriver_hp","digital_outputs2/screwdriver_lp"] #names of the input to write
+    delay: [2500,0] #delay before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
+    value: [False, False] #value to set
 
   # comau_move_test:
   #   group_name: "comau"
