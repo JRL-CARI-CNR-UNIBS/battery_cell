@@ -3,22 +3,22 @@ bt_executer:
   #Utilities
   kuka_drop_tool:
     name: ["kuka_drop_tool"] #TODO
-    delay: [1000]
+    pause: [1000]
     value: [True]
   
   kuka_hook_tool:
     name: ["kuka_hook_tool"] #TODO
-    delay: [1000]
+    pause: [1000]
     value: [True]
 
   comau_drop_tool:
     name: ["comau_drop_tool"] #TODO
-    delay: [1000]
+    pause: [1000]
     value: [True]
   
   comau_hook_tool:
     name: ["comau_hook_tool"] #TODO
-    delay: [1000]
+    pause: [1000]
     value: [True]
 
   #PhotoneoScan - kuka
@@ -91,12 +91,12 @@ bt_executer:
 
   kuka_screwdriver_on:
     name: ["kuka_screwdriver"] #TODO
-    delay: [500]
+    pause: [500]
     value: [True]
   
   kuka_screwdriver_off:
     name: ["kuka_screwdriver"] #TODO
-    delay: [3000] #unscrew for 3 seconds
+    pause: [3000] #unscrew for 3 seconds
     value: [False]
 
   kuka_trj_up_screw_1:
@@ -226,7 +226,7 @@ bt_executer:
 
   comau_suction_on:
     name: ["comau_suction_on"] #TODO
-    delay: [1000]
+    pause: [1000]
     value: [True]
 
   #SuctionUp - comau
@@ -249,7 +249,7 @@ bt_executer:
 
   kuka_spreader_on:
     name: ["kuka_spreader_on"] #TODO
-    delay: [1000]
+    pause: [1000]
     value: [True]
 
   kuka_trj_spreader_on_leave:
@@ -290,7 +290,7 @@ bt_executer:
 
   comau_suction_off:
     name: ["comau_suction_off"] #TODO
-    delay: [1000]
+    pause: [1000]
     value: [True]
 
   comau_trj_cover_drop_leave:
@@ -323,7 +323,7 @@ bt_executer:
   #BatteryGrasp - comau
   comau_tonnopinza_open:
     name: ["comau_tonnopinza_open"] #TODO
-    delay: [1000]
+    pause: [1000]
     value: [True]
 
   comau_trj_grasp_approach:
@@ -336,7 +336,7 @@ bt_executer:
 
   comau_tonnopinza_close:
     name: ["comau_tonnopinza_close"] #TODO
-    delay: [1000]
+    pause: [1000]
     value: [True]
 
   comau_trj_grasp_leave:
@@ -366,12 +366,12 @@ bt_executer:
   
   # kuka_pneumatic_on:
   #   name: ["digital_outputs2/screwdriver_hp","digital_outputs2/screwdriver_lp"] #names of the input to write
-  #   delay: [2500,0] #delay before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
+  #   pause: [2500,0] #pause before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
   #   value: [True, True] #value to set
   
   # kuka_pneumatic_off:
   #   name: ["digital_outputs2/screwdriver_hp","digital_outputs2/screwdriver_lp"] #names of the input to write
-  #   delay: [2500,0] #delay before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
+  #   pause: [2500,0] #pause before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
   #   value: [False, False] #value to set
 
   # comau_move_test:
@@ -406,5 +406,5 @@ bt_executer:
   
   # gpio_sequence_write_service_test:
   #   name: ["io1","io2"] #names of the input to write
-  #   delay: [100,500] #delay before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
+  #   pause: [100,500] #pause before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
   #   value: [True, False] #value to set
