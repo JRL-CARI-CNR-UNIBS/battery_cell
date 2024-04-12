@@ -1,29 +1,378 @@
 bt_executer:
-  comau_trj_short:
-    group_name: "comau"
-    trj_names: ["trj_comau_short"]
-    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
-    repetitions: 3
+
+  #Utilities
+  kuka_drop_tool:
+    name: ["kuka_drop_tool"] #TODO
+    delay: [1000]
+    value: [True]
+  
+  kuka_hook_tool:
+    name: ["kuka_hook_tool"] #TODO
+    delay: [1000]
+    value: [True]
+
+  comau_drop_tool:
+    name: ["comau_drop_tool"] #TODO
+    delay: [1000]
+    value: [True]
+  
+  comau_hook_tool:
+    name: ["comau_hook_tool"] #TODO
+    delay: [1000]
+    value: [True]
+
+  #PhotoneoScan - kuka
+  kuka_trj_photoneo_scan:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_photoneo_scan"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
     recompute_time_law: False
     simulation: False
 
-  kuka_trj_short:
+  wait_photoneo_scan:
+    wait_ms: 5000 #ms
+  
+  #PhotoneoDrop - kuka
+  kuka_trj_photoneo_drop_rack_approach:
     group_name: "kuka"
-    trj_names: ["trj_kuka_short"]
+    trj_names: ["kuka_trj_photoneo_drop_rack_approach"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
-    repetitions: 10
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #utilities -> kuka_drop_tool
+
+  kuka_trj_photoneo_drop_rack_leave:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_photoneo_drop_rack_leave"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #ScrewdriverHook - kuka
+  kuka_trj_screwdriver_hook_rack_approach:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_screwdriver_hook_rack_approach"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #utilities -> kuka_hook_tool
+
+  kuka_trj_screwdriver_hook_rack_leave:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_screwdriver_hook_rack_leave"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #Unscrew - kuka
+  #Screw 1
+  kuka_trj_approach_screw_1:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_approach_screw_1"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
     recompute_time_law: False
     simulation: False
   
-  kuka_pneumatic_on:
-    name: ["digital_outputs2/screwdriver_hp","digital_outputs2/screwdriver_lp"] #names of the input to write
-    delay: [2500,0] #delay before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
-    value: [True, True] #value to set
+  kuka_trj_down_screw_1:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_down_screw_1"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  kuka_screwdriver_on:
+    name: ["kuka_screwdriver"] #TODO
+    delay: [500]
+    value: [True]
   
-  kuka_pneumatic_off:
-    name: ["digital_outputs2/screwdriver_hp","digital_outputs2/screwdriver_lp"] #names of the input to write
-    delay: [2500,0] #delay before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
-    value: [False, False] #value to set
+  kuka_screwdriver_off:
+    name: ["kuka_screwdriver"] #TODO
+    delay: [3000] #unscrew for 3 seconds
+    value: [False]
+
+  kuka_trj_up_screw_1:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_up_screw_1"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #Screw 2
+  kuka_trj_approach_screw_2:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_approach_screw_2"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+  
+  kuka_trj_down_screw_2:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_down_screw_2"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  kuka_trj_up_screw_2:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_up_screw_2"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #Screw 3
+  kuka_trj_approach_screw_3:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_approach_screw_3"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+  
+  kuka_trj_down_screw_3:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_down_screw_3"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  kuka_trj_up_screw_3:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_up_screw_3"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+
+  #ScrewdriverHook - kuka
+  kuka_trj_screwdriver_drop_rack_approach:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_screwdriver_drop_rack_approach"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #utilities -> kuka_drop_tool
+
+  kuka_trj_screwdriver_drop_rack_leave:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_screwdriver_drop_rack_leave"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #SpreaderHook - kuka
+  kuka_trj_spreader_hook_rack_approach:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_spreader_hook_rack_approach"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #utilities -> kuka_hook_tool
+
+  kuka_trj_spreader_hook_rack_leave:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_spreader_hook_rack_leave"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #SuctionHook - comau
+  comau_trj_suction_hook_rack_approach:
+    group_name: "comau"
+    trj_names: ["comau_trj_suction_hook_rack_approach"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #utilities -> comau_hook_tool
+
+  comau_trj_suction_hook_rack_leave:
+    group_name: "comau"
+    trj_names: ["comau_trj_suction_hook_rack_leave"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #SuctionOn - comau
+  comau_trj_suction_on_approach:
+    group_name: "comau"
+    trj_names: ["comau_trj_suction_on_approach"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  comau_suction_on:
+    name: ["comau_suction_on"] #TODO
+    delay: [1000]
+    value: [True]
+
+  #SuctionUp - comau
+  comau_trj_suction_on_approach:
+    group_name: "comau"
+    trj_names: ["comau_trj_suction_up"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #SpreaderOn - kuka
+  kuka_trj_spreader_on_approach:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_spreader_on_approach"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  kuka_spreader_on:
+    name: ["kuka_spreader_on"] #TODO
+    delay: [1000]
+    value: [True]
+
+  kuka_trj_spreader_on_leave:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_spreader_on_leave"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #SpreaderDrop - kuka
+  kuka_trj_spreader_drop_rack_approach:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_spreader_drop_rack_approach"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #utilities -> kuka_drop_tool
+
+  kuka_trj_spreader_drop_rack_leave:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_spreader_drop_rack_leave"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #CoverDrop - comau
+  comau_trj_cover_drop_approach:
+    group_name: "comau"
+    trj_names: ["comau_trj_cover_drop_approach"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  comau_suction_off:
+    name: ["comau_suction_off"] #TODO
+    delay: [1000]
+    value: [True]
+
+  comau_trj_cover_drop_leave:
+    group_name: "comau"
+    trj_names: ["comau_trj_cover_drop_leave"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #TonnoPinzaHook - comau
+  comau_trj_tonnopinza_hook_rack_approach:
+    group_name: "comau"
+    trj_names: ["comau_trj_tonnopinza_hook_rack_approach"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #utilities -> comau_hook_tool
+
+  comau_trj_tonnopinza_hook_rack_leave:
+    group_name: "comau"
+    trj_names: ["comau_trj_tonnopinza_hook_rack_leave"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  #BatteryGrasp - comau
+  comau_tonnopinza_open:
+    name: ["comau_tonnopinza_on"] #TODO
+    delay: [1000]
+    value: [True]
+
+  comau_trj_grasp_approach:
+    group_name: "comau"
+    trj_names: ["comau_trj_grasp_approach"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+  comau_tonnopinza_close:
+    name: ["comau_tonnopinza_close"] #TODO
+    delay: [1000]
+    value: [True]
+
+  comau_trj_grasp_leave:
+    group_name: "comau"
+    trj_names: ["comau_trj_grasp_leave"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: False
+    simulation: False
+
+
+  # comau_trj_short:
+  #   group_name: "comau"
+  #   trj_names: ["trj_comau_short"]
+  #   fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+  #   repetitions: 3
+  #   recompute_time_law: False
+  #   simulation: False
+
+  # kuka_trj_short:
+  #   group_name: "kuka"
+  #   trj_names: ["trj_kuka_short"]
+  #   fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+  #   repetitions: 10
+  #   recompute_time_law: False
+  #   simulation: False
+  
+  # kuka_pneumatic_on:
+  #   name: ["digital_outputs2/screwdriver_hp","digital_outputs2/screwdriver_lp"] #names of the input to write
+  #   delay: [2500,0] #delay before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
+  #   value: [True, True] #value to set
+  
+  # kuka_pneumatic_off:
+  #   name: ["digital_outputs2/screwdriver_hp","digital_outputs2/screwdriver_lp"] #names of the input to write
+  #   delay: [2500,0] #delay before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
+  #   value: [False, False] #value to set
 
   # comau_move_test:
   #   group_name: "comau"

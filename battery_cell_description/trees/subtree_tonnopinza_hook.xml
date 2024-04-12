@@ -1,0 +1,9 @@
+ <root BTCPP_format="4" >
+     <BehaviorTree ID="TonnoPinzaHook">
+        <Sequence name="root_sequence_tonnopinza_hook">
+            <TrajectoryLoaderSkill name="comau_trj_tonnopinza_hook_rack_approach" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_tonnopinza_hook_rack_approach"/>
+            <GPIOSequenceWriteSkill name="comau_hook_tool" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_hook_tool"/>
+            <TrajectoryLoaderSkill name="comau_trj_tonnopinza_hook_rack_leave" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_tonnopinza_hook_rack_leave"/>
+        </Sequence>
+     </BehaviorTree>
+ </root>

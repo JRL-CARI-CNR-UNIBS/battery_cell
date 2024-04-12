@@ -1,0 +1,8 @@
+ <root BTCPP_format="4" >
+     <BehaviorTree ID="SuctionOn">
+        <Sequence name="root_sequence_suction_on">
+            <TrajectoryLoaderSkill name="comau_trj_suction_on_approach" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_suction_on_approach"/>
+            <GPIOSequenceWriteSkill name="comau_suction_on" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_suction_on"/>
+        </Sequence>
+     </BehaviorTree>
+ </root>

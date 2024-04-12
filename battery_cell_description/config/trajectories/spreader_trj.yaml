@@ -1,0 +1,59 @@
+kuka_trj_spreader_hook_rack_approach:
+  joint_names: [structure_joint_1, kuka_joint1, kuka_joint2, kuka_joint3, kuka_joint4,
+    kuka_joint5, kuka_joint6]
+  time_from_start: []
+  positions:
+
+  velocities:
+  
+  accelerations:
+
+kuka_trj_spreader_hook_rack_leave:
+  joint_names: [structure_joint_1, kuka_joint1, kuka_joint2, kuka_joint3, kuka_joint4,
+    kuka_joint5, kuka_joint6]
+  time_from_start: []
+  positions:
+
+  velocities:
+  
+  accelerations:
+
+kuka_trj_spreader_on_approach:
+  joint_names: [structure_joint_1, kuka_joint1, kuka_joint2, kuka_joint3, kuka_joint4,
+    kuka_joint5, kuka_joint6]
+  time_from_start: []
+  positions:
+
+  velocities:
+  
+  accelerations:
+
+kuka_trj_spreader_on_leave:
+  joint_names: [structure_joint_1, kuka_joint1, kuka_joint2, kuka_joint3, kuka_joint4,
+    kuka_joint5, kuka_joint6]
+  time_from_start: []
+  positions:
+
+  velocities:
+  
+  accelerations:
+
+kuka_trj_spreader_drop_rack_approach:
+  joint_names: [structure_joint_1, kuka_joint1, kuka_joint2, kuka_joint3, kuka_joint4,
+    kuka_joint5, kuka_joint6]
+  time_from_start: []
+  positions:
+
+  velocities:
+  
+  accelerations:
+
+kuka_trj_spreader_drop_rack_leave:
+  joint_names: [structure_joint_1, kuka_joint1, kuka_joint2, kuka_joint3, kuka_joint4,
+    kuka_joint5, kuka_joint6]
+  time_from_start: []
+  positions:
+
+  velocities:
+  
+  accelerations:

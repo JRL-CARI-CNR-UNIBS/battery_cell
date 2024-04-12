@@ -1,0 +1,49 @@
+ <root BTCPP_format="4" >
+    <!-- Include subtrees files -->
+     <include path="./subtree_photoneo_scan.xml" />
+     <include path="./subtree_photoneo_drop.xml" />
+     <include path="./subtree_screwdriver_hook.xml" />
+     <include path="./subtree_unscrew.xml" />
+     <include path="./subtree_screwdriver_drop.xml" />
+     <include path="./subtree_spreader_hook.xml" />
+     <include path="./subtree_suction_hook.xml" />
+     <include path="./subtree_suction_on.xml" />
+     <include path="./subtree_suction_up.xml" />
+     <include path="./subtree_spreader_on.xml" />
+     <include path="./subtree_cover_drop.xml" />
+     <include path="./subtree_spreader_drop.xml" />
+     <include path="./subtree_tonnopinza_hook.xml" />
+     <include path="./subtree_battery_grasp.xml" />
+
+    <!-- Main tree -->
+     <BehaviorTree ID="BatteryCellDemoTree">
+        <Sequence name="root_sequence">
+          <Subtree ID="PhotoneoScan"/>                    <!--kuka -->
+          <Subtree ID="PhotoneoDrop"/>                    <!--kuka -->
+          <Subtree ID="ScrewdriverHook"/>                 <!--kuka -->
+          <Subtree ID="Unscrew"/>                         <!--kuka -->
+          <Subtree ID="ScrewdriverDrop"/>                 <!--kuka -->
+
+          <Parallel name="spreader_and_suction_hook">
+            <Subtree ID="SuctionHook">                    <!--comau -->
+            <Subtree ID="SpreaderHook">                   <!--kuka -->
+          </Parallel>
+           
+          <Subtree ID="SuctionOn">                        <!--comau -->
+
+          <Parallel name="remove_cover">
+            <Subtree ID="SuctionUp">                      <!--comau -->
+            <Subtree ID="SpreaderOn">                     <!--kuka -->
+          </Parallel>
+
+          <Parallel name="spreader_and_cover_drop">
+            <Subtree ID="CoverDrop">                      <!--comau -->
+            <Subtree ID="SpreaderDrop">                   <!--kuka -->
+          </Parallel>
+
+          <Subtree ID="TonnoPinzaHook"/>                  <!--comau -->
+          <Subtree ID="BatteryGrasp"/>                    <!--comau -->
+
+        </Sequence>
+     </BehaviorTree>
+ </root>

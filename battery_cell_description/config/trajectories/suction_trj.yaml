@@ -1,0 +1,59 @@
+comau_trj_suction_hook_rack_approach:
+  joint_names: [comau_joint_1, comau_joint_2, comau_joint_3, comau_joint_4, comau_joint_5,
+    comau_joint_6]
+  time_from_start: []
+  positions:
+
+  velocities:
+  
+  accelerations:
+
+comau_trj_suction_hook_rack_leave:
+  joint_names: [comau_joint_1, comau_joint_2, comau_joint_3, comau_joint_4, comau_joint_5,
+    comau_joint_6]
+  time_from_start: []
+  positions:
+
+  velocities:
+  
+  accelerations:
+
+comau_trj_suction_on_approach:
+  joint_names: [comau_joint_1, comau_joint_2, comau_joint_3, comau_joint_4, comau_joint_5,
+    comau_joint_6]
+  time_from_start: []
+  positions:
+
+  velocities:
+  
+  accelerations:
+
+comau_trj_suction_up:
+  joint_names: [comau_joint_1, comau_joint_2, comau_joint_3, comau_joint_4, comau_joint_5,
+    comau_joint_6]
+  time_from_start: []
+  positions:
+
+  velocities:
+  
+  accelerations:
+
+comau_trj_cover_drop_approach:
+  joint_names: [comau_joint_1, comau_joint_2, comau_joint_3, comau_joint_4, comau_joint_5,
+    comau_joint_6]
+  time_from_start: []
+  positions:
+
+  velocities:
+  
+  accelerations:
+
+comau_trj_cover_drop_leave:
+  joint_names: [comau_joint_1, comau_joint_2, comau_joint_3, comau_joint_4, comau_joint_5,
+    comau_joint_6]
+  time_from_start: []
+  positions:
+
+  velocities:
+  
+  accelerations:

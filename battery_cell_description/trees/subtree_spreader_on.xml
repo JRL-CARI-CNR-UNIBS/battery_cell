@@ -1,0 +1,9 @@
+ <root BTCPP_format="4" >
+     <BehaviorTree ID="SpreaderOn">
+        <Sequence name="root_sequence_screwdriver_on">
+            <TrajectoryLoaderSkill name="kuka_trj_spreader_on_approach" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_spreader_on_approach"/>
+            <GPIOSequenceWriteSkill name="kuka_spreader_on" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_spreader_on"/>
+            <TrajectoryLoaderSkill name="kuka_trj_spreader_on_leave" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_spreader_on_leave"/>
+        </Sequence>
+     </BehaviorTree>
+ </root>

@@ -1,0 +1,10 @@
+ <root BTCPP_format="4" >
+     <BehaviorTree ID="BatteryGrasp">
+        <Sequence name="root_sequence_battery_grasp">
+            <GPIOSequenceWriteSkill name="comau_tonnopinza_open" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_tonnopinza_open"/>
+            <TrajectoryLoaderSkill name="comau_trj_grasp_approach" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_grasp_approach"/>
+            <GPIOSequenceWriteSkill name="comau_tonnopinza_close" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_tonnopinza_close"/>
+            <TrajectoryLoaderSkill name="comau_trj_grasp_leave" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_grasp_leave"/>
+        </Sequence>
+     </BehaviorTree>
+ </root>

@@ -1,0 +1,9 @@
+ <root BTCPP_format="4" >
+     <BehaviorTree ID="SpreaderDrop">
+        <Sequence name="root_sequence_screwdriver_drop">
+            <TrajectoryLoaderSkill name="kuka_trj_spreader_drop_rack_approach" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_spreader_drop_rack_approach"/>
+            <GPIOSequenceWriteSkill name="kuka_drop_tool" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_drop_tool"/>
+            <TrajectoryLoaderSkill name="kuka_trj_spreader_drop_rack_leave" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_spreader_drop_rack_leave"/>
+        </Sequence>
+     </BehaviorTree>
+ </root>
