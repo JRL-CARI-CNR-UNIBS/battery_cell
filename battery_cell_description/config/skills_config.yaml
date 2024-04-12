@@ -158,7 +158,7 @@ bt_executer:
     simulation: False
 
 
-  #ScrewdriverHook - kuka
+  #ScrewdriverDrop - kuka
   kuka_trj_screwdriver_drop_rack_approach:
     group_name: "kuka"
     trj_names: ["kuka_trj_screwdriver_drop_rack_approach"]
@@ -230,7 +230,7 @@ bt_executer:
     value: [True]
 
   #SuctionUp - comau
-  comau_trj_suction_on_approach:
+  comau_trj_suction_up:
     group_name: "comau"
     trj_names: ["comau_trj_suction_up"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
@@ -322,7 +322,7 @@ bt_executer:
 
   #BatteryGrasp - comau
   comau_tonnopinza_open:
-    name: ["comau_tonnopinza_on"] #TODO
+    name: ["comau_tonnopinza_open"] #TODO
     delay: [1000]
     value: [True]
 
