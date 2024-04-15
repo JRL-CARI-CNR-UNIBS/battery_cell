@@ -2,7 +2,7 @@
      <BehaviorTree ID="PhotoneoScan">
         <Sequence name="root_sequence_scan">
             <TrajectoryLoaderSkill name="kuka_trj_photoneo_scan" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_photoneo_scan"/>
-            <WaitSkill name="wait_photoneo_scan" action_name= "/sleep_action_server" param_ns="wait_photoneo_scan"/>
+            <WaitSkill name="wait_photoneo_scan" action_name= "/sleep_service" param_ns="wait_photoneo_scan"/>
         </Sequence>
      </BehaviorTree>
  </root>

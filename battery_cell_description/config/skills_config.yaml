@@ -27,7 +27,7 @@ bt_executer:
     trj_names: ["kuka_trj_photoneo_scan"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
 
   wait_photoneo_scan:

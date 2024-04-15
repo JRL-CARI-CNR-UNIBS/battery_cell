@@ -23,7 +23,7 @@ from launch.conditions import IfCondition
 from moveit_configs_utils import MoveItConfigsBuilder
 from ament_index_python.packages import get_package_share_directory
 
-
+import os
 
 def launch_setup(context, *args, **kwargs):
 
@@ -259,6 +259,9 @@ def launch_setup(context, *args, **kwargs):
     ########################
     ## Trj loader actions ##
     ########################
+    #Execute bash to merge trajectories files from config/trajectories
+    os.system(f"bash {PathJoinSubstitution([FindPackageShare('battery_cell_description'),'config','trajectories','merge_trajectories.bash']).perform(context)} {PathJoinSubstitution([FindPackageShare('battery_cell_description'),'config','trajectories']).perform(context)}")
+
     trj_loader_launch_description = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
@@ -270,6 +273,11 @@ def launch_setup(context, *args, **kwargs):
         condition=IfCondition(launch_trj_loader),
     )
 
+    sleep_server_node = Node(
+        package="btcpp_ros2_samples",
+        executable="sleep_server"
+                )
+   
     ##############
     ## To Start ##
     ##############
@@ -293,6 +301,7 @@ def launch_setup(context, *args, **kwargs):
         omron_robot_description_pub,
         # kuka_closed_tip_tf_spawner,
         trj_loader_launch_description,
+        sleep_server_node,
         ]
 
     return what_to_launch

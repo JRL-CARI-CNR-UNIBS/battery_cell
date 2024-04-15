@@ -17,8 +17,8 @@ def generate_launch_description():
           "--path-to-file",
           PathJoinSubstitution([
             FindPackageShare("battery_cell_description"),
-            "config",
-            "trajectory.yaml"
+            "config","trajectories",
+            "trajectories.yaml"
           ])
         ],
         shell=False
