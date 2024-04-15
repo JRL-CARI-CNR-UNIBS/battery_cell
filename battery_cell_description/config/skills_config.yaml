@@ -29,6 +29,8 @@ bt_executer:
     repetitions: 1
     recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   wait_photoneo_scan:
     wait_ms: 5000 #ms
@@ -39,8 +41,10 @@ bt_executer:
     trj_names: ["kuka_trj_photoneo_drop_rack_approach"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 10
 
   #utilities -> kuka_drop_tool
 
@@ -49,8 +53,10 @@ bt_executer:
     trj_names: ["kuka_trj_photoneo_drop_rack_leave"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 10
 
   #ScrewdriverHook - kuka
   kuka_trj_screwdriver_hook_rack_approach:
@@ -58,8 +64,10 @@ bt_executer:
     trj_names: ["kuka_trj_screwdriver_hook_rack_approach"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #utilities -> kuka_hook_tool
 
@@ -68,8 +76,10 @@ bt_executer:
     trj_names: ["kuka_trj_screwdriver_hook_rack_leave"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #Unscrew - kuka
   #Screw 1
@@ -78,16 +88,20 @@ bt_executer:
     trj_names: ["kuka_trj_approach_screw_1"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
   
   kuka_trj_down_screw_1:
     group_name: "kuka"
     trj_names: ["kuka_trj_down_screw_1"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   kuka_screwdriver_on:
     name: ["kuka_screwdriver"] #TODO
@@ -104,8 +118,10 @@ bt_executer:
     trj_names: ["kuka_trj_up_screw_1"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #Screw 2
   kuka_trj_approach_screw_2:
@@ -113,24 +129,30 @@ bt_executer:
     trj_names: ["kuka_trj_approach_screw_2"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
   
   kuka_trj_down_screw_2:
     group_name: "kuka"
     trj_names: ["kuka_trj_down_screw_2"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   kuka_trj_up_screw_2:
     group_name: "kuka"
     trj_names: ["kuka_trj_up_screw_2"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #Screw 3
   kuka_trj_approach_screw_3:
@@ -138,25 +160,30 @@ bt_executer:
     trj_names: ["kuka_trj_approach_screw_3"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
   
   kuka_trj_down_screw_3:
     group_name: "kuka"
     trj_names: ["kuka_trj_down_screw_3"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   kuka_trj_up_screw_3:
     group_name: "kuka"
     trj_names: ["kuka_trj_up_screw_3"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
-
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #ScrewdriverDrop - kuka
   kuka_trj_screwdriver_drop_rack_approach:
@@ -164,8 +191,10 @@ bt_executer:
     trj_names: ["kuka_trj_screwdriver_drop_rack_approach"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #utilities -> kuka_drop_tool
 
@@ -174,8 +203,10 @@ bt_executer:
     trj_names: ["kuka_trj_screwdriver_drop_rack_leave"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #SpreaderHook - kuka
   kuka_trj_spreader_hook_rack_approach:
@@ -183,8 +214,10 @@ bt_executer:
     trj_names: ["kuka_trj_spreader_hook_rack_approach"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #utilities -> kuka_hook_tool
 
@@ -193,8 +226,10 @@ bt_executer:
     trj_names: ["kuka_trj_spreader_hook_rack_leave"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #SuctionHook - comau
   comau_trj_suction_hook_rack_approach:
@@ -202,8 +237,10 @@ bt_executer:
     trj_names: ["comau_trj_suction_hook_rack_approach"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #utilities -> comau_hook_tool
 
@@ -212,8 +249,10 @@ bt_executer:
     trj_names: ["comau_trj_suction_hook_rack_leave"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #SuctionOn - comau
   comau_trj_suction_on_approach:
@@ -221,8 +260,10 @@ bt_executer:
     trj_names: ["comau_trj_suction_on_approach"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   comau_suction_on:
     name: ["comau_suction_on"] #TODO
@@ -235,8 +276,10 @@ bt_executer:
     trj_names: ["comau_trj_suction_up"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #SpreaderOn - kuka
   kuka_trj_spreader_on_approach:
@@ -244,8 +287,10 @@ bt_executer:
     trj_names: ["kuka_trj_spreader_on_approach"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   kuka_spreader_on:
     name: ["kuka_spreader_on"] #TODO
@@ -257,8 +302,10 @@ bt_executer:
     trj_names: ["kuka_trj_spreader_on_leave"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #SpreaderDrop - kuka
   kuka_trj_spreader_drop_rack_approach:
@@ -266,8 +313,10 @@ bt_executer:
     trj_names: ["kuka_trj_spreader_drop_rack_approach"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #utilities -> kuka_drop_tool
 
@@ -276,8 +325,10 @@ bt_executer:
     trj_names: ["kuka_trj_spreader_drop_rack_leave"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #CoverDrop - comau
   comau_trj_cover_drop_approach:
@@ -285,8 +336,10 @@ bt_executer:
     trj_names: ["comau_trj_cover_drop_approach"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   comau_suction_off:
     name: ["comau_suction_off"] #TODO
@@ -298,8 +351,10 @@ bt_executer:
     trj_names: ["comau_trj_cover_drop_leave"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #TonnoPinzaHook - comau
   comau_trj_tonnopinza_hook_rack_approach:
@@ -307,8 +362,10 @@ bt_executer:
     trj_names: ["comau_trj_tonnopinza_hook_rack_approach"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #utilities -> comau_hook_tool
 
@@ -317,8 +374,10 @@ bt_executer:
     trj_names: ["comau_trj_tonnopinza_hook_rack_leave"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   #BatteryGrasp - comau
   comau_tonnopinza_open:
@@ -331,8 +390,10 @@ bt_executer:
     trj_names: ["comau_trj_grasp_approach"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   comau_tonnopinza_close:
     name: ["comau_tonnopinza_close"] #TODO
@@ -344,16 +405,17 @@ bt_executer:
     trj_names: ["comau_trj_grasp_leave"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
-    recompute_time_law: False
+    recompute_time_law: True
     simulation: False
-
+    speed_scaling_topic: "/speed_ovr"
+    scaling: 100
 
   # comau_trj_short:
   #   group_name: "comau"
   #   trj_names: ["trj_comau_short"]
   #   fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
   #   repetitions: 3
-  #   recompute_time_law: False
+  #   recompute_time_law: True
   #   simulation: False
 
   # kuka_trj_short:
@@ -361,7 +423,7 @@ bt_executer:
   #   trj_names: ["trj_kuka_short"]
   #   fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
   #   repetitions: 10
-  #   recompute_time_law: False
+  #   recompute_time_law: True
   #   simulation: False
   
   # kuka_pneumatic_on:
@@ -386,7 +448,7 @@ bt_executer:
   #   trj_names: ["trj_comau"]
   #   fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
   #   repetitions: 5
-  #   recompute_time_law: False
+  #   recompute_time_law: True
   #   simulation: False
 
   # kuka_test_trj:
@@ -394,7 +456,7 @@ bt_executer:
   #   trj_names: ["trj_kuka"]
   #   fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
   #   repetitions: 2
-  #   recompute_time_law: False
+  #   recompute_time_law: True
   #   simulation: False
   
   # trigger_service_test:

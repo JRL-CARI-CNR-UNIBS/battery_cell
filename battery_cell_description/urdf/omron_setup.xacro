@@ -9,7 +9,7 @@
     <xacro:omron_imm prefix="${prefix}"
                      name="${prefix}${omron_name}"
                      fake="${use_fake_hardware}"
-                     gripper_ros2_control="false"
+                     gripper_ros2_control="true"
                      use_map="true"/>
   </xacro:macro>
 
