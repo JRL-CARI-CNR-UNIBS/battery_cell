@@ -2,14 +2,14 @@ bt_executer:
 
   #Utilities
   kuka_drop_tool:
-    name: ["digital_outputs1/kuka_tool_change"] #TODO
-    pause: [1000]
-    value: [False]
-  
-  kuka_hook_tool:
-    name: ["digital_outputs1/kuka_tool_change"] #TODO
+    name: ["digital_outputs1/kuka_tool_change"] 
     pause: [1000]
     value: [True]
+  
+  kuka_hook_tool:
+    name: ["digital_outputs1/kuka_tool_change"] 
+    pause: [1000]
+    value: [False]
 
   comau_drop_tool:
     name: ["comau_drop_tool"] #TODO
@@ -87,7 +87,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 5
 
   #utilities -> kuka_hook_tool
 
@@ -99,7 +99,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 5
 
   #Unscrew - kuka
   #Screw 1
@@ -123,14 +123,24 @@ bt_executer:
     speed_scaling_topic: "/kuka_speed_ovr"
     scaling: 10
 
+  kuka_screwdriver_on_low:
+    name: ["digital_outputs2/screwdriver_lp"] #TODO
+    pause: [3000]
+    value: [True]
+  
+  kuka_screwdriver_off_low:
+    name: ["digital_outputs2/screwdriver_lp"] #TODO
+    pause: [500] #unscrew for 3 seconds
+    value: [False]
+
   kuka_screwdriver_on:
     name: ["digital_outputs2/screwdriver_hp"] #TODO
-    pause: [500]
+    pause: [2000]
     value: [True]
   
   kuka_screwdriver_off:
     name: ["digital_outputs2/screwdriver_hp"] #TODO
-    pause: [1000] #unscrew for 3 seconds
+    pause: [500] #unscrew for 3 seconds
     value: [False]
 
   kuka_trj_up_screw_1:
@@ -230,15 +240,25 @@ bt_executer:
   #utilities -> kuka_drop_tool
 
   #SpreaderHook - kuka
-  kuka_trj_spreader_hook_rack_approach:
+  kuka_trj_spreader_hook_rack_approach_part1:
     group_name: "kuka"
-    trj_names: ["kuka_trj_spreader_hook_rack_approach"]
+    trj_names: ["kuka_trj_spreader_hook_rack_approach_part1"]
     fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 40
+
+  kuka_trj_spreader_hook_rack_approach_part2:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_spreader_hook_rack_approach_part2"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: True
+    simulation: False
+    speed_scaling_topic: "/kuka_speed_ovr"
+    scaling: 5
 
   #utilities -> kuka_hook_tool
 

@@ -13,13 +13,13 @@
          - {index: 0x7020, sub_index: 1, type: bool, mask: 4, command_interface: kuka_tool_change}
      - index: 0x1603
        channels:
-         - {index: 0x7030, sub_index: 1, type: bool, mask: 8, command_interface: d_output.3}
+         - {index: 0x7030, sub_index: 1, type: bool, mask: 8, command_interface: tool_enable}
      - index: 0x1604
        channels:
-         - {index: 0x7040, sub_index: 1, type: bool, mask: 16, command_interface: d_output.4}
+         - {index: 0x7040, sub_index: 1, type: bool, mask: 16, command_interface: tool_bwd}
      - index: 0x1605
        channels:
-         - {index: 0x7050, sub_index: 1, type: bool, mask: 32, command_interface: d_output.5}
+         - {index: 0x7050, sub_index: 1, type: bool, mask: 32, command_interface: tool_fwd}
      - index: 0x1606
        channels:
          - {index: 0x7060, sub_index: 1, type: bool, mask: 64, command_interface: d_output.6}
