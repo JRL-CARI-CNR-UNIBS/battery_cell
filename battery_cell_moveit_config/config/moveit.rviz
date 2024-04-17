@@ -4,6 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Global Options1
         - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 397
@@ -1209,61 +1210,20 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /zed/robot_description
-      Enabled: true
+      Enabled: false
       Links:
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        zed_baro_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        zed_camera_center:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        zed_camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        zed_left_camera_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        zed_left_camera_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        zed_mag_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        zed_right_camera_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        zed_right_camera_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        zed_temp_left_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        zed_temp_right_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
       Mass Properties:
         Inertia: false
         Mass: false
       Name: ZedModel
       TF Prefix: ""
       Update Interval: 0
-      Value: true
+      Value: false
       Visual Enabled: true
     - Class: rviz_default_plugins/Image
       Enabled: false
@@ -1280,7 +1240,7 @@ Visualization Manager:
         Value: /zed/zed_node/rgb/image_rect_color
       Value: false
     - Class: rviz_plugin_zed_od/ZedOdDisplay
-      Enabled: true
+      Enabled: false
       Joint Radius: 0.10000000149011612
       Label Scale: 5
       Link Size: 0.05000000074505806
@@ -1296,12 +1256,12 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /zed/zed_node/body_trk/skeletons
       Transparency: 0.25
-      Value: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Fixed Frame: world
-    Frame Rate: 30
+    Frame Rate: 60
   Name: root
   Tools:
     - Class: rviz_default_plugins/Interact
@@ -1315,7 +1275,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 12.62258529663086
+      Distance: 5.942828178405762
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -1330,10 +1290,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4700000286102295
+      Pitch: 0.6800000667572021
       Target Frame: world
       Value: Orbit (rviz_default_plugins)
-      Yaw: 5.507002353668213
+      Yaw: 3.927002191543579
     Saved: ~
 Window Geometry:
   Displays:

@@ -124,13 +124,13 @@ bt_executer:
     scaling: 10
 
   kuka_screwdriver_on:
-    name: ["kuka_screwdriver"] #TODO
+    name: ["digital_outputs2/screwdriver_hp"] #TODO
     pause: [500]
     value: [True]
   
   kuka_screwdriver_off:
-    name: ["kuka_screwdriver"] #TODO
-    pause: [3000] #unscrew for 3 seconds
+    name: ["digital_outputs2/screwdriver_hp"] #TODO
+    pause: [1000] #unscrew for 3 seconds
     value: [False]
 
   kuka_trj_up_screw_1:
@@ -216,6 +216,17 @@ bt_executer:
     speed_scaling_topic: "/kuka_speed_ovr"
     scaling: 40
 
+    #ScrewdriverDrop - kuka
+  kuka_trj_screwdriver_drop_rack_approach_part2:
+    group_name: "kuka"
+    trj_names: ["kuka_trj_screwdriver_drop_rack_approach_part2"]
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: True
+    simulation: False
+    speed_scaling_topic: "/kuka_speed_ovr"
+    scaling: 10
+
   #utilities -> kuka_drop_tool
 
   #SpreaderHook - kuka
@@ -227,7 +238,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 100
+    scaling: 10
 
   #utilities -> kuka_hook_tool
 
@@ -239,7 +250,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 100
+    scaling: 10
 
   #SuctionHook - comau
   comau_trj_suction_hook_rack_approach:
@@ -326,7 +337,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 100
+    scaling: 10
 
   #utilities -> kuka_drop_tool
 
@@ -338,7 +349,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 100
+    scaling: 10
 
   #CoverDrop - comau
   comau_trj_cover_drop_approach:

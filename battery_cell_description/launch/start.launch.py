@@ -220,12 +220,12 @@ def launch_setup(context, *args, **kwargs):
         arguments = ['--x', '1.086547', '--y', '0.676920', '--z', '1.546772', '--qx', '0.037883', '--qy', '0.035933', '--qz', '-0.692783', '--qw', '0.719253', '--frame-id', 'world', '--child-frame-id', 'zed_camera_link'],
     )
 
-    # # Used just for camera calibration
-    # kuka_closed_tip_tf_spawner = Node(
-    #     package='tf2_ros',
-    #     executable='static_transform_publisher',
-    #     arguments = ['--x', '0.0', '--y', '0.0', '--z', '0.22', '--qx', '0.0', '--qy', '0.0', '--qz', '0.0', '--qw', '1.0', '--frame-id', 'kuka_sensor', '--child-frame-id', 'kuka_closed_tip'],
-    # )
+    # Used just for camera calibration
+    kuka_closed_tip_tf_spawner = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments = ['--x', '0.0', '--y', '0.070', '--z', '0.200', '--qx', '0.0', '--qy', '0.0', '--qz', '0.0', '--qw', '1.0', '--frame-id', 'kuka_sensor', '--child-frame-id', 'kuka_closed_tip'],
+    )
 
     ###########
     ## Omron ##
@@ -302,7 +302,7 @@ def launch_setup(context, *args, **kwargs):
         battery_cell_utils_node,
         cameras_tf_spawner,
         omron_robot_description_pub,
-        # kuka_closed_tip_tf_spawner,
+        kuka_closed_tip_tf_spawner,
         trj_loader_launch_description,
         sleep_server_node,
         ]

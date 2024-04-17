@@ -12,7 +12,7 @@ fi
 output_file="$path/trajectories.yaml"
 
 # Empty the output file
-> "$output_file"
+echo "" > "$output_file"
 echo $path/*.yaml
 # Loop through all .yaml files in the current directory
 for file in $path/*.yaml; do

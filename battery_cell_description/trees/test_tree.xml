@@ -21,25 +21,28 @@
           <!--kuka -->
           <SubTree ID="PhotoneoScan"/>                    
           <SubTree ID="PhotoneoDrop"/>                  
-          <!-- <SubTree ID="ScrewdriverHook"/>                 
-          <!-- <SubTree ID="Unscrew"/>                         <kuka -->
-          <!-- <SubTree ID="ScrewdriverDrop"/>                 <kuka -->
+          <SubTree ID="ScrewdriverHook"/>                 
+          <SubTree ID="Unscrew"/>                         
+          <SubTree ID="ScrewdriverDrop"/>                 
+          <SubTree ID="SpreaderHook"/>                     
+          <SubTree ID="SpreaderOn"/>                      
+          <SubTree ID="SpreaderDrop"/>                     
 
-          <!-- <Parallel name="spreader_and_suction_hook"/> -->
-            <!--<SubTree ID="SuctionHook"/>                    comau -->
-            <!--<SubTree ID="SpreaderHook"/>                   kuka -->
+          <!-- <Parallel name="spreader_and_suction_hook"> -->
+            <!--<SubTree ID="SuctionHook">                    comau -->
+            <!--<SubTree ID="SpreaderHook">                   kuka -->
           <!-- </Parallel> -->
            
-          <!--<SubTree ID="SuctionOn"/>                        comau -->
+          <!--<SubTree ID="SuctionOn">                        comau -->
 
-          <!-- <Parallel name="remove_cover"/> -->
-            <!--<SubTree ID="SuctionUp"/>                      comau -->
-            <!--<SubTree ID="SpreaderOn"/>                     kuka -->
+          <!-- <Parallel name="remove_cover"> -->
+            <!--<SubTree ID="SuctionUp">                      comau -->
+            <!--<SubTree ID="SpreaderOn">                     kuka -->
           <!-- </Parallel> -->
 
-          <!-- <Parallel name="spreader_and_cover_drop"/> -->
-            <!-- <SubTree ID="CoverDrop"/>                      comau -->
-            <!-- <SubTree ID="SpreaderDrop"/>                   kuka -->
+          <!-- <Parallel name="spreader_and_cover_drop"> -->
+            <!-- <SubTree ID="CoverDrop">                      comau -->
+            <!-- <SubTree ID="SpreaderDrop">                   kuka -->
           <!-- </Parallel> --> -->
 
         </Sequence>

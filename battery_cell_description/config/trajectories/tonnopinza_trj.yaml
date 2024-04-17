@@ -1,7 +1,7 @@
 comau_trj_tonnopinza_hook_rack_approach:
   joint_names: [comau_joint_1, comau_joint_2, comau_joint_3, comau_joint_4, comau_joint_5,
     comau_joint_6]
-  time_from_start: []
+  time_from_start: 
   positions:
 
   velocities:
@@ -11,7 +11,7 @@ comau_trj_tonnopinza_hook_rack_approach:
 comau_trj_tonnopinza_hook_rack_leave:
   joint_names: [comau_joint_1, comau_joint_2, comau_joint_3, comau_joint_4, comau_joint_5,
     comau_joint_6]
-  time_from_start: []
+  time_from_start: 
   positions:
 
   velocities:
@@ -21,7 +21,7 @@ comau_trj_tonnopinza_hook_rack_leave:
 comau_trj_grasp_approach:
   joint_names: [comau_joint_1, comau_joint_2, comau_joint_3, comau_joint_4, comau_joint_5,
     comau_joint_6]
-  time_from_start: []
+  time_from_start: 
   positions:
 
   velocities:
@@ -31,7 +31,7 @@ comau_trj_grasp_approach:
 comau_trj_grasp_leave:
   joint_names: [comau_joint_1, comau_joint_2, comau_joint_3, comau_joint_4, comau_joint_5,
     comau_joint_6]
-  time_from_start: []
+  time_from_start: 
   positions:
 
   velocities:
