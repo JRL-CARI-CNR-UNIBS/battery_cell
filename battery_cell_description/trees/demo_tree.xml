@@ -42,9 +42,6 @@
             <!-- <SubTree ID="SpreaderDrop">                   kuka -->
           <!-- </Parallel> --> -->
 
-          <!-- <SubTree ID="TonnoPinzaHook"/>                  comau -->
-          <!-- <SubTree ID="BatteryGrasp"/>                    comau -->
-
         </Sequence>
      </BehaviorTree>
  </root>

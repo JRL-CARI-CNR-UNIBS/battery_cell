@@ -11,7 +11,8 @@
     <xacro:property name="kuka_structure_name" value="'kuka_structure'" />
     <xacro:kuka_structure prefix="${prefix}${kuka_structure_prefix}"
                           name="${prefix}${kuka_structure_name}"
-                          use_fake_hardware="${use_linear_axis_fake_hardware}"/>
+                          use_fake_hardware="${use_linear_axis_fake_hardware}"
+                          external_ethercat_ros2_control="true"/>
 
     <xacro:include filename="$(find kr_50_r2500_description)/urdf/kr_50_r2500.xacro" />
     <xacro:property name="kuka_prefix" value="'kuka_'" />

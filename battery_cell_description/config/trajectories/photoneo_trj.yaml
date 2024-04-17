@@ -8,7 +8,7 @@ kuka_trj_photoneo_scan:
   velocities:
   accelerations:
 
-kuka_trj_photoneo_drop_rack_approach:
+kuka_trj_photoneo_drop_rack_approach_part1:
   joint_names: [structure_joint_1, kuka_joint1, kuka_joint2, kuka_joint3, kuka_joint4,
     kuka_joint5, kuka_joint6]
   time_from_start:
@@ -16,6 +16,14 @@ kuka_trj_photoneo_drop_rack_approach:
   - [1.9819981134299998, 0.0, -2.11900424, 1.1751302, 0.33911747, 1.3273229, 0.0]
   - [1.9819981134299998, 0.0, -1.2894493, 2.4240878, 0.0, -1.176701, 0.0]
   - [1.9819981134299998, -0.43545965, -1.3475687, 2.23821023, -0.53389622, -0.96708694, 1.8675]
+  velocities:
+  accelerations:
+
+kuka_trj_photoneo_drop_rack_approach_part2:
+  joint_names: [structure_joint_1, kuka_joint1, kuka_joint2, kuka_joint3, kuka_joint4,
+    kuka_joint5, kuka_joint6]
+  time_from_start:
+  positions:
   - [1.9819981134299998, -0.44662976, -0.69446651,  2.31971711, -0.44418629, -1.6242034 , 1.5245451 ]
   - [1.9819981134299998, -0.45029495, -0.47595129,  2.24885674, -0.45570547, -1.75702296, 1.45961885]
   - [1.9819981134299998, -0.45570547, -0.17558012,  2.06594624, -0.47403142, -1.86139365, 1.40411738] #inizia discesa sul rack da questo in poi

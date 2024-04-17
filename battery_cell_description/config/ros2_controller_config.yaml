@@ -99,7 +99,7 @@ digital_io_controller:
     outputs:
       - digital_outputs1/lubrication_command
       - digital_outputs1/d_output.1
-      - digital_outputs1/pneumatic_gripper
+      - digital_outputs1/kuka_tool_change
       - digital_outputs1/d_output.3
       - digital_outputs1/d_output.4
       - digital_outputs1/d_output.5
@@ -161,7 +161,7 @@ kuka_scaled_fjt_controller:
     open_loop_control: true
     constraints:
       goal_time: 0.0
-    speed_ovr_topic: "speed_ovr"
+    speed_ovr_topics: ["kuka_speed_ovr","safe_ovr"]
     execution_duration_monitoring: false
     allowed_goal_duration_margin: 1000000000
 
@@ -182,7 +182,7 @@ comau_scaled_fjt_controller:
     open_loop_control: true
     constraints:
       goal_time: 0.0
-    speed_ovr_topic: "speed_ovr"
+    speed_ovr_topics: ["comau_speed_ovr","safe_ovr"]
     execution_duration_monitoring: false
     allowed_goal_duration_margin: 1000000000
 

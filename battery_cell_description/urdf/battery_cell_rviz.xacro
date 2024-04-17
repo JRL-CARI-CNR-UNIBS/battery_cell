@@ -2,8 +2,9 @@
 <robot name="battery_cell" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:arg name="use_fake_hardware" default="true"/>
   <xacro:arg name="use_kuka_fake_hardware" default="true"/>
-  <xacro:arg name="use_linear_axis_fake_hardware" default="true"/>
+  <!-- <xacro:arg name="use_linear_axis_fake_hardware" default="true"/> -->
   <xacro:arg name="use_comau_fake_hardware" default="true"/>
+  <xacro:arg name="use_ethercat_fake_hardware" default="true"/>
 
   <xacro:arg name="include_omron" default="true"/>
   <xacro:property name="use_fake_hardware" value="'$(arg use_fake_hardware)'" />
@@ -13,7 +14,11 @@
 
   <xacro:include filename="$(find battery_cell_description)/urdf/kuka_setup.xacro" />
   <xacro:kuka_setup use_kuka_fake_hardware="$(arg use_kuka_fake_hardware)"
-                    use_linear_axis_fake_hardware="$(arg use_linear_axis_fake_hardware)"/>
+                    use_linear_axis_fake_hardware="$(arg use_ethercat_fake_hardware)"/>
+
+  <!-- Include ROS2 HW interface definitions for GPIO modules -->
+  <xacro:include filename="$(find battery_cell_description)/urdf/ethercat_ros2_control.xacro"/>
+  <xacro:ethercat_ros2_control use_fake_hardware="$(arg use_ethercat_fake_hardware)"/>
 
   <joint name="world_to_kuka" type="fixed">
       <origin
@@ -58,6 +63,10 @@
       <origin xyz="3.80 0.52 0.0" rpy="0.0 0.0 -1.5707963267948966"/>
     </joint>
   </xacro:if>
+
+  <!-- <xacro:include filename="$(find battery_cell_description)/urdf/battery_cell_GPIO_ros2_control.xacro" />
+  <xacro:battery_cell_GPIO_ros2_control use_fake_hardware="$(arg use_GPIO_fake_hardware)"/> -->
+
 
   <!-- increased collisions -->
   <!-- FLOOR -->

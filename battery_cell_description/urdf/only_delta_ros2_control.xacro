@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- <xacro:macro name="only_delta_ros2_control" params="name
+                                                          prefix
+                                                          master_id:=0
+                                                          use_fake_hardware:=false"
+                                                          > -->
+  <xacro:macro name="only_delta_ros2_control" params="name
+                                                      prefix">
+
+    <!-- <ros2_control name="${name}" type="system">
+      <hardware>
+        <xacro:if value="${use_fake_hardware}">
+          <plugin>mock_components/GenericSystem</plugin>
+          <param name="mock_sensor_commands">false</param>
+          <param name="state_following_offset">0.0</param>
+        </xacro:if>
+        <xacro:unless value="${use_fake_hardware}">
+          <plugin>ethercat_driver/EthercatDriver</plugin>
+          <param name="master_id">${master_id}</param>
+          <param name="control_frequency">1000</param>
+        </xacro:unless>
+      </hardware> -->
+
+      <joint name="${prefix}joint_1">
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="status_word">
+          <param name="initial_value">0</param>
+        </state_interface>
+        <state_interface name="moo_display">
+          <param name="initial_value">0</param>
+        </state_interface>
+        <state_interface name="error_code">
+          <param name="initial_value">0</param>
+        </state_interface>
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <command_interface name="ctrl_word"/>
+        <command_interface name="moo"/>
+        <ec_module name="${name}">
+          <plugin>ethercat_generic_plugins/GenericEcSlave</plugin>
+          <param name="alias">0</param>
+          <param name="position">0</param>
+          <param name="slave_config">$(find kuka_structure_description)/config/delta_ethercat_config.yaml</param>
+        </ec_module>
+      </joint>
+
+    <!-- </ros2_control> -->
+
+  </xacro:macro>
+
+</robot>

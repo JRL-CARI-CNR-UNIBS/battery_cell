@@ -29,8 +29,10 @@ def launch_setup(context, *args, **kwargs):
 
     fake = LaunchConfiguration('fake')
     kuka_fake = LaunchConfiguration('kuka_fake')
-    linear_axis_fake = LaunchConfiguration('linear_axis_fake')
+    # linear_axis_fake = LaunchConfiguration('linear_axis_fake')
+    ethercat_fake = LaunchConfiguration('ethercat_fake')
     comau_fake = LaunchConfiguration('comau_fake')
+    # gpio_fake = LaunchConfiguration('gpio_fake')
     rviz_gui = LaunchConfiguration('rviz_gui')
     include_omron = LaunchConfiguration('include_omron')
     launch_trj_loader = LaunchConfiguration('launch_trj_loader')
@@ -49,8 +51,9 @@ def launch_setup(context, *args, **kwargs):
                     ),
                     " ", "use_fake_hardware:='",             fake.perform(context),"'",
                     " ", "use_kuka_fake_hardware:='",        OrSubstitution(fake.perform(context),kuka_fake.perform(context)),"'",
-                    " ", "use_linear_axis_fake_hardware:='", OrSubstitution(fake.perform(context),linear_axis_fake.perform(context)),"'",
+                    " ", "use_ethercat_fake_hardware:='",    OrSubstitution(fake.perform(context),ethercat_fake.perform(context)),"'",
                     " ", "use_comau_fake_hardware:='",       OrSubstitution(fake.perform(context),comau_fake.perform(context)),"'",
+                    # " ", "use_GPIO_fake_hardware:='",        OrSubstitution(fake.perform(context),gpio_fake.perform(context)),"'",
                     " ", "include_omron:=",                  include_omron,
                 ]
             ),
@@ -317,14 +320,22 @@ def generate_launch_description():
         'kuka_fake',
         default_value='false'
     ))
+    # launch_arguments.append(DeclareLaunchArgument(
+    #     'linear_axis_fake',
+    #     default_value='false'
+    # ))
     launch_arguments.append(DeclareLaunchArgument(
-        'linear_axis_fake',
+        'ethercat_fake',
         default_value='false'
     ))
     launch_arguments.append(DeclareLaunchArgument(
         'comau_fake',
         default_value='false'
     ))
+    # launch_arguments.append(DeclareLaunchArgument(
+    #     'gpio_fake',
+    #     default_value='false'
+    # ))
     launch_arguments.append(DeclareLaunchArgument(
         'rviz_gui',
         default_value="true"

@@ -163,6 +163,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          kuka_controller_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           kuka_flange:
             Alpha: 1
             Show Axes: false
@@ -384,12 +389,27 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          structure_fake_structure_left_pillar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           structure_fake_structure_right_foot:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
+          structure_fake_structure_right_pillar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           structure_link_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          support_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -425,6 +445,16 @@ Visualization Manager:
             Show Trail: false
             Value: true
           table_tabletop_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          wall_fake_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          wall_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -576,6 +606,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          kuka_controller_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           kuka_flange:
             Alpha: 1
             Show Axes: false
@@ -797,12 +832,27 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          structure_fake_structure_left_pillar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           structure_fake_structure_right_foot:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
+          structure_fake_structure_right_pillar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           structure_link_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          support_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -838,6 +888,16 @@ Visualization Manager:
             Show Trail: false
             Value: true
           table_tabletop_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          wall_fake_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          wall_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -896,6 +956,8 @@ Visualization Manager:
           Value: true
         kuka_base_link:
           Value: false
+        kuka_controller_link:
+          Value: true
         kuka_flange:
           Value: false
         kuka_link1:
@@ -974,10 +1036,16 @@ Visualization Manager:
           Value: false
         structure_fake_structure_left_foot:
           Value: false
+        structure_fake_structure_left_pillar:
+          Value: true
         structure_fake_structure_right_foot:
           Value: false
+        structure_fake_structure_right_pillar:
+          Value: true
         structure_link_1:
           Value: false
+        support_link:
+          Value: true
         table_base_link:
           Value: false
         table_battery_link:
@@ -992,6 +1060,10 @@ Visualization Manager:
           Value: false
         table_tabletop_link:
           Value: false
+        wall_fake_link:
+          Value: true
+        wall_link:
+          Value: true
         world:
           Value: false
         zed_baro_link:
@@ -1000,6 +1072,8 @@ Visualization Manager:
           Value: false
         zed_camera_link:
           Value: false
+        zed_imu_link:
+          Value: true
         zed_left_camera_frame:
           Value: false
         zed_left_camera_optical_frame:
@@ -1061,11 +1135,17 @@ Visualization Manager:
                 omron/tm_support:
                   {}
           structure_base_link:
+            kuka_controller_link:
+              {}
             structure_fake_structure:
               {}
             structure_fake_structure_left_foot:
               {}
+            structure_fake_structure_left_pillar:
+              {}
             structure_fake_structure_right_foot:
+              {}
+            structure_fake_structure_right_pillar:
               {}
             structure_link_1:
               kuka_base_link:
@@ -1093,11 +1173,18 @@ Visualization Manager:
               {}
             table_tabletop_link:
               {}
+          wall_link:
+            support_link:
+              {}
+            wall_fake_link:
+              {}
           zed_camera_link:
             zed_camera_center:
               zed_baro_link:
                 {}
               zed_left_camera_frame:
+                zed_imu_link:
+                  {}
                 zed_left_camera_optical_frame:
                   {}
                 zed_temp_left_link:
@@ -1179,7 +1266,7 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz_default_plugins/Image
-      Enabled: true
+      Enabled: false
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -1191,6 +1278,24 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /zed/zed_node/rgb/image_rect_color
+      Value: false
+    - Class: rviz_plugin_zed_od/ZedOdDisplay
+      Enabled: true
+      Joint Radius: 0.10000000149011612
+      Label Scale: 5
+      Link Size: 0.05000000074505806
+      Name: ZedOdDisplay
+      Show Bounding Boxes: false
+      Show Labels: true
+      Show Skeletons: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /zed/zed_node/body_trk/skeletons
+      Transparency: 0.25
       Value: true
   Enabled: true
   Global Options:
@@ -1210,7 +1315,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 20.74475860595703
+      Distance: 12.62258529663086
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -1225,10 +1330,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8100002408027649
+      Pitch: 0.4700000286102295
       Target Frame: world
       Value: Orbit (rviz_default_plugins)
-      Yaw: 2.972001791000366
+      Yaw: 5.507002353668213
     Saved: ~
 Window Geometry:
   Displays:
@@ -1242,11 +1347,11 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000200000000000001f30000039efc0200000005fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004100fffffffb000000100044006900730070006c006100790073010000003d00000210000000c900fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000253000001880000017d00fffffffb0000000800480065006c0070000000029a0000006e0000006e00fffffffb0000000a00560069006500770073000000031d000000be000000a400ffffff00000001000001a10000039efc0200000001fb00000010005a006500640049006d006100670065010000003d0000039e0000002800ffffff000003e00000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000200000000000001f30000039efc0200000005fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004100fffffffb000000100044006900730070006c006100790073010000003d00000210000000c900fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000253000001880000017d00fffffffb0000000800480065006c0070000000029a0000006e0000006e00fffffffb0000000a00560069006500770073000000031d000000be000000a400ffffff00000001000002480000039efc0200000001fb00000010005a006500640049006d006100670065000000003d0000039e0000002800ffffff0000053c0000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1920
-  X: 0
+  Width: 1845
+  X: 75
   Y: 27
   ZedImage:
     collapsed: false

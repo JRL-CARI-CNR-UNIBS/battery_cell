@@ -1,36 +1,23 @@
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
-NON E' USATO DA NESSUNA PARTE
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:macro name="battery_cell_ros2_control" >
+  <!-- <xacro:macro name="battery_cell_GPIO_ros2_control" params="name:='battery_cell_GPIO'
+                                                             master_id:=0
+                                                             use_fake_hardware:=true"> -->
+  <xacro:macro name="battery_cell_GPIO_ros2_control" params="name:='battery_cell_GPIO'">
 
-    <ros2_control name="kuka_structure" type="system">
+    <!-- <ros2_control name="${name}" type="system"> -->
+      <!-- <hardware>
+        <xacro:if value="${use_fake_hardware}">
+          <plugin>mock_components/GenericSystem</plugin>
+          <param name="mock_sensor_commands">false</param>
+          <param name="state_following_offset">0.0</param>
+        </xacro:if>
+        <xacro:unless value="${use_fake_hardware}">
+          <plugin>ethercat_driver/EthercatDriver</plugin>
+          <param name="master_id">${master_id}</param>
+          <param name="control_frequency">1000</param>
+        </xacro:unless>
+      </hardware> -->
 
       <gpio name="digital_inputs">
         <state_interface name="lubrication_state"/>
@@ -45,14 +32,14 @@ NON E' USATO DA NESSUNA PARTE
           <plugin>ethercat_generic_plugins/GenericEcSlave</plugin>
           <param name="alias">0</param>
           <param name="position">2</param>
-          <param name="slave_config">$(find kuka_structure_description)/config/EL1008_ethercat_config.yaml</param>
+          <param name="slave_config">$(find battery_cell_description)/config/ethercat/EL1008_ethercat_config.yaml</param>
         </ec_module>
       </gpio>
 
       <gpio name="digital_outputs1">
         <command_interface name="lubrication_command"/>
         <command_interface name="d_output.1"/>
-        <command_interface name="pneumatic_gripper"/>
+        <command_interface name="kuka_tool_change"/> <!-- TRUE to open, FALSE to close -->
         <command_interface name="d_output.3"/>
         <command_interface name="d_output.4"/>
         <command_interface name="d_output.5"/>
@@ -62,7 +49,7 @@ NON E' USATO DA NESSUNA PARTE
           <plugin>ethercat_generic_plugins/GenericEcSlave</plugin>
           <param name="alias">0</param>
           <param name="position">3</param>
-          <param name="slave_config">$(find kuka_structure_description)/config/EL2008_ethercat_config_1.yaml</param>
+          <param name="slave_config">$(find battery_cell_description)/config/ethercat/EL2008_ethercat_config_1.yaml</param>
         </ec_module>
       </gpio>
 
@@ -79,7 +66,7 @@ NON E' USATO DA NESSUNA PARTE
           <plugin>ethercat_generic_plugins/GenericEcSlave</plugin>
           <param name="alias">0</param>
           <param name="position">4</param>
-          <param name="slave_config">$(find kuka_structure_description)/config/EL2008_ethercat_config_2.yaml</param>
+          <param name="slave_config">$(find battery_cell_description)/config/ethercat/EL2008_ethercat_config_2.yaml</param>
         </ec_module>
       </gpio>
 
@@ -103,12 +90,12 @@ NON E' USATO DA NESSUNA PARTE
           <plugin>ethercat_generic_plugins/EcAtiSensor</plugin>
           <param name="alias">0</param>
           <param name="position">5</param>
-          <param name="slave_config">$(find kuka_structure_description)/config/EL3008_ethercat_config.yaml</param>
-          <param name="sensor_runtime_matrix">$(find kuka_structure_description)/config/ati_sensor_runtime_matrix.yaml</param>
+          <param name="slave_config">$(find battery_cell_description)/config/ethercat/EL3008_ethercat_config.yaml</param>
+          <param name="sensor_runtime_matrix">$(find battery_cell_description)/config/ethercat/ati_sensor_runtime_matrix.yaml</param>
         </ec_module>
       </gpio>
 
-    </ros2_control>
+    <!-- </ros2_control> -->
 
   </xacro:macro>
 
