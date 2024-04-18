@@ -18,9 +18,71 @@
     <group name="imm">
         <chain base_link="omron/base_link" tip_link="omron/tip"/>
     </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="kuka_home" group="kuka">
+        <joint name="kuka_joint1" value="0"/>
+        <joint name="kuka_joint2" value="-1.5361"/>
+        <joint name="kuka_joint3" value="0"/>
+        <joint name="kuka_joint4" value="0"/>
+        <joint name="kuka_joint5" value="0"/>
+        <joint name="kuka_joint6" value="0"/>
+        <joint name="structure_joint_1" value="1.4901"/>
+    </group_state>
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="odom_to_omron" type="planar" parent_frame="omron/odom" child_link="omron/base_link"/>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="battery_holder" link2="comau_base_link" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="comau_basement" reason="Adjacent"/>
+    <disable_collisions link1="battery_holder" link2="comau_link_1" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="comau_link_2_1" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="comau_link_2_1_1" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="comau_link_2_4" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="comau_link_2_5" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="comau_link_2_6" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="comau_link_2_7" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="comau_tool_support" reason="Adjacent"/>
+    <disable_collisions link1="battery_holder" link2="floor_link" reason="Adjacent"/>
+    <disable_collisions link1="battery_holder" link2="kuka_base_link" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="kuka_link1" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="kuka_tool_support" reason="Adjacent"/>
+    <disable_collisions link1="battery_holder" link2="omron/base_link" reason="Adjacent"/>
+    <disable_collisions link1="battery_holder" link2="omron/ft300_sensor" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/left_inner_finger" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/left_inner_finger_pad" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/left_inner_knuckle" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/left_outer_finger" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/left_outer_knuckle" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/link_0" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/link_1" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/link_2" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/link_3" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/link_4" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/link_5" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/link_6" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/right_inner_finger" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/right_inner_finger_pad" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/right_inner_knuckle" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/right_outer_finger" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/right_outer_knuckle" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/robotiq_140_base_link" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="omron/tm_controller" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="structure_base_link" reason="Adjacent"/>
+    <disable_collisions link1="battery_holder" link2="structure_fake_structure" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="structure_fake_structure_left_pillar" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="structure_fake_structure_right_pillar" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="support_link" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="table_base_link" reason="Adjacent"/>
+    <disable_collisions link1="battery_holder" link2="table_battery_link" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="battery_holder" link2="wall_link" reason="Adjacent"/>
     <disable_collisions link1="comau_base_link" link2="comau_basement" reason="Adjacent"/>
     <disable_collisions link1="comau_base_link" link2="comau_link_1" reason="Adjacent"/>
     <disable_collisions link1="comau_base_link" link2="comau_link_2" reason="Never"/>
@@ -33,6 +95,8 @@
     <disable_collisions link1="comau_base_link" link2="comau_link_2_7" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="comau_link_3" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="comau_link_4" reason="Never"/>
+    <disable_collisions link1="comau_base_link" link2="comau_tool_support" reason="Never"/>
+    <disable_collisions link1="comau_base_link" link2="floor_link" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="kuka_link2" reason="Never"/>
@@ -43,32 +107,22 @@
     <disable_collisions link1="comau_base_link" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="comau_base_link" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="omron/base_link" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/ft300_sensor" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/left_inner_finger" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/left_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/left_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/left_outer_finger" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/left_outer_knuckle" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="omron/link_0" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="omron/link_1" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="omron/link_2" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="omron/link_3" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="omron/link_4" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/link_5" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/link_6" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/right_inner_finger" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/right_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/right_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/right_outer_finger" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/right_outer_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_base_link" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_base_link" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_base_link" link2="support_link" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="table_leg1_link" reason="Never"/>
@@ -76,6 +130,8 @@
     <disable_collisions link1="comau_base_link" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_base_link" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_base_link" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="comau_link_1" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="comau_link_2" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="comau_link_2_1" reason="Never"/>
@@ -86,6 +142,8 @@
     <disable_collisions link1="comau_basement" link2="comau_link_2_6" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="comau_link_2_7" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="comau_link_3" reason="Never"/>
+    <disable_collisions link1="comau_basement" link2="comau_tool_support" reason="Adjacent"/>
+    <disable_collisions link1="comau_basement" link2="floor_link" reason="Adjacent"/>
     <disable_collisions link1="comau_basement" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="kuka_link2" reason="Never"/>
@@ -96,6 +154,7 @@
     <disable_collisions link1="comau_basement" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="comau_basement" link2="kuka_tool_support" reason="Adjacent"/>
     <disable_collisions link1="comau_basement" link2="omron/base_link" reason="Adjacent"/>
     <disable_collisions link1="comau_basement" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="omron/left_inner_finger" reason="Never"/>
@@ -120,8 +179,11 @@
     <disable_collisions link1="comau_basement" link2="structure_base_link" reason="Adjacent"/>
     <disable_collisions link1="comau_basement" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_basement" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_basement" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_basement" link2="support_link" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="table_base_link" reason="Adjacent"/>
     <disable_collisions link1="comau_basement" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="table_leg1_link" reason="Never"/>
@@ -129,6 +191,8 @@
     <disable_collisions link1="comau_basement" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="comau_basement" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_basement" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_basement" link2="wall_link" reason="Adjacent"/>
     <disable_collisions link1="comau_link_1" link2="comau_link_2" reason="Adjacent"/>
     <disable_collisions link1="comau_link_1" link2="comau_link_2_1" reason="Adjacent"/>
     <disable_collisions link1="comau_link_1" link2="comau_link_2_1_1" reason="Default"/>
@@ -137,6 +201,8 @@
     <disable_collisions link1="comau_link_1" link2="comau_link_2_6" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="comau_link_2_7" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="comau_link_3" reason="Never"/>
+    <disable_collisions link1="comau_link_1" link2="comau_tool_support" reason="Never"/>
+    <disable_collisions link1="comau_link_1" link2="floor_link" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="kuka_link2" reason="Never"/>
@@ -147,32 +213,20 @@
     <disable_collisions link1="comau_link_1" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="comau_link_1" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="omron/base_link" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/ft300_sensor" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/left_inner_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/left_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/left_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/left_outer_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/left_outer_knuckle" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="omron/link_0" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="omron/link_1" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="omron/link_2" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/link_3" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/link_4" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/link_5" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/link_6" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/right_inner_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/right_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/right_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/right_outer_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/right_outer_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_1" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_1" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_1" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_1" link2="support_link" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="table_leg1_link" reason="Never"/>
@@ -180,6 +234,8 @@
     <disable_collisions link1="comau_link_1" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="comau_link_1" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_1" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_link_1" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="comau_link_2_1" reason="Default"/>
     <disable_collisions link1="comau_link_2" link2="comau_link_2_1_1" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="comau_link_2_2" reason="Default"/>
@@ -188,38 +244,26 @@
     <disable_collisions link1="comau_link_2" link2="comau_link_2_6" reason="Adjacent"/>
     <disable_collisions link1="comau_link_2" link2="comau_link_2_7" reason="Adjacent"/>
     <disable_collisions link1="comau_link_2" link2="comau_link_3" reason="Adjacent"/>
+    <disable_collisions link1="comau_link_2" link2="floor_link" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="kuka_link2" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="kuka_link3" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="kuka_link4" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="kuka_link5" reason="Never"/>
+    <disable_collisions link1="comau_link_2" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="omron/base_link" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/ft300_sensor" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/left_inner_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/left_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/left_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/left_outer_finger" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="omron/left_outer_knuckle" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="omron/link_0" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="omron/link_1" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="omron/link_2" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/link_3" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/link_4" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/link_5" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/link_6" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/right_inner_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/right_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/right_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/right_outer_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/right_outer_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_2" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_2" link2="support_link" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="table_leg1_link" reason="Never"/>
@@ -227,12 +271,16 @@
     <disable_collisions link1="comau_link_2" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="comau_link_2" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="comau_link_2_1_1" reason="Adjacent"/>
     <disable_collisions link1="comau_link_2_1" link2="comau_link_2_2" reason="Adjacent"/>
     <disable_collisions link1="comau_link_2_1" link2="comau_link_2_4" reason="Default"/>
     <disable_collisions link1="comau_link_2_1" link2="comau_link_2_5" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="comau_link_2_7" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="comau_link_3" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1" link2="comau_tool_support" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1" link2="floor_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="kuka_link2" reason="Never"/>
@@ -243,32 +291,21 @@
     <disable_collisions link1="comau_link_2_1" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="omron/ft300_sensor" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/left_inner_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/left_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/left_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/left_outer_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/left_outer_knuckle" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="omron/link_0" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="omron/link_1" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="omron/link_2" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/link_3" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/link_4" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/link_5" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/link_6" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/right_inner_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/right_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/right_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/right_outer_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/right_outer_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_2_1" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1" link2="support_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="table_leg1_link" reason="Never"/>
@@ -276,6 +313,8 @@
     <disable_collisions link1="comau_link_2_1" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="comau_link_2_4" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="comau_link_2_5" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="comau_link_2_6" reason="Never"/>
@@ -284,6 +323,8 @@
     <disable_collisions link1="comau_link_2_1_1" link2="comau_link_4" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="comau_link_5" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="comau_link_6" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1_1" link2="comau_tool_support" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1_1" link2="floor_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="kuka_link2" reason="Never"/>
@@ -294,6 +335,7 @@
     <disable_collisions link1="comau_link_2_1_1" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1_1" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="omron/left_inner_finger" reason="Never"/>
@@ -318,8 +360,11 @@
     <disable_collisions link1="comau_link_2_1_1" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1_1" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1_1" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1_1" link2="support_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="table_leg1_link" reason="Never"/>
@@ -327,6 +372,8 @@
     <disable_collisions link1="comau_link_2_1_1" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_1_1" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1_1" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_1_1" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="comau_link_2_4" reason="Adjacent"/>
     <disable_collisions link1="comau_link_2_2" link2="comau_link_2_5" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="comau_link_2_6" reason="Default"/>
@@ -334,17 +381,13 @@
     <disable_collisions link1="comau_link_2_2" link2="comau_link_3" reason="Default"/>
     <disable_collisions link1="comau_link_2_2" link2="comau_link_5" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="comau_link_6" reason="Never"/>
+    <disable_collisions link1="comau_link_2_2" link2="floor_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="kuka_link2" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="kuka_link3" reason="Never"/>
-    <disable_collisions link1="comau_link_2_2" link2="kuka_link5" reason="Never"/>
-    <disable_collisions link1="comau_link_2_2" link2="kuka_link6" reason="Never"/>
-    <disable_collisions link1="comau_link_2_2" link2="kuka_sensor" reason="Never"/>
-    <disable_collisions link1="comau_link_2_2" link2="kuka_sensor_flange1" reason="Never"/>
-    <disable_collisions link1="comau_link_2_2" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="comau_link_2_2" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/base_link" reason="Never"/>
-    <disable_collisions link1="comau_link_2_2" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/left_inner_finger" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/left_inner_finger_pad" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/left_inner_knuckle" reason="Never"/>
@@ -354,21 +397,20 @@
     <disable_collisions link1="comau_link_2_2" link2="omron/link_1" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/link_2" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/link_3" reason="Never"/>
-    <disable_collisions link1="comau_link_2_2" link2="omron/link_4" reason="Never"/>
-    <disable_collisions link1="comau_link_2_2" link2="omron/link_5" reason="Never"/>
-    <disable_collisions link1="comau_link_2_2" link2="omron/link_6" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/right_inner_finger" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/right_inner_finger_pad" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/right_inner_knuckle" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/right_outer_finger" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/right_outer_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_2_2" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_2" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_2" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_2_2" link2="support_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="table_leg1_link" reason="Never"/>
@@ -376,6 +418,8 @@
     <disable_collisions link1="comau_link_2_2" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_2" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_2" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_2" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="comau_link_2_5" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="comau_link_2_6" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="comau_link_2_7" reason="Never"/>
@@ -383,6 +427,8 @@
     <disable_collisions link1="comau_link_2_4" link2="comau_link_4" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="comau_link_5" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="comau_link_6" reason="Never"/>
+    <disable_collisions link1="comau_link_2_4" link2="comau_tool_support" reason="Never"/>
+    <disable_collisions link1="comau_link_2_4" link2="floor_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="kuka_link2" reason="Never"/>
@@ -393,6 +439,7 @@
     <disable_collisions link1="comau_link_2_4" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="comau_link_2_4" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="omron/left_inner_finger" reason="Never"/>
@@ -417,8 +464,11 @@
     <disable_collisions link1="comau_link_2_4" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_4" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_4" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_2_4" link2="support_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="table_leg1_link" reason="Never"/>
@@ -426,10 +476,14 @@
     <disable_collisions link1="comau_link_2_4" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_4" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_4" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_4" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="comau_link_2_6" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="comau_link_2_7" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="comau_link_3" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="comau_link_5" reason="Never"/>
+    <disable_collisions link1="comau_link_2_5" link2="comau_tool_support" reason="Never"/>
+    <disable_collisions link1="comau_link_2_5" link2="floor_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="kuka_link2" reason="Never"/>
@@ -440,6 +494,7 @@
     <disable_collisions link1="comau_link_2_5" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="comau_link_2_5" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="omron/left_inner_finger" reason="Never"/>
@@ -464,8 +519,11 @@
     <disable_collisions link1="comau_link_2_5" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_5" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_5" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_2_5" link2="support_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="table_leg1_link" reason="Never"/>
@@ -473,10 +531,14 @@
     <disable_collisions link1="comau_link_2_5" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_5" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_5" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_5" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="comau_link_2_7" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="comau_link_3" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="comau_link_5" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="comau_link_6" reason="Never"/>
+    <disable_collisions link1="comau_link_2_6" link2="comau_tool_support" reason="Never"/>
+    <disable_collisions link1="comau_link_2_6" link2="floor_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="kuka_link2" reason="Never"/>
@@ -487,6 +549,7 @@
     <disable_collisions link1="comau_link_2_6" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="comau_link_2_6" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="omron/left_inner_finger" reason="Never"/>
@@ -511,8 +574,11 @@
     <disable_collisions link1="comau_link_2_6" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_6" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_6" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_2_6" link2="support_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="table_leg1_link" reason="Never"/>
@@ -520,8 +586,12 @@
     <disable_collisions link1="comau_link_2_6" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_6" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_6" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_6" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="comau_link_3" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="comau_link_5" reason="Never"/>
+    <disable_collisions link1="comau_link_2_7" link2="comau_tool_support" reason="Never"/>
+    <disable_collisions link1="comau_link_2_7" link2="floor_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="kuka_link2" reason="Never"/>
@@ -532,6 +602,7 @@
     <disable_collisions link1="comau_link_2_7" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="comau_link_2_7" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="omron/left_inner_finger" reason="Never"/>
@@ -556,8 +627,11 @@
     <disable_collisions link1="comau_link_2_7" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_7" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_2_7" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_2_7" link2="support_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="table_leg1_link" reason="Never"/>
@@ -565,13 +639,17 @@
     <disable_collisions link1="comau_link_2_7" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="comau_link_2_7" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_7" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_link_2_7" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="comau_link_4" reason="Adjacent"/>
     <disable_collisions link1="comau_link_3" link2="comau_link_5" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="comau_link_6" reason="Never"/>
+    <disable_collisions link1="comau_link_3" link2="floor_link" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="kuka_link2" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="kuka_link3" reason="Never"/>
+    <disable_collisions link1="comau_link_3" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="omron/left_inner_finger" reason="Never"/>
@@ -596,79 +674,70 @@
     <disable_collisions link1="comau_link_3" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_3" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_3" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_3" link2="support_link" reason="Never"/>
+    <disable_collisions link1="comau_link_3" link2="table_base_link" reason="Never"/>
+    <disable_collisions link1="comau_link_3" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="comau_link_3" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="comau_link_3" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="comau_link_3" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_3" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_link_3" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="comau_link_5" reason="Adjacent"/>
     <disable_collisions link1="comau_link_4" link2="comau_link_6" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="kuka_link2" reason="Never"/>
+    <disable_collisions link1="comau_link_4" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="omron/base_link" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/ft300_sensor" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/left_inner_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/left_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/left_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/left_outer_finger" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="omron/left_outer_knuckle" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="omron/link_0" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="omron/link_1" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/link_2" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/link_3" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/link_4" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/link_5" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/link_6" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/right_inner_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/right_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/right_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/right_outer_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/right_outer_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_4" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="structure_base_link" reason="Never"/>
+    <disable_collisions link1="comau_link_4" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_4" link2="structure_fake_structure_left_pillar" reason="Never"/>
+    <disable_collisions link1="comau_link_4" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_4" link2="table_base_link" reason="Never"/>
+    <disable_collisions link1="comau_link_4" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="comau_link_4" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="comau_link_4" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="comau_link_4" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="comau_link_4" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_4" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="comau_link_6" reason="Adjacent"/>
     <disable_collisions link1="comau_link_5" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="kuka_link1" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="kuka_link2" reason="Never"/>
+    <disable_collisions link1="comau_link_5" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="omron/base_link" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/ft300_sensor" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/left_inner_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/left_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/left_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/left_outer_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/left_outer_knuckle" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="omron/link_0" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="omron/link_1" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/link_2" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/link_3" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/link_4" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/link_5" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/link_6" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/right_inner_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/right_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/right_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/right_outer_finger" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/right_outer_knuckle" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/robotiq_140_base_link" reason="Never"/>
-    <disable_collisions link1="comau_link_5" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="structure_base_link" reason="Never"/>
+    <disable_collisions link1="comau_link_5" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_5" link2="structure_fake_structure_left_pillar" reason="Never"/>
+    <disable_collisions link1="comau_link_5" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_5" link2="table_base_link" reason="Never"/>
+    <disable_collisions link1="comau_link_5" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="comau_link_5" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="comau_link_5" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="comau_link_5" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="comau_link_5" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_5" link2="wall_link" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="kuka_link2" reason="Never"/>
-    <disable_collisions link1="comau_link_6" link2="kuka_link6" reason="Never"/>
-    <disable_collisions link1="comau_link_6" link2="kuka_sensor" reason="Never"/>
-    <disable_collisions link1="comau_link_6" link2="kuka_sensor_flange1" reason="Never"/>
-    <disable_collisions link1="comau_link_6" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/left_inner_finger" reason="Never"/>
@@ -678,25 +747,110 @@
     <disable_collisions link1="comau_link_6" link2="omron/left_outer_knuckle" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/link_0" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/link_1" reason="Never"/>
-    <disable_collisions link1="comau_link_6" link2="omron/link_2" reason="Never"/>
-    <disable_collisions link1="comau_link_6" link2="omron/link_3" reason="Never"/>
-    <disable_collisions link1="comau_link_6" link2="omron/link_4" reason="Never"/>
-    <disable_collisions link1="comau_link_6" link2="omron/link_5" reason="Never"/>
-    <disable_collisions link1="comau_link_6" link2="omron/link_6" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/right_inner_finger" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/right_inner_finger_pad" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/right_inner_knuckle" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/right_outer_finger" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="omron/robotiq_140_base_link" reason="Never"/>
-    <disable_collisions link1="comau_link_6" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="structure_base_link" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="table_base_link" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="comau_link_6" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_link_6" link2="wall_link" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="floor_link" reason="Adjacent"/>
+    <disable_collisions link1="comau_tool_support" link2="kuka_base_link" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="kuka_link1" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="kuka_link2" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="kuka_link3" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="kuka_link4" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="kuka_link5" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="kuka_link6" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="kuka_sensor" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="kuka_sensor_flange1" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="kuka_tool_support" reason="Adjacent"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/base_link" reason="Adjacent"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/ft300_sensor" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/left_inner_finger" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/left_inner_finger_pad" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/left_inner_knuckle" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/left_outer_finger" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/left_outer_knuckle" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/link_0" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/link_1" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/link_2" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/link_3" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/link_4" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/link_5" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/link_6" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/right_inner_finger" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/right_inner_finger_pad" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/right_inner_knuckle" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/right_outer_finger" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/right_outer_knuckle" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/robotiq_140_base_link" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="omron/tm_controller" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="structure_base_link" reason="Adjacent"/>
+    <disable_collisions link1="comau_tool_support" link2="structure_fake_structure" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="structure_fake_structure_left_pillar" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="structure_fake_structure_right_pillar" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="support_link" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="table_base_link" reason="Adjacent"/>
+    <disable_collisions link1="comau_tool_support" link2="table_battery_link" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="comau_tool_support" link2="wall_link" reason="Adjacent"/>
+    <disable_collisions link1="floor_link" link2="kuka_base_link" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="kuka_link1" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="kuka_link2" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="kuka_link3" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="kuka_link4" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="kuka_link5" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="kuka_link6" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="kuka_sensor" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="kuka_sensor_flange1" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="kuka_tool_support" reason="Adjacent"/>
+    <disable_collisions link1="floor_link" link2="omron/base_link" reason="Adjacent"/>
+    <disable_collisions link1="floor_link" link2="omron/link_0" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="omron/link_1" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="omron/tm_controller" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="structure_base_link" reason="Adjacent"/>
+    <disable_collisions link1="floor_link" link2="structure_fake_structure" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="structure_fake_structure_left_pillar" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="structure_fake_structure_right_pillar" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="support_link" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="table_base_link" reason="Adjacent"/>
+    <disable_collisions link1="floor_link" link2="table_battery_link" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="table_leg1_link" reason="Default"/>
+    <disable_collisions link1="floor_link" link2="table_leg2_link" reason="Default"/>
+    <disable_collisions link1="floor_link" link2="table_leg3_link" reason="Default"/>
+    <disable_collisions link1="floor_link" link2="table_leg4_link" reason="Default"/>
+    <disable_collisions link1="floor_link" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="floor_link" link2="wall_fake_link" reason="Default"/>
+    <disable_collisions link1="floor_link" link2="wall_link" reason="Adjacent"/>
     <disable_collisions link1="kuka_base_link" link2="kuka_link1" reason="Adjacent"/>
     <disable_collisions link1="kuka_base_link" link2="kuka_link3" reason="Never"/>
+    <disable_collisions link1="kuka_base_link" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="kuka_base_link" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="kuka_base_link" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="kuka_base_link" link2="omron/left_inner_finger" reason="Never"/>
@@ -721,8 +875,11 @@
     <disable_collisions link1="kuka_base_link" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="kuka_base_link" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="kuka_base_link" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="kuka_base_link" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="kuka_base_link" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="kuka_base_link" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="kuka_base_link" link2="structure_link_1" reason="Adjacent"/>
+    <disable_collisions link1="kuka_base_link" link2="support_link" reason="Never"/>
     <disable_collisions link1="kuka_base_link" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="kuka_base_link" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="kuka_base_link" link2="table_leg1_link" reason="Never"/>
@@ -730,8 +887,11 @@
     <disable_collisions link1="kuka_base_link" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="kuka_base_link" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kuka_base_link" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="kuka_base_link" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="kuka_base_link" link2="wall_link" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="kuka_link2" reason="Adjacent"/>
     <disable_collisions link1="kuka_link1" link2="kuka_link3" reason="Never"/>
+    <disable_collisions link1="kuka_link1" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="omron/left_inner_finger" reason="Never"/>
@@ -756,8 +916,11 @@
     <disable_collisions link1="kuka_link1" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="kuka_link1" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="kuka_link1" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="kuka_link1" link2="support_link" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="table_leg1_link" reason="Never"/>
@@ -765,11 +928,14 @@
     <disable_collisions link1="kuka_link1" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kuka_link1" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="kuka_link1" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="kuka_link1" link2="wall_link" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="kuka_link3" reason="Adjacent"/>
     <disable_collisions link1="kuka_link2" link2="kuka_link4" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="kuka_link5" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="kuka_link6" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="kuka_sensor_flange1" reason="Never"/>
+    <disable_collisions link1="kuka_link2" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="omron/left_inner_finger" reason="Never"/>
@@ -793,6 +959,7 @@
     <disable_collisions link1="kuka_link2" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="structure_fake_structure_left_foot" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="kuka_link2" link2="support_link" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="table_leg1_link" reason="Never"/>
@@ -800,12 +967,15 @@
     <disable_collisions link1="kuka_link2" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kuka_link2" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="kuka_link2" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="kuka_link2" link2="wall_link" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="kuka_link4" reason="Adjacent"/>
     <disable_collisions link1="kuka_link3" link2="kuka_link5" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="kuka_link6" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="kuka_sensor_flange2" reason="Never"/>
+    <disable_collisions link1="kuka_link3" link2="kuka_tool_support" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="omron/left_inner_finger" reason="Never"/>
@@ -827,13 +997,15 @@
     <disable_collisions link1="kuka_link3" link2="omron/right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="omron/tm_controller" reason="Never"/>
+    <disable_collisions link1="kuka_link3" link2="support_link" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="table_base_link" reason="Never"/>
-    <disable_collisions link1="kuka_link3" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="kuka_link3" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="kuka_link3" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="kuka_link3" link2="wall_link" reason="Never"/>
     <disable_collisions link1="kuka_link4" link2="kuka_link5" reason="Adjacent"/>
     <disable_collisions link1="kuka_link4" link2="kuka_link6" reason="Never"/>
     <disable_collisions link1="kuka_link4" link2="kuka_sensor" reason="Never"/>
@@ -860,8 +1032,9 @@
     <disable_collisions link1="kuka_link4" link2="omron/right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="kuka_link4" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="kuka_link4" link2="omron/tm_controller" reason="Never"/>
-    <disable_collisions link1="kuka_link4" link2="table_leg2_link" reason="Never"/>
-    <disable_collisions link1="kuka_link4" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kuka_link4" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="kuka_link4" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="kuka_link4" link2="wall_link" reason="Never"/>
     <disable_collisions link1="kuka_link5" link2="kuka_link6" reason="Adjacent"/>
     <disable_collisions link1="kuka_link5" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="kuka_link5" link2="kuka_sensor_flange1" reason="Default"/>
@@ -887,8 +1060,9 @@
     <disable_collisions link1="kuka_link5" link2="omron/right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="kuka_link5" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="kuka_link5" link2="omron/tm_controller" reason="Never"/>
-    <disable_collisions link1="kuka_link5" link2="table_leg2_link" reason="Never"/>
-    <disable_collisions link1="kuka_link5" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kuka_link5" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="kuka_link5" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="kuka_link5" link2="wall_link" reason="Never"/>
     <disable_collisions link1="kuka_link6" link2="kuka_sensor" reason="Never"/>
     <disable_collisions link1="kuka_link6" link2="kuka_sensor_flange1" reason="Adjacent"/>
     <disable_collisions link1="kuka_link6" link2="kuka_sensor_flange2" reason="Never"/>
@@ -913,8 +1087,10 @@
     <disable_collisions link1="kuka_link6" link2="omron/right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="kuka_link6" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="kuka_link6" link2="omron/tm_controller" reason="Never"/>
+    <disable_collisions link1="kuka_link6" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="kuka_link6" link2="table_leg2_link" reason="Never"/>
-    <disable_collisions link1="kuka_link6" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kuka_link6" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="kuka_link6" link2="wall_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="kuka_sensor" link2="kuka_sensor_flange2" reason="Adjacent"/>
     <disable_collisions link1="kuka_sensor" link2="omron/base_link" reason="Never"/>
@@ -939,8 +1115,8 @@
     <disable_collisions link1="kuka_sensor" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="kuka_sensor" link2="table_leg2_link" reason="Never"/>
-    <disable_collisions link1="kuka_sensor" link2="table_leg3_link" reason="Never"/>
-    <disable_collisions link1="kuka_sensor" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="kuka_sensor" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="kuka_sensor" link2="wall_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange1" link2="kuka_sensor_flange2" reason="Adjacent"/>
     <disable_collisions link1="kuka_sensor_flange1" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange1" link2="omron/ft300_sensor" reason="Never"/>
@@ -963,8 +1139,10 @@
     <disable_collisions link1="kuka_sensor_flange1" link2="omron/right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange1" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange1" link2="omron/tm_controller" reason="Never"/>
+    <disable_collisions link1="kuka_sensor_flange1" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange1" link2="table_leg2_link" reason="Never"/>
-    <disable_collisions link1="kuka_sensor_flange1" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kuka_sensor_flange1" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="kuka_sensor_flange1" link2="wall_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange2" link2="omron/base_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange2" link2="omron/ft300_sensor" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange2" link2="omron/left_inner_finger" reason="Never"/>
@@ -986,16 +1164,59 @@
     <disable_collisions link1="kuka_sensor_flange2" link2="omron/right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange2" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange2" link2="omron/tm_controller" reason="Never"/>
+    <disable_collisions link1="kuka_sensor_flange2" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="kuka_sensor_flange2" link2="table_leg2_link" reason="Never"/>
-    <disable_collisions link1="kuka_sensor_flange2" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kuka_sensor_flange2" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="kuka_sensor_flange2" link2="wall_link" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/base_link" reason="Adjacent"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/ft300_sensor" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/left_inner_finger" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/left_inner_finger_pad" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/left_inner_knuckle" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/left_outer_finger" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/left_outer_knuckle" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/link_0" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/link_1" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/link_2" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/link_3" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/link_4" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/link_5" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/link_6" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/right_inner_finger" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/right_inner_finger_pad" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/right_inner_knuckle" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/right_outer_finger" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/right_outer_knuckle" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/robotiq_140_base_link" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="omron/tm_controller" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="structure_base_link" reason="Adjacent"/>
+    <disable_collisions link1="kuka_tool_support" link2="structure_fake_structure" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="structure_fake_structure_left_foot" reason="Default"/>
+    <disable_collisions link1="kuka_tool_support" link2="structure_fake_structure_left_pillar" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="structure_fake_structure_right_foot" reason="Default"/>
+    <disable_collisions link1="kuka_tool_support" link2="structure_fake_structure_right_pillar" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="support_link" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="table_base_link" reason="Adjacent"/>
+    <disable_collisions link1="kuka_tool_support" link2="table_battery_link" reason="Default"/>
+    <disable_collisions link1="kuka_tool_support" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="kuka_tool_support" link2="wall_link" reason="Adjacent"/>
     <disable_collisions link1="omron/base_link" link2="omron/link_0" reason="Adjacent"/>
     <disable_collisions link1="omron/base_link" link2="omron/link_1" reason="Never"/>
     <disable_collisions link1="omron/base_link" link2="omron/tm_controller" reason="Adjacent"/>
     <disable_collisions link1="omron/base_link" link2="structure_base_link" reason="Adjacent"/>
     <disable_collisions link1="omron/base_link" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/base_link" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/base_link" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/base_link" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/base_link" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/base_link" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/base_link" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/base_link" link2="table_base_link" reason="Adjacent"/>
     <disable_collisions link1="omron/base_link" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/base_link" link2="table_leg1_link" reason="Never"/>
@@ -1003,6 +1224,8 @@
     <disable_collisions link1="omron/base_link" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/base_link" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/base_link" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/base_link" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/base_link" link2="wall_link" reason="Adjacent"/>
     <disable_collisions link1="omron/ft300_sensor" link2="omron/left_inner_finger" reason="Never"/>
     <disable_collisions link1="omron/ft300_sensor" link2="omron/left_inner_finger_pad" reason="Never"/>
     <disable_collisions link1="omron/ft300_sensor" link2="omron/left_inner_knuckle" reason="Never"/>
@@ -1020,8 +1243,11 @@
     <disable_collisions link1="omron/ft300_sensor" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/ft300_sensor" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/ft300_sensor" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/ft300_sensor" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/ft300_sensor" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/ft300_sensor" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/ft300_sensor" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/ft300_sensor" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/ft300_sensor" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/ft300_sensor" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/ft300_sensor" link2="table_leg1_link" reason="Never"/>
@@ -1029,6 +1255,8 @@
     <disable_collisions link1="omron/ft300_sensor" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/ft300_sensor" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/ft300_sensor" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/ft300_sensor" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/ft300_sensor" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger" link2="omron/left_inner_finger_pad" reason="Adjacent"/>
     <disable_collisions link1="omron/left_inner_finger" link2="omron/left_inner_knuckle" reason="Default"/>
     <disable_collisions link1="omron/left_inner_finger" link2="omron/left_outer_finger" reason="Adjacent"/>
@@ -1045,8 +1273,11 @@
     <disable_collisions link1="omron/left_inner_finger" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_finger" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_finger" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_finger" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger" link2="table_leg1_link" reason="Never"/>
@@ -1054,6 +1285,8 @@
     <disable_collisions link1="omron/left_inner_finger" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_finger" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_finger" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="omron/left_inner_knuckle" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="omron/left_outer_finger" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="omron/left_outer_knuckle" reason="Never"/>
@@ -1068,14 +1301,20 @@
     <disable_collisions link1="omron/left_inner_finger_pad" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_finger_pad" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_finger_pad" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_finger_pad" link2="support_link" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_finger_pad" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_finger_pad" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_finger_pad" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_finger_pad" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_knuckle" link2="omron/left_outer_finger" reason="Never"/>
     <disable_collisions link1="omron/left_inner_knuckle" link2="omron/left_outer_knuckle" reason="Default"/>
     <disable_collisions link1="omron/left_inner_knuckle" link2="omron/link_4" reason="Never"/>
@@ -1090,8 +1329,11 @@
     <disable_collisions link1="omron/left_inner_knuckle" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_knuckle" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/left_inner_knuckle" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_knuckle" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/left_inner_knuckle" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_knuckle" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/left_inner_knuckle" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_knuckle" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_knuckle" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_knuckle" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_knuckle" link2="table_leg1_link" reason="Never"/>
@@ -1099,6 +1341,8 @@
     <disable_collisions link1="omron/left_inner_knuckle" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_knuckle" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/left_inner_knuckle" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_knuckle" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/left_inner_knuckle" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_finger" link2="omron/left_outer_knuckle" reason="Adjacent"/>
     <disable_collisions link1="omron/left_outer_finger" link2="omron/link_4" reason="Never"/>
     <disable_collisions link1="omron/left_outer_finger" link2="omron/link_5" reason="Never"/>
@@ -1112,8 +1356,11 @@
     <disable_collisions link1="omron/left_outer_finger" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_finger" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/left_outer_finger" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/left_outer_finger" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/left_outer_finger" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/left_outer_finger" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/left_outer_finger" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/left_outer_finger" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_finger" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_finger" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_finger" link2="table_leg1_link" reason="Never"/>
@@ -1121,6 +1368,8 @@
     <disable_collisions link1="omron/left_outer_finger" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_finger" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_finger" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/left_outer_finger" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/left_outer_finger" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_knuckle" link2="omron/link_4" reason="Never"/>
     <disable_collisions link1="omron/left_outer_knuckle" link2="omron/link_5" reason="Never"/>
     <disable_collisions link1="omron/left_outer_knuckle" link2="omron/link_6" reason="Never"/>
@@ -1133,8 +1382,11 @@
     <disable_collisions link1="omron/left_outer_knuckle" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_knuckle" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/left_outer_knuckle" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/left_outer_knuckle" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/left_outer_knuckle" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/left_outer_knuckle" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/left_outer_knuckle" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/left_outer_knuckle" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_knuckle" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_knuckle" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_knuckle" link2="table_leg1_link" reason="Never"/>
@@ -1142,6 +1394,8 @@
     <disable_collisions link1="omron/left_outer_knuckle" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_knuckle" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/left_outer_knuckle" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/left_outer_knuckle" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/left_outer_knuckle" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/link_0" link2="omron/link_1" reason="Adjacent"/>
     <disable_collisions link1="omron/link_0" link2="omron/link_2" reason="Never"/>
     <disable_collisions link1="omron/link_0" link2="omron/link_4" reason="Never"/>
@@ -1149,8 +1403,11 @@
     <disable_collisions link1="omron/link_0" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_0" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/link_0" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_0" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_0" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_0" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_0" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/link_0" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/link_0" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_0" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/link_0" link2="table_leg1_link" reason="Never"/>
@@ -1158,6 +1415,8 @@
     <disable_collisions link1="omron/link_0" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/link_0" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/link_0" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/link_0" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/link_0" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/link_1" link2="omron/link_2" reason="Adjacent"/>
     <disable_collisions link1="omron/link_1" link2="omron/link_4" reason="Never"/>
     <disable_collisions link1="omron/link_1" link2="omron/link_5" reason="Never"/>
@@ -1165,8 +1424,11 @@
     <disable_collisions link1="omron/link_1" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_1" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/link_1" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_1" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_1" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_1" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_1" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/link_1" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/link_1" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_1" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/link_1" link2="table_leg1_link" reason="Never"/>
@@ -1174,12 +1436,17 @@
     <disable_collisions link1="omron/link_1" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/link_1" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/link_1" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/link_1" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/link_1" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/link_2" link2="omron/link_3" reason="Adjacent"/>
     <disable_collisions link1="omron/link_2" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_2" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/link_2" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_2" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_2" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_2" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_2" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/link_2" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/link_2" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_2" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/link_2" link2="table_leg1_link" reason="Never"/>
@@ -1187,12 +1454,17 @@
     <disable_collisions link1="omron/link_2" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/link_2" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/link_2" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/link_2" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/link_2" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/link_3" link2="omron/link_4" reason="Adjacent"/>
     <disable_collisions link1="omron/link_3" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_3" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/link_3" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_3" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_3" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_3" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_3" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/link_3" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/link_3" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_3" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/link_3" link2="table_leg1_link" reason="Never"/>
@@ -1200,6 +1472,8 @@
     <disable_collisions link1="omron/link_3" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/link_3" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/link_3" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/link_3" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/link_3" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/link_4" link2="omron/link_5" reason="Adjacent"/>
     <disable_collisions link1="omron/link_4" link2="omron/right_inner_finger" reason="Never"/>
     <disable_collisions link1="omron/link_4" link2="omron/right_inner_finger_pad" reason="Never"/>
@@ -1210,8 +1484,11 @@
     <disable_collisions link1="omron/link_4" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_4" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/link_4" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_4" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_4" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_4" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_4" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/link_4" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/link_4" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_4" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/link_4" link2="table_leg1_link" reason="Never"/>
@@ -1219,6 +1496,8 @@
     <disable_collisions link1="omron/link_4" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/link_4" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/link_4" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/link_4" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/link_4" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/link_5" link2="omron/link_6" reason="Adjacent"/>
     <disable_collisions link1="omron/link_5" link2="omron/right_inner_finger" reason="Never"/>
     <disable_collisions link1="omron/link_5" link2="omron/right_inner_finger_pad" reason="Never"/>
@@ -1229,8 +1508,11 @@
     <disable_collisions link1="omron/link_5" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_5" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/link_5" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_5" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_5" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_5" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_5" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/link_5" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/link_5" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_5" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/link_5" link2="table_leg1_link" reason="Never"/>
@@ -1238,17 +1520,22 @@
     <disable_collisions link1="omron/link_5" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/link_5" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/link_5" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/link_5" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/link_5" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="omron/right_inner_finger" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="omron/right_inner_finger_pad" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="omron/right_inner_knuckle" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="omron/right_outer_finger" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="omron/right_outer_knuckle" reason="Never"/>
-    <disable_collisions link1="omron/link_6" link2="omron/robotiq_140_base_link" reason="Default"/>
+    <disable_collisions link1="omron/link_6" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_6" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/link_6" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/link_6" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="table_leg1_link" reason="Never"/>
@@ -1256,6 +1543,8 @@
     <disable_collisions link1="omron/link_6" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/link_6" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/link_6" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/link_6" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger" link2="omron/right_inner_finger_pad" reason="Adjacent"/>
     <disable_collisions link1="omron/right_inner_finger" link2="omron/right_inner_knuckle" reason="Default"/>
     <disable_collisions link1="omron/right_inner_finger" link2="omron/right_outer_finger" reason="Adjacent"/>
@@ -1264,8 +1553,11 @@
     <disable_collisions link1="omron/right_inner_finger" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_finger" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_finger" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_finger" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger" link2="table_leg1_link" reason="Never"/>
@@ -1273,6 +1565,8 @@
     <disable_collisions link1="omron/right_inner_finger" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_finger" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_finger" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="omron/right_inner_knuckle" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="omron/right_outer_finger" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="omron/right_outer_knuckle" reason="Never"/>
@@ -1280,22 +1574,31 @@
     <disable_collisions link1="omron/right_inner_finger_pad" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_finger_pad" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_finger_pad" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_finger_pad" link2="support_link" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_finger_pad" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_finger_pad" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_finger_pad" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_finger_pad" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="omron/right_outer_finger" reason="Never"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="omron/right_outer_knuckle" reason="Default"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="omron/robotiq_140_base_link" reason="Adjacent"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_knuckle" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_knuckle" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_knuckle" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="table_leg1_link" reason="Never"/>
@@ -1303,13 +1606,18 @@
     <disable_collisions link1="omron/right_inner_knuckle" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/right_inner_knuckle" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_knuckle" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/right_inner_knuckle" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_finger" link2="omron/right_outer_knuckle" reason="Adjacent"/>
     <disable_collisions link1="omron/right_outer_finger" link2="omron/robotiq_140_base_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_finger" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_finger" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/right_outer_finger" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/right_outer_finger" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/right_outer_finger" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/right_outer_finger" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/right_outer_finger" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/right_outer_finger" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_finger" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_finger" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_finger" link2="table_leg1_link" reason="Never"/>
@@ -1317,12 +1625,17 @@
     <disable_collisions link1="omron/right_outer_finger" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_finger" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_finger" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/right_outer_finger" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/right_outer_finger" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_knuckle" link2="omron/robotiq_140_base_link" reason="Adjacent"/>
     <disable_collisions link1="omron/right_outer_knuckle" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_knuckle" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/right_outer_knuckle" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/right_outer_knuckle" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/right_outer_knuckle" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/right_outer_knuckle" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/right_outer_knuckle" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/right_outer_knuckle" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_knuckle" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_knuckle" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_knuckle" link2="table_leg1_link" reason="Never"/>
@@ -1330,11 +1643,16 @@
     <disable_collisions link1="omron/right_outer_knuckle" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_knuckle" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/right_outer_knuckle" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/right_outer_knuckle" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/right_outer_knuckle" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/robotiq_140_base_link" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/robotiq_140_base_link" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/robotiq_140_base_link" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/robotiq_140_base_link" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/robotiq_140_base_link" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/robotiq_140_base_link" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/robotiq_140_base_link" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/robotiq_140_base_link" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/robotiq_140_base_link" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/robotiq_140_base_link" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/robotiq_140_base_link" link2="table_leg1_link" reason="Never"/>
@@ -1342,11 +1660,16 @@
     <disable_collisions link1="omron/robotiq_140_base_link" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/robotiq_140_base_link" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/robotiq_140_base_link" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/robotiq_140_base_link" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/robotiq_140_base_link" link2="wall_link" reason="Never"/>
     <disable_collisions link1="omron/tm_controller" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="omron/tm_controller" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="omron/tm_controller" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="omron/tm_controller" link2="structure_fake_structure_left_pillar" reason="Never"/>
     <disable_collisions link1="omron/tm_controller" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="omron/tm_controller" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="omron/tm_controller" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="omron/tm_controller" link2="support_link" reason="Never"/>
     <disable_collisions link1="omron/tm_controller" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="omron/tm_controller" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="omron/tm_controller" link2="table_leg1_link" reason="Never"/>
@@ -1354,20 +1677,30 @@
     <disable_collisions link1="omron/tm_controller" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="omron/tm_controller" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="omron/tm_controller" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="omron/tm_controller" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="omron/tm_controller" link2="wall_link" reason="Never"/>
     <disable_collisions link1="structure_base_link" link2="structure_fake_structure" reason="Adjacent"/>
     <disable_collisions link1="structure_base_link" link2="structure_fake_structure_left_foot" reason="Adjacent"/>
+    <disable_collisions link1="structure_base_link" link2="structure_fake_structure_left_pillar" reason="Adjacent"/>
     <disable_collisions link1="structure_base_link" link2="structure_fake_structure_right_foot" reason="Adjacent"/>
+    <disable_collisions link1="structure_base_link" link2="structure_fake_structure_right_pillar" reason="Adjacent"/>
     <disable_collisions link1="structure_base_link" link2="structure_link_1" reason="Adjacent"/>
+    <disable_collisions link1="structure_base_link" link2="support_link" reason="Never"/>
     <disable_collisions link1="structure_base_link" link2="table_base_link" reason="Adjacent"/>
     <disable_collisions link1="structure_base_link" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="structure_base_link" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="structure_base_link" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="structure_base_link" link2="table_leg3_link" reason="Never"/>
-    <disable_collisions link1="structure_base_link" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="structure_base_link" link2="table_leg4_link" reason="Default"/>
     <disable_collisions link1="structure_base_link" link2="table_tabletop_link" reason="Never"/>
-    <disable_collisions link1="structure_fake_structure" link2="structure_fake_structure_left_foot" reason="Default"/>
-    <disable_collisions link1="structure_fake_structure" link2="structure_fake_structure_right_foot" reason="Default"/>
+    <disable_collisions link1="structure_base_link" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="structure_base_link" link2="wall_link" reason="Adjacent"/>
+    <disable_collisions link1="structure_fake_structure" link2="structure_fake_structure_left_foot" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure" link2="structure_fake_structure_left_pillar" reason="Default"/>
+    <disable_collisions link1="structure_fake_structure" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure" link2="structure_fake_structure_right_pillar" reason="Default"/>
     <disable_collisions link1="structure_fake_structure" link2="structure_link_1" reason="Default"/>
+    <disable_collisions link1="structure_fake_structure" link2="support_link" reason="Default"/>
     <disable_collisions link1="structure_fake_structure" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="structure_fake_structure" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="structure_fake_structure" link2="table_leg1_link" reason="Never"/>
@@ -1375,16 +1708,38 @@
     <disable_collisions link1="structure_fake_structure" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="structure_fake_structure" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="structure_fake_structure" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure" link2="wall_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_foot" link2="structure_fake_structure_left_pillar" reason="Default"/>
     <disable_collisions link1="structure_fake_structure_left_foot" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_foot" link2="structure_fake_structure_right_pillar" reason="Never"/>
     <disable_collisions link1="structure_fake_structure_left_foot" link2="structure_link_1" reason="Never"/>
-    <disable_collisions link1="structure_fake_structure_left_foot" link2="table_base_link" reason="Never"/>
-    <disable_collisions link1="structure_fake_structure_left_foot" link2="table_battery_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_foot" link2="support_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_foot" link2="table_base_link" reason="Default"/>
+    <disable_collisions link1="structure_fake_structure_left_foot" link2="table_battery_link" reason="Default"/>
     <disable_collisions link1="structure_fake_structure_left_foot" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="structure_fake_structure_left_foot" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="structure_fake_structure_left_foot" link2="table_leg3_link" reason="Never"/>
-    <disable_collisions link1="structure_fake_structure_left_foot" link2="table_leg4_link" reason="Never"/>
-    <disable_collisions link1="structure_fake_structure_left_foot" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_foot" link2="table_leg4_link" reason="Default"/>
+    <disable_collisions link1="structure_fake_structure_left_foot" link2="table_tabletop_link" reason="Default"/>
+    <disable_collisions link1="structure_fake_structure_left_foot" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_foot" link2="wall_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="structure_fake_structure_right_foot" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="structure_fake_structure_right_pillar" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="support_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="table_base_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="table_battery_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_left_pillar" link2="wall_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_foot" link2="structure_fake_structure_right_pillar" reason="Default"/>
     <disable_collisions link1="structure_fake_structure_right_foot" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_foot" link2="support_link" reason="Never"/>
     <disable_collisions link1="structure_fake_structure_right_foot" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="structure_fake_structure_right_foot" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="structure_fake_structure_right_foot" link2="table_leg1_link" reason="Never"/>
@@ -1392,6 +1747,20 @@
     <disable_collisions link1="structure_fake_structure_right_foot" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="structure_fake_structure_right_foot" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="structure_fake_structure_right_foot" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_foot" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_foot" link2="wall_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_pillar" link2="structure_link_1" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_pillar" link2="support_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_pillar" link2="table_base_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_pillar" link2="table_battery_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_pillar" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_pillar" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_pillar" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_pillar" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_pillar" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_pillar" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="structure_fake_structure_right_pillar" link2="wall_link" reason="Never"/>
+    <disable_collisions link1="structure_link_1" link2="support_link" reason="Never"/>
     <disable_collisions link1="structure_link_1" link2="table_base_link" reason="Never"/>
     <disable_collisions link1="structure_link_1" link2="table_battery_link" reason="Never"/>
     <disable_collisions link1="structure_link_1" link2="table_leg1_link" reason="Never"/>
@@ -1399,25 +1768,51 @@
     <disable_collisions link1="structure_link_1" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="structure_link_1" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="structure_link_1" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="structure_link_1" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="structure_link_1" link2="wall_link" reason="Never"/>
+    <disable_collisions link1="support_link" link2="table_base_link" reason="Never"/>
+    <disable_collisions link1="support_link" link2="table_battery_link" reason="Never"/>
+    <disable_collisions link1="support_link" link2="table_leg1_link" reason="Never"/>
+    <disable_collisions link1="support_link" link2="table_leg2_link" reason="Never"/>
+    <disable_collisions link1="support_link" link2="table_leg3_link" reason="Never"/>
+    <disable_collisions link1="support_link" link2="table_leg4_link" reason="Never"/>
+    <disable_collisions link1="support_link" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="support_link" link2="wall_fake_link" reason="Default"/>
+    <disable_collisions link1="support_link" link2="wall_link" reason="Adjacent"/>
     <disable_collisions link1="table_base_link" link2="table_battery_link" reason="Adjacent"/>
     <disable_collisions link1="table_base_link" link2="table_leg1_link" reason="Adjacent"/>
     <disable_collisions link1="table_base_link" link2="table_leg2_link" reason="Adjacent"/>
     <disable_collisions link1="table_base_link" link2="table_leg3_link" reason="Adjacent"/>
     <disable_collisions link1="table_base_link" link2="table_leg4_link" reason="Adjacent"/>
     <disable_collisions link1="table_base_link" link2="table_tabletop_link" reason="Adjacent"/>
+    <disable_collisions link1="table_base_link" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="table_base_link" link2="wall_link" reason="Adjacent"/>
     <disable_collisions link1="table_battery_link" link2="table_leg1_link" reason="Never"/>
     <disable_collisions link1="table_battery_link" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="table_battery_link" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="table_battery_link" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="table_battery_link" link2="table_tabletop_link" reason="Never"/>
+    <disable_collisions link1="table_battery_link" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="table_battery_link" link2="wall_link" reason="Never"/>
     <disable_collisions link1="table_leg1_link" link2="table_leg2_link" reason="Never"/>
     <disable_collisions link1="table_leg1_link" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="table_leg1_link" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="table_leg1_link" link2="table_tabletop_link" reason="Default"/>
+    <disable_collisions link1="table_leg1_link" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="table_leg1_link" link2="wall_link" reason="Never"/>
     <disable_collisions link1="table_leg2_link" link2="table_leg3_link" reason="Never"/>
     <disable_collisions link1="table_leg2_link" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="table_leg2_link" link2="table_tabletop_link" reason="Default"/>
+    <disable_collisions link1="table_leg2_link" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="table_leg2_link" link2="wall_link" reason="Never"/>
     <disable_collisions link1="table_leg3_link" link2="table_leg4_link" reason="Never"/>
     <disable_collisions link1="table_leg3_link" link2="table_tabletop_link" reason="Default"/>
+    <disable_collisions link1="table_leg3_link" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="table_leg3_link" link2="wall_link" reason="Never"/>
     <disable_collisions link1="table_leg4_link" link2="table_tabletop_link" reason="Default"/>
+    <disable_collisions link1="table_leg4_link" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="table_leg4_link" link2="wall_link" reason="Never"/>
+    <disable_collisions link1="table_tabletop_link" link2="wall_fake_link" reason="Never"/>
+    <disable_collisions link1="table_tabletop_link" link2="wall_link" reason="Never"/>
+    <disable_collisions link1="wall_fake_link" link2="wall_link" reason="Adjacent"/>
 </robot>
