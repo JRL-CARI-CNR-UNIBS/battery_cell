@@ -39,10 +39,10 @@
       <gpio name="digital_outputs1">
         <command_interface name="lubrication_command"/>  <!-- TRUE to start the linear axis lubrication -->
         <command_interface name="d_output.1"/>
-        <command_interface name="kuka_tool_change"/>     <!-- TRUE to drop the tool, FALSE to hook the tool -->
-        <command_interface name="tool_enable"/>          <!-- TRUE to enable the tool -->
-        <command_interface name="tool_bwd"/>             <!-- TRUE to move the tool towards the HOME switch -->
-        <command_interface name="tool_fwd"/>             <!-- TRUE to move the tool towards the END switch -->
+        <command_interface name="kuka_tool_change"/>     <!-- TRUE to drop the KUKA tool, FALSE to hook it -->
+        <command_interface name="tool_enable"/>          <!-- TRUE to enable the KUKA tool -->
+        <command_interface name="tool_bwd"/>             <!-- TRUE to move the KUKA tool towards the HOME switch -->
+        <command_interface name="tool_fwd"/>             <!-- TRUE to move the KUKA tool towards the END switch -->
         <command_interface name="d_output.6"/>
         <command_interface name="d_output.7"/>
         <ec_module name="EL2008">
@@ -67,6 +67,23 @@
           <param name="alias">0</param>
           <param name="position">4</param>
           <param name="slave_config">$(find battery_cell_description)/config/ethercat/EL2008_ethercat_config_2.yaml</param>
+        </ec_module>
+      </gpio>
+
+      <gpio name="digital_outputs3">
+        <command_interface name="suction_cup"/>               <!-- TRUE to start the suction cap -->
+        <command_interface name="d_output.1"/>
+        <command_interface name="comau_tool_change_close"/>   <!-- TRUE to hook the COMAU tool -->
+        <command_interface name="d_output.3"/>
+        <command_interface name="comau_tool_change_open"/>    <!-- TRUE to drop the COMAU tool -->
+        <command_interface name="d_output.5"/>
+        <command_interface name="d_output.6"/>
+        <command_interface name="d_output.7"/>
+        <ec_module name="EL2008">
+          <plugin>ethercat_generic_plugins/GenericEcSlave</plugin>
+          <param name="alias">0</param>
+          <param name="position">10</param>
+          <param name="slave_config">$(find battery_cell_description)/config/ethercat/EL2008_ethercat_config_3.yaml</param>
         </ec_module>
       </gpio>
 

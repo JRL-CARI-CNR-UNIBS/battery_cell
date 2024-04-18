@@ -1,0 +1,30 @@
+ <root BTCPP_format="4" >
+    <!-- Include subtrees files -->
+     <include path="./subtree_photoneo_scan.xml" />
+     <include path="./subtree_photoneo_drop.xml" />
+     <include path="./subtree_screwdriver_hook.xml" />
+     <include path="./subtree_unscrew.xml" />
+     <include path="./subtree_screwdriver_drop.xml" />
+     <include path="./subtree_spreader_hook_and_approach.xml" />
+     <include path="./subtree_suction_hook_and_approach.xml" />
+     <include path="./subtree_suction_up.xml" />
+     <include path="./subtree_cover_and_suction_drop.xml" />
+     <include path="./subtree_spreader_drop.xml" />
+     <!-- <include path="./subtree_omron.xml" /> -->
+
+    <!-- Main tree -->
+     <BehaviorTree ID="MainTree"> <!--DO NOT CHANGE -->
+        <Sequence name="root_sequence">
+                      
+           <!-- comau -->
+            <SubTree ID="SuctionHookAndApproach"/>                                
+
+          <!-- comau -->
+          <SubTree ID="SuctionUp"/>       
+
+          <!-- comau -->
+            <SubTree ID="CoverAndSuctionDrop"/>                                 
+
+        </Sequence>
+     </BehaviorTree>
+ </root>

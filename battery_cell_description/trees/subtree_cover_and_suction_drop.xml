@@ -3,13 +3,13 @@
         <Sequence name="root_sequence_cover_and_suction_drop">
             <!-- CoverDrop -->
             <TrajectoryLoaderSkill name="comau_trj_cover_drop_approach" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_cover_drop_approach"/>
-            <!-- <GPIOSequenceWriteSkill name="comau_suction_off" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_suction_off"/> -->
+            <GPIOSequenceWriteSkill name="comau_suction_off" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_suction_off"/>
             <TrajectoryLoaderSkill name="comau_trj_cover_drop_leave" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_cover_drop_leave"/>
 
             <!-- SuctionDrop -->
             <TrajectoryLoaderSkill name="comau_trj_suction_drop_rack_approach_part1" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_suction_drop_rack_approach_part1"/>
             <TrajectoryLoaderSkill name="comau_trj_suction_drop_rack_approach_part2" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_suction_drop_rack_approach_part2"/>
-            <!-- <GPIOSequenceWriteSkill name="comau_drop_tool" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_drop_tool"/> -->
+            <GPIOSequenceWriteSkill name="comau_drop_tool" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_drop_tool"/>
             <TrajectoryLoaderSkill name="comau_trj_suction_drop_rack_leave" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_suction_drop_rack_leave"/>
         </Sequence>
      </BehaviorTree>

@@ -12,14 +12,18 @@ bt_executer:
     value: [False]
 
   comau_drop_tool:
-    name: ["comau_drop_tool"] #TODO
-    pause: [1000]
-    value: [True]
+    name: ["digital_outputs3/comau_tool_change_open","digital_outputs3/comau_tool_change_open"] 
+    pause: [1000,1000]
+    value: [True,False]
   
   comau_hook_tool:
-    name: ["comau_hook_tool"] #TODO
-    pause: [1000]
-    value: [True]
+    name: ["digital_outputs3/comau_tool_change_close","digital_outputs3/comau_tool_change_close"] 
+    pause: [1000,1000]
+    value: [True,False]
+
+  #OmronInspection - omron
+  omron_inspection:
+    goal: "Inspection_1"
 
   #PhotoneoScan - kuka
   kuka_trj_photoneo_scan:
@@ -54,7 +58,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 7
 
   #utilities -> kuka_drop_tool
 
@@ -87,7 +91,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 5
+    scaling: 7
 
   #utilities -> kuka_hook_tool
 
@@ -99,7 +103,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 5
+    scaling: 15
 
   #Unscrew - kuka
   #Screw 1
@@ -121,7 +125,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 25
 
   kuka_screwdriver_on_low:
     name: ["digital_outputs2/screwdriver_lp"] #TODO
@@ -151,7 +155,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 40
 
   #Screw 2
   kuka_trj_approach_screw_2:
@@ -172,7 +176,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 25
 
   kuka_trj_up_screw_2:
     group_name: "kuka"
@@ -182,7 +186,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 40
 
   #Screw 3
   kuka_trj_approach_screw_3:
@@ -203,7 +207,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 25
 
   kuka_trj_up_screw_3:
     group_name: "kuka"
@@ -213,7 +217,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 40
 
   #ScrewdriverDrop - kuka
   kuka_trj_screwdriver_drop_rack_approach_part1:
@@ -291,7 +295,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 10
+    scaling: 5
 
   #utilities -> comau_hook_tool
 
@@ -303,7 +307,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 10
+    scaling: 5
 
   #SuctionOn - comau
   comau_trj_suction_on_approach_part1:
@@ -327,7 +331,7 @@ bt_executer:
     scaling: 10
 
   comau_suction_on:
-    name: ["comau_suction_on"] #TODO
+    name: ["digital_outputs3/suction_cup"] 
     pause: [1000]
     value: [True]
 
@@ -351,17 +355,17 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 100
+    scaling: 40
 
   kuka_spreader_on:
-    name: ["kuka_spreader_on"] #TODO
-    pause: [1000]
-    value: [True]
+    name: ["digital_outputs1/tool_fwd","digital_outputs1/tool_enable","digital_outputs1/tool_fwd","digital_outputs1/tool_enable"]
+    pause: [100,4000,100,100]
+    value: [True,True,False,False]
 
-    kuka_spreader_off:
-    name: ["kuka_spreader_ff"] #TODO
-    pause: [1000]
-    value: [False]
+  kuka_spreader_off:
+    name: ["digital_outputs1/tool_bwd","digital_outputs1/tool_enable","digital_outputs1/tool_bwd","digital_outputs1/tool_enable"] #TODO
+    pause: [100,4000,100,100]
+    value: [True,True,False,False]
 
   kuka_trj_spreader_on_leave:
     group_name: "kuka"
@@ -371,7 +375,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 100
+    scaling: 40
 
   #SpreaderDrop - kuka
   kuka_trj_spreader_drop_rack_approach:
@@ -408,9 +412,9 @@ bt_executer:
     scaling: 10
 
   comau_suction_off:
-    name: ["comau_suction_off"] #TODO
+    name: ["digital_outputs3/suction_cup"] #TODO
     pause: [1000]
-    value: [True]
+    value: [False]
 
   comau_trj_cover_drop_leave:
     group_name: "comau"
@@ -455,117 +459,3 @@ bt_executer:
     speed_scaling_topic: "/comau_speed_ovr"
     scaling: 10
 
-  #TonnoPinzaHook - comau
-  comau_trj_tonnopinza_hook_rack_approach:
-    group_name: "comau"
-    trj_names: ["comau_trj_tonnopinza_hook_rack_approach"]
-    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
-    repetitions: 1
-    recompute_time_law: True
-    simulation: False
-    speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 100
-
-  #utilities -> comau_hook_tool
-
-  comau_trj_tonnopinza_hook_rack_leave:
-    group_name: "comau"
-    trj_names: ["comau_trj_tonnopinza_hook_rack_leave"]
-    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
-    repetitions: 1
-    recompute_time_law: True
-    simulation: False
-    speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 100
-
-  #BatteryGrasp - comau
-  comau_tonnopinza_open:
-    name: ["comau_tonnopinza_open"] #TODO
-    pause: [1000]
-    value: [True]
-
-  comau_trj_grasp_approach:
-    group_name: "comau"
-    trj_names: ["comau_trj_grasp_approach"]
-    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
-    repetitions: 1
-    recompute_time_law: True
-    simulation: False
-    speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 100
-
-  comau_tonnopinza_close:
-    name: ["comau_tonnopinza_close"] #TODO
-    pause: [1000]
-    value: [True]
-
-  comau_trj_grasp_leave:
-    group_name: "comau"
-    trj_names: ["comau_trj_grasp_leave"]
-    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
-    repetitions: 1
-    recompute_time_law: True
-    simulation: False
-    speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 100
-
-  # comau_trj_short:
-  #   group_name: "comau"
-  #   trj_names: ["trj_comau_short"]
-  #   fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
-  #   repetitions: 3
-  #   recompute_time_law: True
-  #   simulation: False
-
-  # kuka_trj_short:
-  #   group_name: "kuka"
-  #   trj_names: ["trj_kuka_short"]
-  #   fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
-  #   repetitions: 10
-  #   recompute_time_law: True
-  #   simulation: False
-  
-  # kuka_pneumatic_on:
-  #   name: ["digital_outputs2/screwdriver_hp","digital_outputs2/screwdriver_lp"] #names of the input to write
-  #   pause: [2500,0] #pause before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
-  #   value: [True, True] #value to set
-  
-  # kuka_pneumatic_off:
-  #   name: ["digital_outputs2/screwdriver_hp","digital_outputs2/screwdriver_lp"] #names of the input to write
-  #   pause: [2500,0] #pause before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
-  #   value: [False, False] #value to set
-
-  # comau_move_test:
-  #   group_name: "comau"
-  #   ik_service_name: "/comau_ik_solver/get_ik"
-  #   location_name: "test_comau_location"
-  #   fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
-  #   simulation: False
-
-  # comau_test_trj:
-  #   group_name: "comau"
-  #   trj_names: ["trj_comau"]
-  #   fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
-  #   repetitions: 5
-  #   recompute_time_law: True
-  #   simulation: False
-
-  # kuka_test_trj:
-  #   group_name: "kuka"
-  #   trj_names: ["trj_kuka"]
-  #   fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
-  #   repetitions: 2
-  #   recompute_time_law: True
-  #   simulation: False
-  
-  # trigger_service_test:
-  #   pause: 1.5 #seconds of pause before triggering
-
-  # set_bool_service_test:
-  #   pause: 1.5 #seconds of pause before setting the value
-  #   value: True
-  
-  # gpio_sequence_write_service_test:
-  #   name: ["io1","io2"] #names of the input to write
-  #   pause: [100,500] #pause before activating the inputs in ms. Inputs will be activated in cascade so the first input will be activated after 100ms, the second after 100ms+500ms.
-  #   value: [True, False] #value to set

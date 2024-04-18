@@ -9,7 +9,7 @@
 
             <!-- Approach -->
             <TrajectoryLoaderSkill name="kuka_trj_spreader_on_approach" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_spreader_on_approach"/>
-            <!-- <GPIOSequenceWriteSkill name="kuka_spreader_on" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_spreader_on"/> -->
+            <GPIOSequenceWriteSkill name="kuka_spreader_on" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_spreader_on"/>
             <WaitSkill name="wait_photoneo_scan" action_name= "/sleep_service" param_ns="wait_photoneo_scan"/>
         </Sequence>
      </BehaviorTree>

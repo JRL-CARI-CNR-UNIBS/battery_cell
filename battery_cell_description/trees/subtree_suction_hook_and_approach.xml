@@ -2,15 +2,14 @@
      <BehaviorTree ID="SuctionHookAndApproach">
         <Sequence name="root_sequence_suction_hook_and_approach">
             <!-- Hook -->
+            <GPIOSequenceWriteSkill name="comau_drop_tool1" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_drop_tool"/>
             <TrajectoryLoaderSkill name="comau_trj_suction_hook_rack_approach_part1" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_suction_hook_rack_approach_part1"/>
             <TrajectoryLoaderSkill name="comau_trj_suction_hook_rack_approach_part2" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_suction_hook_rack_approach_part2"/>
-            <!-- <GPIOSequenceWriteSkill name="comau_hook_tool" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_hook_tool"/> -->
+            <GPIOSequenceWriteSkill name="comau_hook_tool" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_hook_tool"/>
             <TrajectoryLoaderSkill name="comau_trj_suction_hook_rack_leave" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_suction_hook_rack_leave"/>
 
             <!-- Approach -->
             <TrajectoryLoaderSkill name="comau_trj_suction_on_approach_part1" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_suction_on_approach_part1"/>
-            <TrajectoryLoaderSkill name="comau_trj_suction_on_approach_part2" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_suction_on_approach_part2"/>
-            <!-- <GPIOSequenceWriteSkill name="comau_suction_on" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_suction_on"/> -->
         </Sequence>
      </BehaviorTree>
  </root>

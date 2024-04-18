@@ -1,0 +1,7 @@
+ <root BTCPP_format="4" >
+     <BehaviorTree ID="OmronInspection">
+        <Sequence name="root_sequence_scan">
+            <OmronGoToGoalSkill name="omron_inspection" service_name= "/omron/goto_goal" param_ns="omron_inspection"/>
+        </Sequence>
+     </BehaviorTree>
+ </root>
