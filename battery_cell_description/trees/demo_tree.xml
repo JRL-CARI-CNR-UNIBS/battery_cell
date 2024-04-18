@@ -22,28 +22,36 @@
           <!--kuka -->
           <SubTree ID="PhotoneoScan"/>                    
           <SubTree ID="PhotoneoDrop"/>                  
-          <!-- <SubTree ID="ScrewdriverHook"/>                 
-          <!-- <SubTree ID="Unscrew"/>                         <kuka -->
-          <!-- <SubTree ID="ScrewdriverDrop"/>                 <kuka -->
+          <SubTree ID="ScrewdriverHook"/>                 
+          <SubTree ID="Unscrew"/>                        
+          <SubTree ID="ScrewdriverDrop"/>                
 
-          <!-- <Parallel name="spreader_and_suction_hook"/> -->
-            <!--<SubTree ID="SuctionHook"/>                    comau -->
-            <!--<SubTree ID="SpreaderHook"/>                   kuka -->
-          <!-- </Parallel> -->
+           <Parallel name="spreader_and_suction_hook">
+           <!-- comau -->
+            <SubTree ID="SuctionHook"/>                     
+            <!-- kuka -->
+            <SubTree ID="SpreaderHook"/>                  
+          </Parallel> 
            
-          <!--<SubTree ID="SuctionOn"/>                        comau -->
+           <!-- comau -->
+          <SubTree ID="SuctionOn"/>                      
 
-          <!-- <Parallel name="remove_cover"/> -->
-            <!--<SubTree ID="SuctionUp"/>                      comau -->
-            <!--<SubTree ID="SpreaderOn"/>                     kuka -->
-          <!-- </Parallel> -->
+          <Parallel name="remove_cover">
+          <!-- comau -->
+            <SubTree ID="SuctionUp"/>                
+            <!-- kuka       -->
+            <SubTree ID="SpreaderOn"/>                     
+          </Parallel>
 
-          <!-- <Parallel name="spreader_and_cover_drop"/> -->
-            <!-- <SubTree ID="CoverDrop"/>                      comau -->
-            <!-- <SubTree ID="SpreaderDrop"/>                   kuka -->
-          <!-- </Parallel> --> -->
+          <Parallel name="spreader_and_cover_drop">
+          <!-- comau -->
+            <SubTree ID="CoverDrop"/>                      
+            <!-- kuka -->
+            <SubTree ID="SpreaderDrop"/>                   
+          </Parallel> 
 
-          <!-- <SubTree ID="SuctionDrop"/>                      comau -->
+          <!-- comau -->
+          <SubTree ID="SuctionDrop"/>                  
 
         </Sequence>
      </BehaviorTree>
