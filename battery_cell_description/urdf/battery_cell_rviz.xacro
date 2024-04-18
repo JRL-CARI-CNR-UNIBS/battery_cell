@@ -28,17 +28,17 @@
       <child link="structure_base_link"/>
   </joint>
 
-  <!-- <xacro:include filename="$(find battery_cell_description)/urdf/battery_table.xacro" />
+  <xacro:include filename="$(find battery_cell_description)/urdf/battery_table.xacro" />
   <xacro:property name="table_prefix" value="'table_'" />
-  <xacro:battery_table prefix="${table_prefix}"/> -->
+  <xacro:battery_table prefix="${table_prefix}"/>
 
-  <!-- <joint name="world_to_table" type="fixed">
+  <joint name="world_to_table" type="fixed">
     <origin
-      xyz="0.025 -1.58 0"
+      xyz="3.200 -0.25 0"
       rpy="0 0 0" />
     <parent link="world"/>
     <child link="${table_prefix}base_link"/>
-  </joint> -->
+  </joint>
 
   <!-- ## BATTERY HOLDER ## -->
   <link name="battery_holder">
