@@ -10,6 +10,7 @@
      <include path="./subtree_suction_on.xml" />
      <include path="./subtree_suction_up.xml" />
      <include path="./subtree_spreader_on.xml" />
+     <include path="./subtree_suction_drop.xml" />
      <include path="./subtree_cover_drop.xml" />
      <include path="./subtree_spreader_drop.xml" />
      <include path="./subtree_tonnopinza_hook.xml" />
@@ -41,6 +42,8 @@
             <!-- <SubTree ID="CoverDrop"/>                      comau -->
             <!-- <SubTree ID="SpreaderDrop"/>                   kuka -->
           <!-- </Parallel> --> -->
+
+          <!-- <SubTree ID="SuctionDrop"/>                      comau -->
 
         </Sequence>
      </BehaviorTree>
