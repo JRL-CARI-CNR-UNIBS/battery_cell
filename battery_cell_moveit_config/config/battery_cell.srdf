@@ -45,27 +45,6 @@
     <disable_collisions link1="battery_holder" link2="kuka_base_link" reason="Never"/>
     <disable_collisions link1="battery_holder" link2="kuka_link1" reason="Never"/>
     <disable_collisions link1="battery_holder" link2="kuka_tool_support" reason="Adjacent"/>
-    <disable_collisions link1="battery_holder" link2="omron/base_link" reason="Adjacent"/>
-    <disable_collisions link1="battery_holder" link2="omron/ft300_sensor" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/left_inner_finger" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/left_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/left_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/left_outer_finger" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/left_outer_knuckle" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/link_0" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/link_1" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/link_2" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/link_3" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/link_4" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/link_5" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/link_6" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/right_inner_finger" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/right_inner_finger_pad" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/right_inner_knuckle" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/right_outer_finger" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/right_outer_knuckle" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/robotiq_140_base_link" reason="Never"/>
-    <disable_collisions link1="battery_holder" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="battery_holder" link2="structure_base_link" reason="Adjacent"/>
     <disable_collisions link1="battery_holder" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="battery_holder" link2="structure_fake_structure_left_foot" reason="Never"/>
@@ -108,13 +87,6 @@
     <disable_collisions link1="comau_base_link" link2="kuka_sensor_flange1" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="kuka_sensor_flange2" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="kuka_tool_support" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/base_link" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/link_0" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/link_1" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/link_2" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/link_3" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/link_4" reason="Never"/>
-    <disable_collisions link1="comau_base_link" link2="omron/tm_controller" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="structure_base_link" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="structure_fake_structure" reason="Never"/>
     <disable_collisions link1="comau_base_link" link2="structure_fake_structure_left_foot" reason="Never"/>
