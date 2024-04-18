@@ -1,0 +1,32 @@
+ <root BTCPP_format="4" >
+     <BehaviorTree ID="Unscrew">
+        <Sequence name="root_sequence_unscrew">
+            <!-- Screw 1 -->
+            <TrajectoryLoaderSkill name="kuka_trj_approach_screw_1" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_approach_screw_1"/>
+            <TrajectoryLoaderSkill name="kuka_trj_down_screw_1" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_down_screw_1"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_on_low1" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_screwdriver_on_low"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_off_low1" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_screwdriver_off_low"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_on_1" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_screwdriver_on"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_off_1" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_screwdriver_off"/>
+            <TrajectoryLoaderSkill name="kuka_trj_up_screw_1" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_up_screw_1"/>
+
+            <!-- Screw 2 -->
+            <TrajectoryLoaderSkill name="kuka_trj_approach_screw_2" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_approach_screw_2"/>
+            <TrajectoryLoaderSkill name="kuka_trj_down_screw_2" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_down_screw_2"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_on_low2" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_screwdriver_on_low"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_off_low2" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_screwdriver_off_low"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_on_2" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_screwdriver_on"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_off_2" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_screwdriver_off"/>
+            <TrajectoryLoaderSkill name="kuka_trj_up_screw_2" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_up_screw_2"/>
+
+            <!-- Screw 3 -->
+            <TrajectoryLoaderSkill name="kuka_trj_approach_screw_3" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_approach_screw_3"/>
+            <TrajectoryLoaderSkill name="kuka_trj_down_screw_3" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_down_screw_3"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_on_low3" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_screwdriver_on_low"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_off_low3" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_screwdriver_off_low"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_on_3" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_screwdriver_on"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_off_3" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_screwdriver_off"/>
+            <TrajectoryLoaderSkill name="kuka_trj_up_screw_3" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_up_screw_3"/>
+        </Sequence>
+     </BehaviorTree>
+ </root>

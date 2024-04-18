@@ -1,0 +1,16 @@
+ <root BTCPP_format="4" >
+     <BehaviorTree ID="SpreaderHookAndApproach">
+        <Sequence name="root_sequence_screwdriver_hook">
+            <!-- Hook -->
+            <TrajectoryLoaderSkill name="kuka_trj_spreader_hook_rack_approach_part1" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_spreader_hook_rack_approach_part1"/>
+            <TrajectoryLoaderSkill name="kuka_trj_spreader_hook_rack_approach_part2" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_spreader_hook_rack_approach_part2"/>
+            <GPIOSequenceWriteSkill name="kuka_hook_tool" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_hook_tool"/>
+            <TrajectoryLoaderSkill name="kuka_trj_spreader_hook_rack_leave" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_spreader_hook_rack_leave"/>
+
+            <!-- Approach -->
+            <TrajectoryLoaderSkill name="kuka_trj_spreader_on_approach" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_spreader_on_approach"/>
+            <!-- <GPIOSequenceWriteSkill name="kuka_spreader_on" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_spreader_on"/> -->
+            <WaitSkill name="wait_photoneo_scan" action_name= "/sleep_service" param_ns="wait_photoneo_scan"/>
+        </Sequence>
+     </BehaviorTree>
+ </root>

@@ -1,0 +1,7 @@
+ <root BTCPP_format="4" >
+     <BehaviorTree ID="SuctionUp">
+        <Sequence name="root_sequence_suction_up">
+            <TrajectoryLoaderSkill name="comau_trj_suction_up" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_suction_up"/>
+        </Sequence>
+     </BehaviorTree>
+ </root>

@@ -1,0 +1,13 @@
+ <root BTCPP_format="4" >
+     <BehaviorTree ID="PhotoneoDrop">
+        <Sequence name="root_sequence_drop">
+            <!-- Fast -->
+            <TrajectoryLoaderSkill name="kuka_trj_photoneo_drop_rack_approach_part1" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_photoneo_drop_rack_approach_part1"/>
+            <!-- Slow -->
+            <TrajectoryLoaderSkill name="kuka_trj_photoneo_drop_rack_approach_part2" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_photoneo_drop_rack_approach_part2"/>
+            
+            <GPIOSequenceWriteSkill name="kuka_drop_tool" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="kuka_drop_tool"/>
+            <TrajectoryLoaderSkill name="kuka_trj_photoneo_drop_rack_leave" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trj_photoneo_drop_rack_leave"/>
+        </Sequence>
+     </BehaviorTree>
+ </root>

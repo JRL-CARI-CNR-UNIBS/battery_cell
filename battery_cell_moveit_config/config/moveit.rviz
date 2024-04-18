@@ -5,6 +5,8 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /MotionPlanning1
+        - /MotionPlanning1/Planning Request1
       Splitter Ratio: 0.5
     Tree Height: 397
   - Class: rviz_common/Help
@@ -66,6 +68,11 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
+          battery_holder:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           comau_base_link:
             Alpha: 1
             Show Axes: false
@@ -153,17 +160,17 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          comau_tool_support:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           floor_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
           kuka_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_controller_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -213,6 +220,11 @@ Visualization Manager:
             Show Trail: false
             Value: true
           kuka_sensor_flange2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          kuka_tool_support:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -487,7 +499,7 @@ Visualization Manager:
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
         Planning Group: kuka
-        Query Goal State: true
+        Query Goal State: false
         Query Start State: false
         Show Workspace: false
         Start State Alpha: 1
@@ -509,6 +521,11 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
+          battery_holder:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           comau_base_link:
             Alpha: 1
             Show Axes: false
@@ -596,17 +613,17 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          comau_tool_support:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           floor_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
           kuka_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_controller_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -656,6 +673,11 @@ Visualization Manager:
             Show Trail: false
             Value: true
           kuka_sensor_flange2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          kuka_tool_support:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -916,6 +938,8 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        battery_holder:
+          Value: true
         comau_base_link:
           Value: false
         comau_basement:
@@ -952,13 +976,13 @@ Visualization Manager:
           Value: false
         comau_link_6:
           Value: false
+        comau_tool_support:
+          Value: true
         floor_link:
           Value: false
         kuka_base_link:
           Value: false
         kuka_closed_tip:
-          Value: false
-        kuka_controller_link:
           Value: false
         kuka_flange:
           Value: false
@@ -980,6 +1004,8 @@ Visualization Manager:
           Value: false
         kuka_sensor_flange2:
           Value: false
+        kuka_tool_support:
+          Value: true
         omron/base:
           Value: false
         omron/base_link:
@@ -1068,28 +1094,8 @@ Visualization Manager:
           Value: false
         world:
           Value: true
-        zed_baro_link:
-          Value: false
-        zed_camera_center:
-          Value: false
         zed_camera_link:
           Value: true
-        zed_imu_link:
-          Value: false
-        zed_left_camera_frame:
-          Value: false
-        zed_left_camera_optical_frame:
-          Value: false
-        zed_mag_link:
-          Value: false
-        zed_right_camera_frame:
-          Value: false
-        zed_right_camera_optical_frame:
-          Value: false
-        zed_temp_left_link:
-          Value: false
-        zed_temp_right_link:
-          Value: false
       Marker Scale: 1
       Name: TF
       Show Arrows: true
@@ -1097,6 +1103,8 @@ Visualization Manager:
       Show Names: true
       Tree:
         world:
+          battery_holder:
+            {}
           comau_basement:
             comau_base_link:
               comau_link_1:
@@ -1121,7 +1129,11 @@ Visualization Manager:
                     comau_link_2_2:
                       comau_link_2_4:
                         {}
+          comau_tool_support:
+            {}
           floor_link:
+            {}
+          kuka_tool_support:
             {}
           omron/map:
             omron/odom:
@@ -1137,8 +1149,6 @@ Visualization Manager:
                 omron/tm_support:
                   {}
           structure_base_link:
-            kuka_controller_link:
-              {}
             structure_fake_structure:
               {}
             structure_fake_structure_left_foot:
@@ -1182,23 +1192,7 @@ Visualization Manager:
             wall_fake_link:
               {}
           zed_camera_link:
-            zed_camera_center:
-              zed_baro_link:
-                {}
-              zed_left_camera_frame:
-                zed_imu_link:
-                  {}
-                zed_left_camera_optical_frame:
-                  {}
-                zed_temp_left_link:
-                  {}
-              zed_mag_link:
-                {}
-              zed_right_camera_frame:
-                zed_right_camera_optical_frame:
-                  {}
-                zed_temp_right_link:
-                  {}
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -1277,7 +1271,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 7.647764205932617
+      Distance: 9.950379371643066
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -1292,10 +1286,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.22000008821487427
+      Pitch: 0.40000033378601074
       Target Frame: world
       Value: Orbit (rviz_default_plugins)
-      Yaw: 5.727003574371338
+      Yaw: 4.3220038414001465
     Saved: ~
 Window Geometry:
   Displays:
@@ -1309,7 +1303,7 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000200000000000001f30000039efc0200000005fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb000000100044006900730070006c006100790073010000003d00000210000000c900fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000253000001880000017d00fffffffb0000000800480065006c0070000000029a0000006e0000006e00fffffffb0000000a00560069006500770073000000031d000000be000000a400ffffff00000001000002480000039efc0200000001fb00000010005a006500640049006d006100670065000000003d0000039e0000002800ffffff0000053c0000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000200000000000001f30000039efc0200000005fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004100fffffffb000000100044006900730070006c006100790073010000003d00000210000000c900fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000253000001880000017d00fffffffb0000000800480065006c0070000000029a0000006e0000006e00fffffffb0000000a00560069006500770073000000031d000000be000000a400ffffff00000001000002480000039efc0200000001fb00000010005a006500640049006d006100670065000000003d0000039e0000002800ffffff0000053c0000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1845

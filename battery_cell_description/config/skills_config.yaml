@@ -358,6 +358,11 @@ bt_executer:
     pause: [1000]
     value: [True]
 
+    kuka_spreader_off:
+    name: ["kuka_spreader_ff"] #TODO
+    pause: [1000]
+    value: [False]
+
   kuka_trj_spreader_on_leave:
     group_name: "kuka"
     trj_names: ["kuka_trj_spreader_on_leave"]
