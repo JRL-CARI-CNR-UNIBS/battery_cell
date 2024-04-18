@@ -217,7 +217,7 @@ def launch_setup(context, *args, **kwargs):
     cameras_tf_spawner = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        arguments = ['--x', '1.086547', '--y', '0.676920', '--z', '1.546772', '--qx', '0.037883', '--qy', '0.035933', '--qz', '-0.692783', '--qw', '0.719253', '--frame-id', 'world', '--child-frame-id', 'zed_camera_link'],
+        arguments = ['--x', '0.380', '--y', '0.502', '--z', '2.640', '--qx', '0.237', '--qy', '0.230', '--qz', '-0.673', '--qw', '0.662s', '--frame-id', 'world', '--child-frame-id', 'zed_camera_link'],
     )
 
     # Used just for camera calibration
