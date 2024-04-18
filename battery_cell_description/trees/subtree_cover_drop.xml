@@ -2,7 +2,7 @@
      <BehaviorTree ID="CoverDrop">
         <Sequence name="root_sequence_cover_drop">
             <TrajectoryLoaderSkill name="comau_trj_cover_drop_approach" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_cover_drop_approach"/>
-            <GPIOSequenceWriteSkill name="comau_suction_off" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_suction_off"/>
+            <!-- <GPIOSequenceWriteSkill name="comau_suction_off" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="comau_suction_off"/> -->
             <TrajectoryLoaderSkill name="comau_trj_cover_drop_leave" action_name= "/comau_trajectory_loader/trajectory_loader" param_ns="comau_trj_cover_drop_leave"/>
         </Sequence>
      </BehaviorTree>
