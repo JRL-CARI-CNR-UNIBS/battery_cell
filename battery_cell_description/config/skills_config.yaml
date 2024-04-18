@@ -273,15 +273,25 @@ bt_executer:
     scaling: 10
 
   #SuctionHook - comau
-  comau_trj_suction_hook_rack_approach:
+  comau_trj_suction_hook_rack_approach_part1:
     group_name: "comau"
-    trj_names: ["comau_trj_suction_hook_rack_approach"]
+    trj_names: ["comau_trj_suction_hook_rack_approach_part1"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 100
+    scaling: 40
+
+  comau_trj_suction_hook_rack_approach_part2:
+    group_name: "comau"
+    trj_names: ["comau_trj_suction_hook_rack_approach_part2"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: True
+    simulation: False
+    speed_scaling_topic: "/comau_speed_ovr"
+    scaling: 10
 
   #utilities -> comau_hook_tool
 
@@ -293,18 +303,28 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 100
+    scaling: 10
 
   #SuctionOn - comau
-  comau_trj_suction_on_approach:
+  comau_trj_suction_on_approach_part1:
     group_name: "comau"
-    trj_names: ["comau_trj_suction_on_approach"]
+    trj_names: ["comau_trj_suction_on_approach_part1"]
     fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
     repetitions: 1
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 100
+    scaling: 40
+
+  comau_trj_suction_on_approach_part2:
+    group_name: "comau"
+    trj_names: ["comau_trj_suction_on_approach_part2"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: True
+    simulation: False
+    speed_scaling_topic: "/comau_speed_ovr"
+    scaling: 10
 
   comau_suction_on:
     name: ["comau_suction_on"] #TODO
@@ -320,7 +340,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 100
+    scaling: 10
 
   #SpreaderOn - kuka
   kuka_trj_spreader_on_approach:
@@ -380,7 +400,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 100
+    scaling: 10
 
   comau_suction_off:
     name: ["comau_suction_off"] #TODO
@@ -395,7 +415,40 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 100
+    scaling: 10
+
+ #SuctionDrop - comau
+  comau_trj_suction_drop_rack_approach_part1:
+    group_name: "comau"
+    trj_names: ["comau_trj_suction_drop_rack_approach_part1"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: True
+    simulation: False
+    speed_scaling_topic: "/comau_speed_ovr"
+    scaling: 40
+
+  comau_trj_suction_drop_rack_approach_part2:
+    group_name: "comau"
+    trj_names: ["comau_trj_suction_drop_rack_approach_part2"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: True
+    simulation: False
+    speed_scaling_topic: "/comau_speed_ovr"
+    scaling: 10
+
+  #utilities -> comau_hook_tool
+
+  comau_trj_suction_drop_rack_leave:
+    group_name: "comau"
+    trj_names: ["comau_trj_suction_drop_rack_leave"]
+    fjt_action_name: "/comau_scaled_fjt_controller/follow_joint_trajectory"
+    repetitions: 1
+    recompute_time_law: True
+    simulation: False
+    speed_scaling_topic: "/comau_speed_ovr"
+    scaling: 10
 
   #TonnoPinzaHook - comau
   comau_trj_tonnopinza_hook_rack_approach:
