@@ -28,17 +28,113 @@
       <child link="structure_base_link"/>
   </joint>
 
-  <xacro:include filename="$(find battery_cell_description)/urdf/battery_table.xacro" />
+  <!-- <xacro:include filename="$(find battery_cell_description)/urdf/battery_table.xacro" />
   <xacro:property name="table_prefix" value="'table_'" />
-  <xacro:battery_table prefix="${table_prefix}"/>
+  <xacro:battery_table prefix="${table_prefix}"/> -->
 
-  <joint name="world_to_table" type="fixed">
+  <!-- <joint name="world_to_table" type="fixed">
     <origin
       xyz="0.025 -1.58 0"
       rpy="0 0 0" />
     <parent link="world"/>
     <child link="${table_prefix}base_link"/>
+  </joint> -->
+
+  <!-- ## BATTERY HOLDER ## -->
+  <link name="battery_holder">
+    <visual>
+      <origin
+        xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://battery_cell_description/meshes/battery_holder.STL"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://battery_cell_description/meshes/battery_holder.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="world_to_bh" type="fixed">
+    <parent link="world"/>
+    <child link="battery_holder"/>
+    <origin xyz="1.3 -1.4 0" 
+    rpy="1.57079632679489661923132169163975144209858469968 0 ${3.1415926535897932384626433832795028841971693993751058209749445923+0.5235987755982988}"/>
   </joint>
+  <!-- ## - ## -->
+
+  <!-- ## Tools Kuka ## -->
+  <link name="kuka_tool_support">
+    <visual>
+      <origin
+        xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://battery_cell_description/meshes/cambio_tool_kuka.STL"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://battery_cell_description/meshes/cambio_tool_kuka.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="world_to_kuka_tools_support" type="fixed">
+    <parent link="world"/>
+    <child link="kuka_tool_support"/>
+    <origin xyz="0.8 0 0" 
+    rpy="1.57079632679489661923132169163975144209858469968 0 0"/>
+  </joint>
+  <!-- ## - ## -->
+
+  <!-- ## Tools Comau ## -->
+  <link name="comau_tool_support">
+    <visual>
+      <origin
+        xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://battery_cell_description/meshes/cambio_tool_comau.STL"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://battery_cell_description/meshes/cambio_tool_comau.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="world_to_comau_tools_support" type="fixed">
+    <parent link="world"/>
+    <child link="comau_tool_support"/>
+    <origin xyz="-3.6 1.0 0.0"       
+    rpy="1.57079632679489661923132169163975144209858469968 0 0"/>
+  </joint>
+  <!-- ## - ## -->
   
   <xacro:include filename="$(find battery_cell_description)/urdf/comau_setup.xacro" />
   <!-- <xacro:comau_setup use_fake_hardware="${use_fake_hardware}"/> -->
@@ -60,13 +156,10 @@
     <joint name="world_to_map" type="fixed">
       <parent link="world"/>
       <child link="omron/map"/>
-      <origin xyz="3.80 0.52 0.0" rpy="0.0 0.0 -1.5707963267948966"/>
+      <!-- <origin xyz="3.80 0.52 0.0" rpy="0.0 0.0 -1.5707963267948966"/> -->
+      <origin xyz="-4.0 -1.640 0" rpy="0 0 0"/>
     </joint>
   </xacro:if>
-
-  <!-- <xacro:include filename="$(find battery_cell_description)/urdf/battery_cell_GPIO_ros2_control.xacro" />
-  <xacro:battery_cell_GPIO_ros2_control use_fake_hardware="$(arg use_GPIO_fake_hardware)"/> -->
-
 
   <!-- increased collisions -->
   <!-- FLOOR -->
@@ -266,11 +359,13 @@
     <child link="wall_fake_link"/>
   </joint>
 
+  
+
   <!-- KUKA CONTROLLER BOX -->
-  <xacro:property name="kuka_controller_height" value="1.40" /> <!-- TODO -->
-  <xacro:property name="kuka_controller_length" value="1.20" /> <!-- TODO -->
-  <xacro:property name="kuka_controller_width" value="1.20" />  <!-- TODO -->
-  <link name="kuka_controller_link">
+  <!-- <xacro:property name="kuka_controller_height" value="1.40" /> TODO -->
+  <!-- <xacro:property name="kuka_controller_length" value="1.20" /> TODO -->
+  <!-- <xacro:property name="kuka_controller_width" value="1.20" />  TODO -->
+  <!-- <link name="kuka_controller_link">
     <inertial>
       <origin
         xyz="0.0 0.0 0.0"
@@ -310,10 +405,10 @@
   <joint name="structure_to_kuka_controller" type="fixed">
     <origin
       xyz="-3.0 1.0 0.0"      
-      rpy="0.0 0.0 0.0" />    <!-- TODO -->
+      rpy="0.0 0.0 0.0" />
     <parent link="structure_base_link"/>
     <child link="kuka_controller_link"/>
-  </joint>
+  </joint> -->
   <!-- end increased collisions -->
 
 </robot>
