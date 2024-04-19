@@ -23,7 +23,27 @@ bt_executer:
 
   #OmronInspection - omron
   omron_inspection:
-    goal: "Inspection_1"
+    goal: "Ispezione_1"
+
+  imm_forward:
+    group_name: "imm"
+    trj_names: ["imm_forward"]
+    fjt_action_name: "/omron/omron_jt_controller"
+    repetitions: 1
+    recompute_time_law: True
+    simulation: False
+    speed_scaling_topic: "/omron_speed_scaling"
+    scaling: 40
+
+  imm_backward:
+    group_name: "imm"
+    trj_names: ["imm_forward"]
+    fjt_action_name: "/omron/omron_jt_controller"
+    repetitions: 1
+    recompute_time_law: True
+    simulation: False
+    speed_scaling_topic: "/omron_speed_scaling"
+    scaling: 40
 
   #PhotoneoScan - kuka
   kuka_trj_photoneo_scan:
@@ -58,7 +78,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 7
+    scaling: 12
 
   #utilities -> kuka_drop_tool
 
@@ -70,7 +90,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 12
 
   #ScrewdriverHook - kuka
   kuka_trj_screwdriver_hook_rack_approach_part1:
@@ -91,7 +111,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 7
+    scaling: 12
 
   #utilities -> kuka_hook_tool
 
@@ -125,7 +145,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 25
+    scaling: 40
 
   kuka_screwdriver_on_low:
     name: ["digital_outputs2/screwdriver_lp"] #TODO
@@ -176,7 +196,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 25
+    scaling: 40
 
   kuka_trj_up_screw_2:
     group_name: "kuka"
@@ -207,7 +227,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 25
+    scaling: 40
 
   kuka_trj_up_screw_3:
     group_name: "kuka"
@@ -239,7 +259,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 12
 
   #utilities -> kuka_drop_tool
 
@@ -262,7 +282,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 5
+    scaling: 12
 
   #utilities -> kuka_hook_tool
 
@@ -274,7 +294,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 12
 
   #SuctionHook - comau
   comau_trj_suction_hook_rack_approach_part1:
@@ -295,7 +315,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 5
+    scaling: 12
 
   #utilities -> comau_hook_tool
 
@@ -307,7 +327,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 5
+    scaling: 12
 
   #SuctionOn - comau
   comau_trj_suction_on_approach_part1:
@@ -328,7 +348,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 10
+    scaling: 12
 
   comau_suction_on:
     name: ["digital_outputs3/suction_cup"] 
@@ -344,7 +364,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 10
+    scaling: 12
 
   #SpreaderOn - kuka
   kuka_trj_spreader_on_approach:
@@ -359,12 +379,12 @@ bt_executer:
 
   kuka_spreader_on:
     name: ["digital_outputs1/tool_fwd","digital_outputs1/tool_enable","digital_outputs1/tool_fwd","digital_outputs1/tool_enable"]
-    pause: [100,4000,100,100]
+    pause: [100,2000,100,100]
     value: [True,True,False,False]
 
   kuka_spreader_off:
     name: ["digital_outputs1/tool_bwd","digital_outputs1/tool_enable","digital_outputs1/tool_bwd","digital_outputs1/tool_enable"] #TODO
-    pause: [100,4000,100,100]
+    pause: [100,2000,100,100]
     value: [True,True,False,False]
 
   kuka_trj_spreader_on_leave:
@@ -386,7 +406,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 12
 
   #utilities -> kuka_drop_tool
 
@@ -398,7 +418,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
-    scaling: 10
+    scaling: 12
 
   #CoverDrop - comau
   comau_trj_cover_drop_approach:
@@ -409,7 +429,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 10
+    scaling: 25
 
   comau_suction_off:
     name: ["digital_outputs3/suction_cup"] #TODO
@@ -424,7 +444,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 10
+    scaling: 25
 
  #SuctionDrop - comau
   comau_trj_suction_drop_rack_approach_part1:
@@ -445,7 +465,7 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 10
+    scaling: 12
 
   #utilities -> comau_hook_tool
 
@@ -457,5 +477,5 @@ bt_executer:
     recompute_time_law: True
     simulation: False
     speed_scaling_topic: "/comau_speed_ovr"
-    scaling: 10
+    scaling: 12
 

@@ -2,6 +2,8 @@
      <BehaviorTree ID="OmronInspection">
         <Sequence name="root_sequence_scan">
             <OmronGoToGoalSkill name="omron_inspection" service_name= "/omron/goto_goal" param_ns="omron_inspection"/>
+            <!-- <TrajectoryLoaderSkill name="imm_forward" action_name= "/omron/omron_jt_controller" param_ns="imm_forward"/>
+            <TrajectoryLoaderSkill name="imm_backward" action_name= "/omron/omron_jt_controller" param_ns="imm_backward"/> -->
         </Sequence>
      </BehaviorTree>
  </root>

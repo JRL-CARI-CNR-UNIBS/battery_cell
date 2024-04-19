@@ -1,7 +1,7 @@
 bt_executer:
   plugins:  ["trajectory_loader_plugin", "move_to_plugin",
    "trigger_service_plugin", "set_bool_service_plugin",
-    "gpio_sequence_write_service_plugin", "wait_plugin"]  #"bt_leaf_omron_plugin"
+    "gpio_sequence_write_service_plugin", "wait_plugin", "bt_leaf_omron_plugin"]
   bt_package: "battery_cell_description"
   # bt_name: "test_tree.xml"
   bt_name: "demo_tree.xml"

@@ -12,6 +12,7 @@
      <include path="./subtree_spreader_drop.xml" />
     <include path="./subtree_suction_approach.xml" />
     <include path="./subtree_photoneo_and_screw.xml" />
+    <include path="./subtree_omron.xml" />
 
      <!-- <include path="./subtree_omron.xml" /> -->
 
