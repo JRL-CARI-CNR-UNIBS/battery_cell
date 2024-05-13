@@ -30,5 +30,6 @@
     3. Insert user password if prompted.
 9. `cd /home/${USER}/projects/battery_cell_ws && colcon build --symlink-install --continue-on-error --cmake-args -DUSE_ROS1=False` # Build the entire project with ROS 2 settings.
    1.  if some packages fail to build, try `source ~/projects/battery_cell_ws/install/setup.bash` and then repeat step 9
-10. `echo "source ~/projects/battery_cell_ws/install/setup.bash" >> ~/.bashrc` 
-11. `source ~/.bashrc`
+10. `echo "source ~/projects/battery_cell_ws/install/setup.bash" >> ~/.bashrc`
+11. `echo 'export CNR_PARAM_ROOT_DIRECTORY="/tmp/cnr_param"' >> ~/.bashrc`
+12. `source ~/.bashrc`
