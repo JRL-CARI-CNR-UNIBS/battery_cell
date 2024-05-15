@@ -6,7 +6,7 @@
 2. `mkdir -p ${HOME}/projects/battery_cell_ws/src` # Create the directory structure for the project if it doesn't exist.
 3. `cd ${HOME}/projects/battery_cell_ws/src` # Change to the source directory of the project.
 4. `sudo apt update -y && sudo apt upgrade -y && sudo apt install wget -y` # Update the system and install wget if it's not already installed.
-5. `wget --backups=1 https://raw.githubusercontent.com/JRL-CARI-CNR-UNIBS/battery_cell/demo/deps.repos` # Download the repository file.
+5. `wget --backups=1 https://raw.githubusercontent.com/JRL-CARI-CNR-UNIBS/battery_cell/master/deps.repos` # Download the repository file.
 6. `vcs import < deps.repos` # Import dependencies from the repository file. Install vcstool with `sudo apt-get install python3-vcstool` if needed.
 7. **Install further dependencies** # Install required libraries and tools for the project.
     1. `sudo apt install libmosquitto-dev liblog4cxx-dev libboost-all-dev libczmq-dev liburdfdom-dev liburdfdom-headers-dev -y` # Install development libraries for MQTT, logging, Boost, ZMQ, and URDF.
