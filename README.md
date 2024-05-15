@@ -31,5 +31,5 @@
 9. `cd ${HOME}/projects/battery_cell_ws && colcon build --symlink-install --continue-on-error --cmake-args -DUSE_ROS1=False` # Build the entire project with ROS 2 settings.
    1.  if some packages fail to build, try `source ${HOME}/projects/battery_cell_ws/install/setup.bash` and then repeat step 9
 10. `echo "source ${HOME}/projects/battery_cell_ws/install/setup.bash" >> ~/.bashrc`
-11. `echo 'export CNR_PARAM_ROOT_DIRECTORY="/tmp/cnr_param"; export IK_SOLVER_LOGGER_CONFIG_PATH="${HOME}/projects/battery_cell_ws/install/ik_solver/share/ik_solver/config/default_logger.yaml"' >> ~/.bashrc`
+11. `echo 'export CNR_PARAM_ROOT_DIRECTORY="/tmp/cnr_param"' >> ~/.bashrc && echo 'export IK_SOLVER_LOGGER_CONFIG_PATH="${HOME}/projects/battery_cell_ws/install/ik_solver/share/ik_solver/config/default_logger.yaml"' >> ~/.bashrc`
 12. `source ~/.bashrc`
