@@ -15,6 +15,10 @@ repositories:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/bt_executer.git
     version: master
+  bt_executer_examples:
+    type: git
+    url: https://github.com/JRL-CARI-CNR-UNIBS/bt_executer_examples.git
+    version: master
   bt_leaf_omron:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/bt_leaf_omron.git
