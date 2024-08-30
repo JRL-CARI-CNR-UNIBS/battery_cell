@@ -21,11 +21,30 @@
                        name="${prefix}${kuka_name}"
                        use_fake_hardware="${use_kuka_fake_hardware}" />
 
-    <joint name="kuka_structure_to_kr_50_r2500" type="fixed">
+    <link name="${prefix}${kuka_prefix}base_link_outgoing_z"/>
+
+    <joint name="kuka_structure_to_kr_outgoing_z" type="fixed">
         <origin
           xyz="0.333 -0.035 0.325"
-          rpy="0 ${pi/2} 0" />
+          rpy="${pi/2} 0 0" />
         <parent link="${prefix}${kuka_structure_prefix}link_1"/>
+        <child link="${prefix}${kuka_prefix}base_link_outgoing_z"/>
+    </joint>
+
+    <link name="${prefix}${kuka_prefix}outgoing_z_to_base_link_tmp"/>
+    <joint name="outgoing_z_to_base_link_tmp_joint" type="fixed">
+        <origin
+          xyz="0 0 0"
+          rpy="0 ${pi/2} 0" />
+        <parent link="${prefix}${kuka_prefix}base_link_outgoing_z"/>
+        <child link="${prefix}${kuka_prefix}outgoing_z_to_base_link_tmp"/>
+    </joint>
+
+    <joint name="base_link_tmp_to_base_link_joint" type="fixed">
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 -${pi/2}" />
+        <parent link="${prefix}${kuka_prefix}outgoing_z_to_base_link_tmp"/>
         <child link="${prefix}${kuka_prefix}base_link"/>
     </joint>
 
