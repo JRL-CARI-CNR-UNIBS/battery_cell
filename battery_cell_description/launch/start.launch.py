@@ -117,10 +117,10 @@ def launch_setup(context, *args, **kwargs):
         output="both",
         arguments=["-d", rviz_config_file],
         parameters=[
-            moveit_config.robot_description,
-            moveit_config.robot_description_semantic,
-            moveit_config.planning_pipelines,
-            moveit_config.robot_description_kinematics
+            #moveit_config.robot_description,
+            #moveit_config.robot_description_semantic,
+            #moveit_config.planning_pipelines#,
+            #moveit_config.robot_description_kinematics
         ],
         condition=IfCondition(rviz_gui),
     )
@@ -256,7 +256,7 @@ def launch_setup(context, *args, **kwargs):
         parameters=[omron_robot_description],
         remappings=[#("/tf", "/omron/tf"), ("/tf_static","/omron/tf_static"), # intercept tf
                     ("/omron/joint_states", "/joint_states")],
-        condition=IfCondition(include_omron),
+        condition=IfCondition(include_omron.perform(context)),
     )
 
     ########################
