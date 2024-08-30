@@ -1,4 +1,8 @@
 repositories:
+  Aria:
+    type: git
+    url: https://github.com/JRL-CARI-CNR-UNIBS/Aria.git
+    version: master
   BehaviorTree.CPP:
     type: git
     url: https://github.com/BehaviorTree/BehaviorTree.CPP.git
@@ -26,11 +30,11 @@ repositories:
   cnr_control_toolbox:
     type: git
     url: https://github.com/CNR-STIIMA-IRAS/cnr_control_toolbox.git
-    version: wip
+    version: modern_cmake
   cnr_logger:
     type: git
     url: https://github.com/CNR-STIIMA-IRAS/cnr_logger.git
-    version: 1e390b882c4fa0a72c807ffd5c2a90133f1ffe3e # una volta che cnr_logger ha il cmake a posto, cambiare in master
+    version: modern_cmake
   cnr_mqtt_client:
     type: git
     url: https://github.com/CNR-STIIMA-IRAS/cnr_mqtt_client.git
@@ -38,15 +42,19 @@ repositories:
   cnr_param:
     type: git
     url: https://github.com/CNR-STIIMA-IRAS/cnr_param.git
-    version: master
+    version: cesare-pull-req
   cnr_yaml:
     type: git
     url: https://github.com/CNR-STIIMA-IRAS/cnr_yaml.git
-    version: master
+    version: cesare-pull-req
   comau_c5gopen_ros2:
     type: git
     url: https://github.com/CNR-STIIMA-IRAS/comau_c5gopen_ros2.git
     version: demo
+  comau_ik_solver:
+    type: git
+    url: https://github.com/JRL-CARI-CNR-UNIBS/comau_ik_solver.git
+    version: roberto-devel
   comau_robots_ros2:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/comau_robots_ros2.git
@@ -66,7 +74,7 @@ repositories:
   ik_solver:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/ik_solver.git
-    version: pre-modern-cmake
+    version: master
   ik_solver_msgs:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/ik_solver_msgs.git
@@ -91,14 +99,18 @@ repositories:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/kuka_ik_solver.git
     version: master
-  comau_ik_solver:
-    type: git
-    url: https://github.com/JRL-CARI-CNR-UNIBS/comau_ik_solver.git
-    version: roberto-devel
   kuka_structure:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/kuka_structure.git
     version: demo
+  omron_control:
+    type: git
+    url: https://github.com/JRL-CARI-CNR-UNIBS/omron_control.git
+    version: master
+  omron_imm:
+    type: git
+    url: https://github.com/JRL-CARI-CNR-UNIBS/omron_imm.git
+    version: master
   opw_kinematics:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/opw_kinematics.git
@@ -107,6 +119,10 @@ repositories:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/robot_on_guide_ik_solver.git
     version: v2
+  robotiq_ft_sensor_description:
+    type: git
+    url: https://github.com/JRL-CARI-CNR-UNIBS/robotiq_ft_sensor_description.git
+    version: master
   ros2_kuka_drivers:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/ros2_kuka_drivers.git
@@ -115,6 +131,10 @@ repositories:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/ros2_move_to.git
     version: master
+  ros2_robotiq_gripper:
+    type: git
+    url: https://github.com/PickNikRobotics/ros2_robotiq_gripper.git
+    version: humble
   ros_industrial_cmake_boilerplate:
     type: git
     url: https://github.com/ros-industrial/ros_industrial_cmake_boilerplate.git
@@ -126,7 +146,7 @@ repositories:
   rosdyn_ik_solver:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/rosdyn_ik_solver.git
-    version: pre-modern-cmake
+    version: d1765e3c1b8232ae19e036e940e283161ddce63c
   scaled_fjt_controller:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/scaled_follow_joint_trajectory_controller_ros2.git
@@ -135,31 +155,11 @@ repositories:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/schunk_gripper_jpg_p_160.git
     version: ros2
-  omron_control:
-    type: git
-    url: https://github.com/JRL-CARI-CNR-UNIBS/omron_control.git
-    version: master
-  omron_imm:
-    type: git
-    url: https://github.com/JRL-CARI-CNR-UNIBS/omron_imm.git
-    version: master
-  robotiq_ft_sensor_description:
-    type: git
-    url: https://github.com/JRL-CARI-CNR-UNIBS/robotiq_ft_sensor_description.git
-    version: master
-  ros2_robotiq_gripper:
-    type: git
-    url: https://github.com/PickNikRobotics/ros2_robotiq_gripper.git
-    version: main
-  stiima_tm12_ros2:
-    type: git
-    url: https://github.com/JRL-CARI-CNR-UNIBS/stiima_tm12_ros2.git
-    version: master
   serial:
     type: git
     url: https://github.com/tylerjw/serial.git
     version: ros2
-  Aria:
+  stiima_tm12_ros2:
     type: git
-    url: https://github.com/JRL-CARI-CNR-UNIBS/Aria.git
+    url: https://github.com/JRL-CARI-CNR-UNIBS/stiima_tm12_ros2.git
     version: master
