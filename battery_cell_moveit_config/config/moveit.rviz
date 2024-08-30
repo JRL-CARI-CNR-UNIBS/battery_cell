@@ -7,8 +7,9 @@ Panels:
         - /Global Options1
         - /MotionPlanning1
         - /MotionPlanning1/Planning Request1
+        - /RobotModel1
       Splitter Ratio: 0.5
-    Tree Height: 397
+    Tree Height: 412
   - Class: rviz_common/Help
     Name: Help
   - Class: rviz_common/Views
@@ -68,413 +69,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          battery_holder:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_basement:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          comau_link_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_1_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_2_virtual:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          comau_link_2_4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_7:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_3_virtual:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          comau_link_4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_tool_support:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          floor_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          kuka_link1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_link2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_link3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_link4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_link5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_link6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_sensor:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_sensor_flange1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_sensor_flange2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_tool_support:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/ft300_sensor:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/ft_to_gripper:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/interface_coupling:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/left_bar:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/left_inner_finger:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/left_inner_finger_pad:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/left_inner_knuckle:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/left_outer_finger:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/left_outer_knuckle:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_0:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/map:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/odom:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/right_bar:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/right_inner_finger:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/right_inner_finger_pad:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/right_inner_knuckle:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/right_outer_finger:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/right_outer_knuckle:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/robotiq_140_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/robotiq_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/robotiq_ft_frame_id:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/tip:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/tm_controller:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/tm_support:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_fake_structure:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_fake_structure_left_foot:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_fake_structure_left_pillar:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_fake_structure_right_foot:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_fake_structure_right_pillar:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_link_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          support_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_battery_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_leg1_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_leg2_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_leg3_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_leg4_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_tabletop_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          wall_fake_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          wall_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          world:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
         Loop Animation: false
         Robot Alpha: 0.5
         Robot Color: 150; 50; 150
@@ -521,413 +115,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          battery_holder:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_basement:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          comau_link_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_1_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_2_virtual:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          comau_link_2_4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_2_7:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_3_virtual:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          comau_link_4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_link_6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          comau_tool_support:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          floor_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          kuka_link1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_link2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_link3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_link4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_link5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_link6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_sensor:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_sensor_flange1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_sensor_flange2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          kuka_tool_support:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/ft300_sensor:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/ft_to_gripper:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/interface_coupling:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/left_bar:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/left_inner_finger:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/left_inner_finger_pad:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/left_inner_knuckle:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/left_outer_finger:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/left_outer_knuckle:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_0:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/link_6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/map:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/odom:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/right_bar:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/right_inner_finger:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/right_inner_finger_pad:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/right_inner_knuckle:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/right_outer_finger:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/right_outer_knuckle:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/robotiq_140_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/robotiq_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/robotiq_ft_frame_id:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/tip:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          omron/tm_controller:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          omron/tm_support:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_fake_structure:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_fake_structure_left_foot:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_fake_structure_left_pillar:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_fake_structure_right_foot:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_fake_structure_right_pillar:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          structure_link_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          support_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_battery_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_leg1_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_leg2_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_leg3_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_leg4_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          table_tabletop_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          wall_fake_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          wall_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          world:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
         Robot Alpha: 1
         Show Robot Collision: false
         Show Robot Visual: true
@@ -982,6 +169,8 @@ Visualization Manager:
           Value: false
         kuka_base_link:
           Value: false
+        kuka_base_link_outgoing_z:
+          Value: true
         kuka_closed_tip:
           Value: false
         kuka_flange:
@@ -998,6 +187,8 @@ Visualization Manager:
           Value: false
         kuka_link6:
           Value: false
+        kuka_outgoing_z_to_base_link_tmp:
+          Value: true
         kuka_sensor:
           Value: false
         kuka_sensor_flange1:
@@ -1011,12 +202,6 @@ Visualization Manager:
         omron/base_link:
           Value: false
         omron/flange:
-          Value: false
-        omron/ft300_sensor:
-          Value: false
-        omron/ft_to_gripper:
-          Value: false
-        omron/interface_coupling:
           Value: false
         omron/left_bar:
           Value: false
@@ -1049,8 +234,6 @@ Visualization Manager:
         omron/robotiq_140_base_link:
           Value: false
         omron/robotiq_base_link:
-          Value: false
-        omron/robotiq_ft_frame_id:
           Value: false
         omron/tip:
           Value: false
@@ -1160,19 +343,21 @@ Visualization Manager:
             structure_fake_structure_right_pillar:
               {}
             structure_link_1:
-              kuka_base_link:
-                kuka_link1:
-                  kuka_link2:
-                    kuka_link3:
-                      kuka_link4:
-                        kuka_link5:
-                          kuka_link6:
-                            kuka_flange:
-                              kuka_sensor_flange1:
-                                kuka_sensor_flange2:
-                                  kuka_sensor:
-                                    kuka_closed_tip:
-                                      {}
+              kuka_base_link_outgoing_z:
+                kuka_outgoing_z_to_base_link_tmp:
+                  kuka_base_link:
+                    kuka_link1:
+                      kuka_link2:
+                        kuka_link3:
+                          kuka_link4:
+                            kuka_link5:
+                              kuka_link6:
+                                kuka_flange:
+                                  kuka_sensor_flange1:
+                                    kuka_sensor_flange2:
+                                      kuka_sensor:
+                                        kuka_closed_tip:
+                                          {}
           table_base_link:
             table_battery_link:
               {}
@@ -1253,6 +438,429 @@ Visualization Manager:
         Value: /zed/zed_node/body_trk/skeletons
       Transparency: 0.25
       Value: false
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description File: ""
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        battery_holder:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_basement:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_flange:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        comau_link_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_link_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_link_2_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_link_2_1_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_link_2_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_link_2_2_virtual:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        comau_link_2_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_link_2_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_link_2_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_link_2_7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_link_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_link_3_virtual:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        comau_link_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_link_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_link_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        comau_tool_support:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        floor_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        kuka_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        kuka_base_link_outgoing_z:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        kuka_flange:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        kuka_link1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        kuka_link2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        kuka_link3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        kuka_link4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        kuka_link5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        kuka_link6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        kuka_outgoing_z_to_base_link_tmp:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        kuka_sensor:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        kuka_sensor_flange1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        kuka_sensor_flange2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        kuka_tool_support:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        omron/base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/flange:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        omron/left_bar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/left_inner_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/left_inner_finger_pad:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/left_inner_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/left_outer_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/left_outer_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/link_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/link_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/link_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/link_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/link_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/link_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/map:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        omron/odom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        omron/right_bar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/right_inner_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/right_inner_finger_pad:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/right_inner_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/right_outer_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/right_outer_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/robotiq_140_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/robotiq_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        omron/tip:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        omron/tm_controller:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        omron/tm_support:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        structure_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        structure_fake_structure:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        structure_fake_structure_left_foot:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        structure_fake_structure_left_pillar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        structure_fake_structure_right_foot:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        structure_fake_structure_right_pillar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        structure_link_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        support_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        table_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        table_battery_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        table_leg1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        table_leg2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        table_leg3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        table_leg4_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        table_tabletop_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wall_fake_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wall_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Mass Properties:
+        Inertia: false
+        Mass: false
+      Name: RobotModel
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -1286,15 +894,15 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.40000033378601074
+      Pitch: 0.46000033617019653
       Target Frame: world
       Value: Orbit (rviz_default_plugins)
-      Yaw: 4.3220038414001465
+      Yaw: 4.767004013061523
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1016
+  Height: 1043
   Help:
     collapsed: false
   Hide Left Dock: false
@@ -1303,11 +911,11 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000200000000000001f30000039efc0200000005fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004100fffffffb000000100044006900730070006c006100790073010000003d00000210000000c900fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000253000001880000017d00fffffffb0000000800480065006c0070000000029a0000006e0000006e00fffffffb0000000a00560069006500770073000000031d000000be000000a400ffffff00000001000002480000039efc0200000001fb00000010005a006500640049006d006100670065000000003d0000039e0000002800ffffff0000053c0000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000200000000000001f3000003b9fc0200000005fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004100fffffffb000000100044006900730070006c006100790073010000003d0000021f000000c900fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000262000001940000017d00fffffffb0000000800480065006c0070000000029a0000006e0000006e00fffffffb0000000a00560069006500770073000000031d000000be000000a400ffffff00000001000002480000039efc0200000001fb00000010005a006500640049006d006100670065000000003d0000039e0000002800ffffff00000587000003b900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1845
-  X: 75
-  Y: 27
+  Width: 1920
+  X: 0
+  Y: 0
   ZedImage:
     collapsed: false

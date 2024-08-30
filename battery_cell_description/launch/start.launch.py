@@ -54,7 +54,7 @@ def launch_setup(context, *args, **kwargs):
                     " ", "use_ethercat_fake_hardware:='",    OrSubstitution(fake.perform(context),ethercat_fake.perform(context)),"'",
                     " ", "use_comau_fake_hardware:='",       OrSubstitution(fake.perform(context),comau_fake.perform(context)),"'",
                     # " ", "use_GPIO_fake_hardware:='",        OrSubstitution(fake.perform(context),gpio_fake.perform(context)),"'",
-                    " ", "include_omron:=",                  include_omron,
+                    " ", "include_omron:=",                  include_omron.perform(context),
                 ]
             ),
             value_type=str
@@ -191,7 +191,7 @@ def launch_setup(context, *args, **kwargs):
                    "/controller_manager"],
                    #"--inactive"], # start the controller in an INACTIVE state
     )
-    
+
     delta_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
@@ -280,7 +280,7 @@ def launch_setup(context, *args, **kwargs):
         package="btcpp_ros2_samples",
         executable="sleep_server"
                 )
-   
+
     ##############
     ## To Start ##
     ##############
