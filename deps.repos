@@ -54,7 +54,7 @@ repositories:
   comau_ik_solver:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/comau_ik_solver.git
-    version: roberto-devel
+    version: master
   comau_robots_ros2:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/comau_robots_ros2.git
@@ -78,7 +78,7 @@ repositories:
   ik_solver_msgs:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/ik_solver_msgs.git
-    version: roberto-devel
+    version: master
   inxpect_radar:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/inxpect_radar.git
@@ -90,7 +90,7 @@ repositories:
   kr_50_r2500:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/kr_50_r2500.git
-    version: ros2
+    version: master
   kroshu_ros2_core:
     type: git
     url: https://github.com/kroshu/kroshu_ros2_core.git
@@ -118,7 +118,7 @@ repositories:
   robot_on_guide_ik_solver:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/robot_on_guide_ik_solver.git
-    version: v2
+    version: master
   robotiq_ft_sensor_description:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/robotiq_ft_sensor_description.git
@@ -142,11 +142,11 @@ repositories:
   rosdyn:
     type: git
     url: https://github.com/CNR-STIIMA-IRAS/rosdyn.git
-    version: wip
+    version: modern_cmake
   rosdyn_ik_solver:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/rosdyn_ik_solver.git
-    version: d1765e3c1b8232ae19e036e940e283161ddce63c
+    version: master
   scaled_fjt_controller:
     type: git
     url: https://github.com/JRL-CARI-CNR-UNIBS/scaled_follow_joint_trajectory_controller_ros2.git
