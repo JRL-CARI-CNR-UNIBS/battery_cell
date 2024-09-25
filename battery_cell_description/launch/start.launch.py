@@ -296,7 +296,7 @@ def launch_setup(context, *args, **kwargs):
         comau_scaled_fjt_controller_spawner,
         delta_controller_spawner,
         digital_io_controller_spawner,
-        # ft_ati_controller_spawner,
+        ft_ati_controller_spawner,
         move_group_node,
         delta_utils_node,
         battery_cell_utils_node,
