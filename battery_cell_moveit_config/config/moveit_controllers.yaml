@@ -8,9 +8,9 @@ moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControll
 moveit_simple_controller_manager:
   controller_names:
     - kuka_jt_controller
-    - comau_jt_controller
-    - kuka_scaled_fjt_controller
-    - comau_scaled_fjt_controller
+    #- comau_jt_controller
+    #- kuka_scaled_fjt_controller
+    #- comau_scaled_fjt_controller
     # - omron_jt_controller
     - omron
 

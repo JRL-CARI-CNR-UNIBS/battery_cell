@@ -270,7 +270,7 @@
     <child link="${prefix}tabletop_link"/>
   </joint>
 
-  <xacro:property name="battery_thickness" value="0.4" />
+  <xacro:property name="battery_thickness" value="0.005" />
   <xacro:property name="battery_width" value="${table_width}" />
   <xacro:property name="battery_length" value="${table_length}" />
 

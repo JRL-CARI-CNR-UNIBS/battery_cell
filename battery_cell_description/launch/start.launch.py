@@ -71,7 +71,7 @@ def launch_setup(context, *args, **kwargs):
             publish_robot_description_semantic=True
         )
         .planning_pipelines(
-            "ompl", pipelines=["ompl"]
+            "ompl", pipelines=["ompl", "pilz_industrial_motion_planner"]
         )
         .to_moveit_configs()
     )
@@ -161,8 +161,8 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["kuka_jt_controller",
                    "--controller-manager",
-                   "/controller_manager",
-                   "--inactive"], # start the controller in an INACTIVE state
+                   "/controller_manager"],
+                   #"--inactive"], # start the controller in an INACTIVE state
     )
 
     comau_jt_controller_spawner = Node(
@@ -170,8 +170,8 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["comau_jt_controller",
                    "--controller-manager",
-                   "/controller_manager",
-                    "--inactive"], # start the controller in an INACTIVE state
+                   "/controller_manager"],
+                    #"--inactive"], # start the controller in an INACTIVE state
     )
 
     comau_scaled_fjt_controller_spawner = Node(
@@ -179,8 +179,8 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["comau_scaled_fjt_controller",
                    "--controller-manager",
-                   "/controller_manager"],
-                   #"--inactive"], # start the controller in an INACTIVE state
+                   "/controller_manager",
+                   "--inactive"], # start the controller in an INACTIVE state
     )
 
     kuka_scaled_fjt_controller_spawner = Node(
@@ -188,8 +188,8 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["kuka_scaled_fjt_controller",
                    "--controller-manager",
-                   "/controller_manager"],
-                   #"--inactive"], # start the controller in an INACTIVE state
+                   "/controller_manager",
+                   "--inactive"], # start the controller in an INACTIVE state
     )
 
     delta_controller_spawner = Node(
@@ -296,7 +296,7 @@ def launch_setup(context, *args, **kwargs):
         comau_scaled_fjt_controller_spawner,
         delta_controller_spawner,
         digital_io_controller_spawner,
-        # ft_ati_controller_spawner,
+        ft_ati_controller_spawner,
         move_group_node,
         delta_utils_node,
         battery_cell_utils_node,
